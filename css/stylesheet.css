@@ -4,4 +4,11 @@
 
 .log-in button {
   width: 100%;
+  background-color: #c5050c;
+  border-color: #c5050c;
+}
+
+.log-in button:hover {
+  background-color: #9b0000;
+  border-color: #9b0000;
 }
