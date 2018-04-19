@@ -4,21 +4,11 @@
   
     <!-- Check current session state -->
     <?php
-        // If the user is already logged in, redirect them to the index
-		if (isset($_SESSION['admin_Status'])){
-            echo("<meta http-equiv='refresh' content='0;url=login.php'>");
-			exit;
-		}
-        // Determine if the user entered the information correctly 
-		else if(isset($_GET['login_error'])){
-			echo"<div class='container text-center alert alert-danger'>
-					<strong>You have entered your username or password incorrectly.</strong>
-				</div>";
-		}
-        // Log the user in
-        else{
-            
-        }
+      // If the user is already logged in, redirect them to the index
+  		if (isset($_SESSION['admin_Status'])){
+              echo("<meta http-equiv='refresh' content='0;url=index.php'>");
+  			exit;
+  		}
     ?>		
     <!-- End Session State Check -->
     <meta charset="utf-8">
@@ -42,6 +32,17 @@
         <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
       </div>
 
+      <!-- Login Error -->
+      <?php
+        // If the login attempt triggered an error, inform the user.
+        if(isset($_GET['login_error'])){
+          echo"
+            <div class='form-lablel-group text-center alert alert-danger'>
+              <strong>You have entered your username or password incorrectly.</strong>
+            </div>";
+        }
+      ?>
+      <!-- END Login Error -->
       <div class="form-label-group">
         <input type="email" id="inputEmail" class="form-control" name='email' required autofocus>
         <label for="inputEmail">Email Address</label>
