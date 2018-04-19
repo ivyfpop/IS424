@@ -52,12 +52,12 @@
       <!-- END Login Error Notification -->
 
       <div class="form-label-group">
-        <input type="email" id="inputEmail" class="form-control" name='email' required autofocus>
+        <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
         <label for="inputEmail">Email Address</label>
       </div>
 
       <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" name='password'  required>
+        <input type="password" id="inputPassword" class="form-control" name='password' placeholder="Password" required>
         <label for="inputPassword">Password</label>
       </div>
      
