@@ -6,7 +6,7 @@
 		<?php session_start();
             // If the user is not logged in, redirect them to the login page.
             if (!isset($_SESSION['login'])){
-                echo("<meta http-equiv='refresh' content='0;url=login.php>'");
+                echo("<meta http-equiv='refresh' content='0;url=login.php'>");
             }
         ?>
 
@@ -72,14 +72,5 @@
 		</nav>
 		<!-- END of Navigation Bar -->
 		
-		<!-- Login-Error -->
-		<?php 
-		if(isset($_GET['login_error']) AND !isset($_SESSION['position'])){
-			echo"<div class='container text-center alert alert-danger'>
-					<strong>You have entered your username or password incorrectly.</strong>
-				</div>";
-		}
-		?>		
-		<!-- END login-Error -->
 	</head>
 	<body>
