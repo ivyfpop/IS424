@@ -4,6 +4,10 @@
   
     <!-- Check current session state -->
     <?php
+
+      // Start the session
+      session_start();
+
       // If the user is already logged in, redirect them to the index
   		if (isset($_SESSION['admin_Status'])){
               echo("<meta http-equiv='refresh' content='0;url=index.php'>");
@@ -38,7 +42,7 @@
         if(isset($_GET['login_error'])){
           echo"
             <div class='form-lablel-group text-center alert alert-danger'>
-              <strong>You have entered your username or password incorrectly.</strong>
+              <strong>Incorrect Login Credentials</strong>
             </div>";
         }
       ?>

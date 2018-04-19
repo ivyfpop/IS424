@@ -13,7 +13,11 @@
 
 			//Verify that the there is a user and store the session data if so.
 			if($row = mysqli_fetch_array($result, MYSQLI_BOTH)){
+
+				// Start the session
 				session_start();
+
+				// Store data in the session
 				$_SESSION['member_ID'] = $row['member_ID'];
 				$_SESSION['admin_Status'] = $row['admin_Status'];
 				$_SESSION['first_Name'] = $row['first_Name'];
