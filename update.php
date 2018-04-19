@@ -7,7 +7,7 @@
 		if(!isset($_SESSION['position'])){
 			echo("<meta http-equiv=Refresh content= 0;url=index.php>");
 			exit;
-		}		
+		}
 		//Handles basic information update
 		elseif(isset($_POST['basic_update'])){
 			

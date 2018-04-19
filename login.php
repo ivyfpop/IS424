@@ -1,5 +1,15 @@
+
 <html lang="en">
   <head>
+    <?php
+        // If the user is already logged in, redirect them to the index
+		if(isset($_SESSION['admin_Status'])){
+			echo("<meta http-equiv=Refresh content= 0;url=index.php>");
+			exit;
+		}		
+    
+    ?>
+  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
