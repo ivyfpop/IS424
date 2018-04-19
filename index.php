@@ -4,7 +4,7 @@
 	
 	<div class='container bg-faded'>
 		<h1 class='index-header'>
-			Welcome to Quinsigamond Community College!
+			Welcome to Quinsigamond College!
 		</h1>
 	</div>
 	
