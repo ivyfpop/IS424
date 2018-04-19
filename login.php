@@ -6,11 +6,11 @@
     <?php
         // If the user is already logged in, redirect them to the index
 		if (isset($_SESSION['admin_Status'])){
-			echo("<meta http-equiv=Refresh content= 0;url=index.php>");
+            echo("<meta http-equiv='refresh' content='0;url=login.php'>");
 			exit;
 		}
-        // Determine if the user entered the information correctly (NOT IMPLEMENTED)
-		else if(isset($_GET['login_error']) AND !isset($_SESSION['position'])){
+        // Determine if the user entered the information correctly 
+		else if(isset($_GET['login_error'])){
 			echo"<div class='container text-center alert alert-danger'>
 					<strong>You have entered your username or password incorrectly.</strong>
 				</div>";
@@ -36,32 +36,29 @@
   </head>
 
   <body>
-  
-    <div class="text-center mb-4">
-        <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
-    </div>
-      
     <form class="form-signin" action='helper/loginHelper.php' name='login' method='post'>
     
-      <div class="form-label-group">
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputEmail">Email address</label>
+      <div class="text-center mb-4">
+        <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
       </div>
 
       <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <label for="inputPassword">Passworddddasfasdf</label>
+        <input type="email" id="inputEmail" class="form-control" name='email' required autofocus>
+        <label for="inputEmail">Email Address</label>
       </div>
 
+      <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control" name='password'  required>
+        <label for="inputPassword">Password</label>
+      </div>
+     <!--
       <div class="checkbox mb-3">
-      <!--
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       -->
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
-      <p class="mt-5 mb-3 text-muted text-center">IS 424 &copy; 2017-2018</p>
+      <button class="btn btn-lg btn-success btn-block" type="submit" name='login' value='login'>Login</button>
     </form>
   </body>
 </html>
