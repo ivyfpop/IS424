@@ -24,7 +24,7 @@
 				echo"<meta http-equiv='refresh' content='0;url=../index.php'>";
 			}
             // No user with that info, re-direct back to login page
-			else echo"<meta http-equiv='refresh' content='0;url=../index.php?login_error=1'>";
+			else echo"<meta http-equiv='refresh' content='0;url=../login.php?login_error=1'>";
         }
         // No info was submitted, must have got to page by accident
 		else echo("<meta http-equiv='refresh' content='0;url=login.php'>");
