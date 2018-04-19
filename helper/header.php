@@ -5,7 +5,7 @@
 		<!-- Check for login. -->
 		<?php session_start();
             // If the user is not logged in, redirect them to the login page.
-            if (!isset($_SESSION['member_id'])){
+            if (!isset($_SESSION['member_ID'])){
                 echo("<meta http-equiv='refresh' content='0;url=login.php'>");
             }
         ?>
@@ -51,23 +51,7 @@
 						<button class='form-control btn btn-outline-warning' type='submit' name='search_faculty' value='search_faculty'>Search Faculty!</button>
 					</form>
 				</div>
-					
-				<!-- Right Nav Bar -->				
-				<div class='navbar-nav ml-auto'>
-					<?php
-					if(isset($_SESSION['position'])){
-						 echo"<a class='nav-link btn btn-outline-warning mr-3' href='update.php'>Control Panel</a>
-						 <a class='nav-link btn btn-outline-danger' href='helper/logout.php'>Logout</a>";
-					}else{
-						echo"<form class='form-inline' action='helper/login.php' name='login' method='post'>
-								<input class='form-control mr-sm-1' type='username' placeholder='Username' name='username'>
-								<input class='form-control mr-sm-1' type='password' placeholder='Password' name='password'>
-								<button class='btn btn-outline-success' type='submit' name='login' value='login'>Login</button>
-							</form>";
-					}?>
-				</div>
-				<!-- END Right Nav Bar -->
-				
+									
 			</div>
 		</nav>
 		<!-- END of Navigation Bar -->
