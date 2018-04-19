@@ -67,17 +67,16 @@
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
+      </div>
       -->
 
 
-      </div>
+
       <button class="btn btn-lg btn-success btn-block" type="submit" name='login' value='login'>Login</button>
+      <a class="btn btn-lg btn-warning btn-block" href="signup.php" role="button">Sign Up!</a>
+
     </form>
     <!-- END Login Form -->
-
-    <!-- Sign Up Button -->
-    <a class="btn btn-lg btn-warning btn-block" href="signup.php" role="button">Sign Up!</a>
-    <!-- END Sign Up Button -->
 
   </body>
 </html>
