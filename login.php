@@ -8,7 +8,7 @@
     <title>UW Track Club Management System</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="helper/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="helper/signin.css" rel="stylesheet">
