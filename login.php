@@ -1,22 +1,26 @@
 
 <html lang="en">
   <head>
+  
+    <!-- Check current session state -->
     <?php
         // If the user is already logged in, redirect them to the index
-		if(isset($_SESSION['admin_Status'])){
+		if (isset($_SESSION['admin_Status'])){
 			echo("<meta http-equiv=Refresh content= 0;url=index.php>");
 			exit;
 		}
-        // Determine if the user entered the information correctly
+        // Determine if the user entered the information correctly (NOT IMPLEMENTED)
 		else if(isset($_GET['login_error']) AND !isset($_SESSION['position'])){
 			echo"<div class='container text-center alert alert-danger'>
 					<strong>You have entered your username or password incorrectly.</strong>
 				</div>";
 		}
-		?>		
-		<!-- END login-Error -->        
-    ?>
-  
+        // Log the user in
+        else{
+            
+        }
+    ?>		
+    <!-- End Session State Check -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -32,11 +36,13 @@
   </head>
 
   <body>
-    <form class="form-signin">
-      <div class="text-center mb-4">
+  
+    <div class="text-center mb-4">
         <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
-      </div>
-
+    </div>
+      
+    <form class="form-signin" action='helper/loginHelper.php' name='login' method='post'>
+    
       <div class="form-label-group">
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputEmail">Email address</label>
@@ -44,7 +50,7 @@
 
       <div class="form-label-group">
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <label for="inputPassword">Password</label>
+        <label for="inputPassword">Passworddddasfasdf</label>
       </div>
 
       <div class="checkbox mb-3">
