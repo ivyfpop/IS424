@@ -6,8 +6,15 @@
 		if(isset($_SESSION['admin_Status'])){
 			echo("<meta http-equiv=Refresh content= 0;url=index.php>");
 			exit;
-		}		
-    
+		}
+        // Determine if the user entered the information correctly
+		else if(isset($_GET['login_error']) AND !isset($_SESSION['position'])){
+			echo"<div class='container text-center alert alert-danger'>
+					<strong>You have entered your username or password incorrectly.</strong>
+				</div>";
+		}
+		?>		
+		<!-- END login-Error -->        
     ?>
   
     <meta charset="utf-8">
