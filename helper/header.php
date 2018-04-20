@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 	<head>
 		<!-- Check for login. -->
 		<?php 
@@ -17,6 +16,7 @@
                 echo("<meta http-equiv='refresh' content='0;url=login.php'>");
             }
         ?>
+        <!-- END Login Check -->
 
 		<!-- meta values -->
 		<meta charset="utf-8">
@@ -71,6 +71,4 @@
 			</div>
 		</nav>
 		<!-- END of Navigation Bar -->
-		
 	</head>
-	<body>
