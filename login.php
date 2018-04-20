@@ -44,16 +44,14 @@
     <!-- END Dependencies -->
 
     <body>
-        <!-- Logo -->
-        <div class="text-center mb-4">
-            <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
-        </div>
-        <!-- END Logo -->
     
         <!-- Login Form -->
         <form class="form-signin" action='login.php' name='login' method='post'>
 
-            <!-- Login Error Notification -->
+            <div class="text-center mb-4">
+                <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
+            </div>
+        
             <?php
                 // If the login attempt triggered an error, inform the user.
                 if(isset($_GET['login_error'])){

@@ -1,5 +1,17 @@
 <?php include 'helper/header.php'?>
 	
+    <? php
+        // If a new account has been made, congratulate them.
+        if(isset($_GET[new_account])){
+            echo"
+                <div class='container text-center'>
+                    <div class='alert alert-success' role='alert'>
+                      <strong>Welcome to the track club! </strong>
+                    </div>
+                </div>";
+        }
+    ?>
+    
 	<br>
 	
 	<div class='container bg-faded'>
