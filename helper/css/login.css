@@ -15,7 +15,7 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background: url('helper/images/website/cattle_background.jpg') no-repeat center center fixed;
+  background: url('../images/website/cattle_background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
