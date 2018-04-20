@@ -16,7 +16,7 @@
 	
 	<div class='container bg-faded'>
 		<h1 class='index-header'>
-			Test Page!
+			Test Page! Test 2
 		</h1>
 	</div>
 	
