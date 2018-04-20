@@ -7,6 +7,9 @@
 			// Start the session
 			session_start();
             
+            // Log out
+            if (isset($_GET["logout"]) session_destroy();
+            
             // If the user is not logged in, redirect them to the login page.
             if (!isset($_SESSION['member_ID'])){
                 echo("<meta http-equiv='refresh' content='0;url=login.php'>");
@@ -47,6 +50,8 @@
 
 					</div>
 				<!-- END Left Nav Bar -->
+                
+				<!-- Right Nav Bar -->	                
 				<div class='navbar-nav mx-auto'>
 					<form class='form-inline' action='faculty.php' name='search_faculty' method='post'>
 						<input class='form-control mr-3' type='text' placeholder='First Name' name='first_name'>
@@ -54,6 +59,12 @@
 						<button class='form-control btn btn-outline-warning' type='submit' name='search_faculty' value='search_faculty'>Search Faculty!</button>
 					</form>
 				</div>
+                			
+				<div class='navbar-nav ml-auto'>
+                    <a class='nav-link btn btn-outline-warning mr-3' href='update.php'>Control Panel</a>
+                    <a class='nav-link btn btn-outline-danger' href='index.php?logout=1'>Logout</a>
+				</div>
+				<!-- END Right Nav Bar -->
 									
 			</div>
 		</nav>
