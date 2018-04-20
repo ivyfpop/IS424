@@ -6,9 +6,10 @@
 			// Start the session
 			session_start();
             
-            // Log out
+            // Log out and redirect to login.
             if (isset($_GET["logout"])){
             	session_destroy();
+                echo("<meta http-equiv='refresh' content='0;url=login.php'>");            	
             }
 
             // If the user is not logged in, redirect them to the login page.
