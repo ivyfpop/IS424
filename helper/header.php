@@ -8,8 +8,10 @@
 			session_start();
             
             // Log out
-            if (isset($_GET["logout"]) session_destroy();
-            
+            if (isset($_GET["logout"])){
+            	session_destroy();
+            }
+
             // If the user is not logged in, redirect them to the login page.
             if (!isset($_SESSION['member_ID'])){
                 echo("<meta http-equiv='refresh' content='0;url=login.php'>");
