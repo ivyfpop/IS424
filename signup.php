@@ -14,24 +14,19 @@
             echo("<meta http-equiv='refresh' content='0;url=index.php'>");
         }
 		//Handles basic user sign up
-		else if (isset($_POST['signup'])){
+		else if (isset($_POST[signup])){
 
             // Verify that the email isn't taken already
             include 'helper/connect.php';
-            $result = mysqli_query($db,"SELECT * FROM MEMBER WHERE email = '$_POST[email]'");
+            $result = mysqli_query($db,"SELECT * FROM MEMBER WHERE email = $_POST[email]");
             if(!$row = mysqli_fetch_array($result, MYSQLI_BOTH)){
-                // Create Session and store info
-                session_start();
-                $_SESSION[first_name] = $_POST[first_name];
-                $_SESSION[last_name] = $_POST[last_name];
-                $_SESSION[email] = $_POST[email];
-                $_SESSION[password] = $_POST[password];
-                $_SESSION[admin_Status] = NULL;
+
+                // Create the account
                 
                 /*
                 // Query used to create the account
                 $updateQuery = "INSERT INTO MEMBER (grade_level,first_Name,last_Name,email,password)
-                                VALUES('$_SESSION[grade_level','$_SESSION[first_name]','$_SESSION[last_name]','$_SESSION[email]','$_SESSION[password]')";
+                                VALUES($_POST[first_name],$_POST[last_name],$_POST[email],$_POST[password])";
 
                 // Create account and send them to the homepage
                 mysqli_query($db, $updateQuery); */
