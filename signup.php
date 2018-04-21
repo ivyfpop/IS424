@@ -43,15 +43,6 @@
                 exit();
             }
 		}
-        // Email already in use notification
-        else if (isset($_GET['account_error'])){
-            echo"
-            <div class='container text-center'>
-                <div class='alert alert-danger' role='alert'>
-                  <strong>That email is already in use! </strong>
-                </div>
-            </div>";
-        }
 	?>
     </head>
     
@@ -62,6 +53,16 @@
                 <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
             </div>
             
+             <?php
+                // Email is already in use.
+                if(isset($_GET['account_error'])){
+                    echo"
+                    <div class='form-lablel-group text-center alert alert-danger'>
+                        <strong>That email is already in use!</strong>
+                    </div>";
+                }
+            ?>
+           
 
             <div class="form-label-group">
                 <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>

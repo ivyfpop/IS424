@@ -57,7 +57,7 @@
                 if(isset($_GET['login_error'])){
                     echo"
                     <div class='form-lablel-group text-center alert alert-danger'>
-                        <strong>Incorrect Login Credentials</strong>
+                        <strong>Incorrect Login Credentials!</strong>
                     </div>";
                 }
             ?>
