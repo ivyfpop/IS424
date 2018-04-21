@@ -95,5 +95,6 @@
 
             <a class="btn btn-lg btn-warning btn-block" href="login.php" role="button">Back to Login</a>
 		<!-- END Basic Information -->";
-
+        </form>
+        
 <?php include 'helper/footer.php'?>
