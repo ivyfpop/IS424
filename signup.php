@@ -14,11 +14,11 @@
             echo("<meta http-equiv='refresh' content='0;url=index.php'>");
         }
 		//Handles basic user sign up
-		else if (isset($_POST[signup])){
+		else if (isset($_POST['signup'])){
 
             // Verify that the email isn't taken already
             include 'helper/connect.php';
-            $result = mysqli_query($db,"SELECT * FROM MEMBER WHERE email = $_POST[email]");
+            $result = mysqli_query($db,"SELECT * FROM MEMBER WHERE email = '$_POST[email]'");
             if(!$row = mysqli_fetch_array($result, MYSQLI_BOTH)){
 
                 // Create the account
