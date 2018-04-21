@@ -26,6 +26,7 @@
                 $_SESSION[last_name] = $_POST[last_name];
                 $_SESSION[email] = $_POST[email];
                 $_SESSION[password] = $_POST[password];
+                $_SESSION[admin_Status] = NULL;
                 
                 /*
                 // Query used to create the account
