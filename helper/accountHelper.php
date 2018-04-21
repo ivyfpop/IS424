@@ -4,15 +4,9 @@
     
         // Start the session
         session_start();
-
-        // If the user is already logged in, redirect them to the index
-        if (isset($_SESSION['member_ID'])){
-            echo("<meta http-equiv='refresh' content='0;url=../index.php'>");
-            exit;
-        }
         
         // Otherwise, check if they are trying to log in.
-        else if($_POST['login']){
+        if($_POST['login']){
             // Connect to the database, run query, close connection
             include 'connect.php';		
             $result = mysqli_query($db,"SELECT member_ID,admin_Status,first_Name,last_Name,email FROM MEMBER WHERE email = '$_POST[email]' AND password = '$_POST[password]'");
