@@ -1,5 +1,6 @@
 <html lang="en">
 
+    <head>
 	<!-- Input Handling -->
     <?php
         // If the user is not logged in, redirect them to the login page.
@@ -7,7 +8,7 @@
             echo("<meta http-equiv='refresh' content='0;url=login.php'>");
         }
 		//Handles basic user sign up
-		else if(isset($_POST['signup'])){
+		else if (isset($_POST['signup'])){
 
             // Verify that the email isn't taken already
             include 'helper/connect.php';
@@ -20,13 +21,14 @@
                 $_SESSION[last_name] = $_POST[last_name];
                 $_SESSION[email] = $_POST[email];
                 $_SESSION[password] = $_POST[password];
-
+                
+                /*
                 // Query used to create the account
                 $updateQuery = "INSERT INTO MEMBER (grade_level,first_Name,last_Name,email,password)
                                 VALUES('$_SESSION[grade_level','$_SESSION[first_name]','$_SESSION[last_name]','$_SESSION[email]','$_SESSION[password]')";
 
                 // Create account and send them to the homepage
-                mysqli_query($db, $updateQuery);
+                mysqli_query($db, $updateQuery); */
                 echo("<meta http-equiv='refresh' content='0;url=index.php?new_account=1'>");
                 exit();
 			}
@@ -37,7 +39,7 @@
             }
 		}
         // Email already in use notification
-        else if (isset($_GET[account_error])){
+        else if (isset($_GET['account_error'])){
             echo"
             <div class='container text-center'>
                 <div class='alert alert-danger' role='alert'>
@@ -46,6 +48,7 @@
             </div>";
         }
 	?>
+    </head>
 	<!-- END Input Handling -->
 	<body>
 	<div class='container bg-faded p-4 my-4'>
