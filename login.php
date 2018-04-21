@@ -12,27 +12,6 @@
             echo("<meta http-equiv='refresh' content='0;url=index.php'>");
             exit;
         }
-        // Otherwise, check their log in credentials
-        else if($_POST['login']){
-            // Connect to the database, run query, close connection
-            include 'helper/connect.php';		
-            $result = mysqli_query($db,"SELECT member_ID,admin_Status,first_Name,last_Name,email FROM MEMBER WHERE email = '$_POST[email]' AND password = '$_POST[password]'");
-            mysqli_close($db);
-
-            //Verify that the there is a user and store the session data if so.
-            if($row = mysqli_fetch_array($result, MYSQLI_BOTH)){
-                // Start the session, store data and go to index
-                session_start();
-                $_SESSION['member_ID'] = $row['member_ID'];
-                $_SESSION['admin_Status'] = $row['admin_Status'];
-                $_SESSION['first_Name'] = $row['first_Name'];
-                $_SESSION['last_Name'] = $row['last_Name'];
-                $_SESSION['email'] = $row['email'];
-                echo"<meta http-equiv='refresh' content='0;url=index.php'>";
-            }
-            // Login credentails were wrong; inform the user.
-            else echo"<meta http-equiv='refresh' content='0;url=../login.php?login_error=1'>";
-        }
     ?>		
     <!-- End Session State Check -->
 
@@ -46,7 +25,7 @@
     <body>
     
         <!-- Login Form -->
-        <form class="form-signin" action='login.php' name='login' method='post'>
+        <form class="form-signin" action='helper/accountHelper.php' name='login' method='post'>
 
             <div class="text-center mb-4">
                 <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
@@ -60,10 +39,11 @@
                         <strong>Incorrect Login Credentials!</strong>
                     </div>";
                 }
+                // If the user just created their account, inform them to login.
                 else if(isset($_GET['new_account'])){
                      echo"
                     <div class='form-lablel-group text-center alert alert-success'>
-                        <strong>Congratualations, please log to finish account creation!</strong>
+                        <strong>Please log to finish account creation!</strong>
                     </div>";
                    
                 }

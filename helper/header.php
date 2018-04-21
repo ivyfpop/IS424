@@ -5,13 +5,7 @@
 		<?php 
 			// Start the session
 			session_start();
-            
-            // Log out and redirect to login.
-            if (isset($_GET["logout"])){
-            	session_destroy();
-                echo("<meta http-equiv='refresh' content='0;url=login.php'>");            	
-            }
-
+ 
             // If the user is not logged in, redirect them to the login page.
             if (!isset($_SESSION['member_ID'])){
                 echo("<meta http-equiv='refresh' content='0;url=login.php'>");
@@ -65,7 +59,9 @@
                 			
 				<div class='navbar-nav ml-auto'>
                     <a class='nav-link btn btn-outline-warning mr-3' href='update.php'>Control Panel</a>
-                    <a class='nav-link btn btn-outline-danger' href='index.php?logout=1'>Logout</a>
+                    <form action='helper/accountHelper.php' name='logout' method='post'>
+                        <button class="nav-link btn  btn-outline-danger btn-block" type="submit" name='logout' value='logout'>Logout</button>
+                    </form>
 				</div>
 				<!-- END Right Nav Bar -->
 									

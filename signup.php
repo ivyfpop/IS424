@@ -13,36 +13,11 @@
         if (isset($_SESSION['member_ID'])){
             echo("<meta http-equiv='refresh' content='0;url=index.php'>");
         }
-		//Handles basic user sign up
-		else if (isset($_POST['signup'])){
-
-            // Verify that the email isn't taken already
-            include 'helper/connect.php';
-            $result = mysqli_query($db,"SELECT * FROM MEMBER WHERE email = '$_POST[email]'");
-            if(!$row = mysqli_fetch_array($result, MYSQLI_BOTH)){
-
-                // Create the account
-                
-                
-                // Query used to create the account
-                $updateQuery = "INSERT INTO MEMBER (first_Name, last_Name, email, password) VALUES ('$_POST[first_name]','$_POST[last_name]','$_POST[email]','$_POST[password]')";
-
-                // Create account and send them to the homepage
-                mysqli_query($db, $updateQuery); 
-                echo("<meta http-equiv='refresh' content='0;url=login.php?new_account=1'>");
-                exit();
-			}
-            // If the email is already taken inform the user.
-            else{
-                echo("<meta http-equiv='refresh' content='0;url=signup.php?account_error=1'>");
-                exit();
-            }
-		}
 	?>
     </head>
     
 	<body>
-        <form class="form-signin" action='signup.php' name='signup' method='post'>
+        <form class="form-signin" action='helper/accountHelper.php' name='signup' method='post'>
 
             <div class="text-center mb-4">
                 <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
