@@ -75,9 +75,10 @@
             <!-- END Login Form Field -->
             
             <button class="btn btn-lg btn-success btn-block" type="submit" name='login' value='login'>Login</button>
+
+            <a class="btn btn-lg btn-warning btn-block" href="signup.php" role="button">Sign Up!</a>
+
         </form>
-        
-        <a class="btn btn-lg btn-warning btn-block" href="signup.php" role="button">Sign Up!</a>
         <!-- END Login Form -->
 
     </body>

@@ -1,11 +1,17 @@
 <html lang="en">
-
+    <!-- Dependencies -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="helper/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="helper/css/login.css" rel="stylesheet">
+    <!-- END Dependencies -->
+    
     <head>
 	<!-- Input Handling -->
     <?php
-        // If the user is not logged in, redirect them to the login page.
-        if (!isset($_SESSION['member_ID'])){
-            echo("<meta http-equiv='refresh' content='0;url=login.php'>");
+        // If the user is logged in, redirect them to the home page
+        if (isset($_SESSION['member_ID'])){
+            echo("<meta http-equiv='refresh' content='0;url=index.php'>");
         }
 		//Handles basic user sign up
 		else if (isset($_POST['signup'])){
