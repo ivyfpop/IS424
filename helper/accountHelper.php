@@ -6,7 +6,7 @@
         session_start();
 
         // If the user is already logged in, redirect them to the index
-        if (isset($_SESSION['admin_Status'])){
+        if (isset($_SESSION['member_ID'])){
             echo("<meta http-equiv='refresh' content='0;url=../index.php'>");
             exit;
         }
@@ -33,12 +33,12 @@
             else echo"<meta http-equiv='refresh' content='0;url=../login.php?login_error=1'>";
         }
         // Otherwise, check if they are trying to log out
-        else if($_POST['logout']{
+        else if($_POST['logout']){
             	session_destroy();
                 echo("<meta http-equiv='refresh' content='0;url=../login.php'>");            
         }
         // Otherwise, check if they are trying to signup
-        else if($_POST['signup']{
+        else if($_POST['signup']){
              // Verify that the email isn't taken already
             include 'connect.php';
             $result = mysqli_query($db,"SELECT * FROM MEMBER WHERE email = '$_POST[email]'");
