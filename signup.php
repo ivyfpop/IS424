@@ -23,13 +23,12 @@
 
                 // Create the account
                 
-                /*
+                
                 // Query used to create the account
-                $updateQuery = "INSERT INTO MEMBER (grade_level,first_Name,last_Name,email,password)
-                                VALUES($_POST[first_name],$_POST[last_name],$_POST[email],$_POST[password])";
+                $updateQuery = "INSERT INTO MEMBER (first_Name, last_Name, email, password) VALUES ('$_POST[first_name]','$_POST[last_name]','$_POST[email]','$_POST[password]')";
 
                 // Create account and send them to the homepage
-                mysqli_query($db, $updateQuery); */
+                mysqli_query($db, $updateQuery); 
                 echo("<meta http-equiv='refresh' content='0;url=login.php?new_account=1'>");
                 exit();
 			}
