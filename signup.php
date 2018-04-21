@@ -57,74 +57,43 @@
     </head>
 	<!-- END Input Handling -->
 	<body>
-	<div class='container bg-faded p-4 my-4'>
+        <!-- Login Form -->
+        <form class="form-signin" action='signup.php' name='signup' method='post'>
 
-		<!-- Form the gathers the user's Basic Information -->
-		<center><h1>Update Basic Information</h1></center>
-		<form action='update.php' class='container' name='basicUpdate' method='post'>
-			<div class='row'>
-				<div class='form-group mx-auto'>
-					<label for='username'>Username:</label>
-					<input type='text' class='form-control' value='' name='username'>
-				</div>
+            <div class="text-center mb-4">
+                <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
+            </div>
+            
+            <!-- Login Form Fields -->
+            <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
+                <label for="inputEmail">Email Address</label>
+            </div>
 
-				<div class='form-group mx-auto'>
-					<label for='password'>Password:</label>
-					<input type='password' class='form-control' value='' name='password'>
-				</div>
+            <div class="form-label-group">
+                <input type="email" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
+                <label for="inputFirstName">First Name</label>
+            </div>
 
-				<div class='form-group mx-auto'>
-					<label for='first_name'>First Name:</label>
-					<input type='text' class='form-control' value='' name='first_name'>
-				</div>
+            <div class="form-label-group">
+                <input type="email" id="inputLastName" class="form-control" name='last_Name' placeholder="Last Name" required autofocus>
+                <label for="inputLastName">Last Name</label>
+            </div>
 
-				<div class='form-group mx-auto'>
-					<label for='last_name'>Last Name:</label>
-					<input type='text' class='form-control' value='' name='last_name'>
-				</div>
-			</div>
+            <div class="form-label-group">
+                <input type="email" id="inputGrade" class="form-control" name='grade' placeholder="Grade Level" required autofocus>
+                <label for="inputEmail">Grade Level</label>
+            </div>
 
+            <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" name='password' placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+            </div>
+            <!-- END Login Form Field -->
+            
+            <button class="btn btn-lg btn-success btn-block" type="submit" name='signup' value='login'>Create Account</button>
 
-
-                <div class ='row'>
-					<div class='form-group mx-auto'>
-						<label for='position'>Position:</label>
-						<input type='text' class='form-control' value='' name='position'>
-					</div>
-
-					<div class='form-group mx-auto'>
-						<label for='department'>Department:</label>
-						<input type='text' class='form-control' value='' name='department'>
-					</div>
-
-					<div class='form-group mx-auto'>
-						<label for='office'>Office:</label>
-						<input type='text' class='form-control' value='' name='office'>
-					</div>
-
-					<div class='form-group mx-auto'>
-						<label for='phone'>Phone:</label>
-						<input type='tel' class='form-control' value='' name='phone'>
-					</div>
-				</div>
-
-				<div class='col'>
-					<div class ='form-group mx-auto'>
-							<label for='description'>Description:</label>
-							<textarea id='description' class='form-control' name='description'></textarea>
-					</div>
-				</div>
-
-					<input type='hidden' value='$user[position]' name='position'>
-					<input type='hidden' value='$user[department]' name='department'>
-					<input type='hidden' value='$user[office]' name='office'>
-					<input type='hidden' value='$user[phone]' name='phone'>
-					<input type='hidden' value='$user[description]' name='description'>
-					
-				<div class='row'>
-						<button type='submit' name='basic_update' value='basic_update' class='btn btn-primary mx-auto'>Update Basic Info!</button>
-				</div>
-		</form>
+            <a class="btn btn-lg btn-warning btn-block" href="login.php" role="button">Back to Login</a>
 		<!-- END Basic Information -->";
 
 <?php include 'helper/footer.php'?>
