@@ -22,7 +22,6 @@
             if(!$row = mysqli_fetch_array($result, MYSQLI_BOTH)){
                 // Create Session and store info
                 session_start();
-                $_SESSION[grade_level] = $_POST[grade_level];
                 $_SESSION[first_name] = $_POST[first_name];
                 $_SESSION[last_name] = $_POST[last_name];
                 $_SESSION[email] = $_POST[email];
@@ -55,46 +54,39 @@
         }
 	?>
     </head>
-	<!-- END Input Handling -->
+    
 	<body>
-        <!-- Login Form -->
         <form class="form-signin" action='signup.php' name='signup' method='post'>
 
             <div class="text-center mb-4">
                 <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
             </div>
             
-            <!-- Login Form Fields -->
-            <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
-                <label for="inputEmail">Email Address</label>
-            </div>
 
             <div class="form-label-group">
-                <input type="email" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
+                <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
                 <label for="inputFirstName">First Name</label>
             </div>
 
             <div class="form-label-group">
-                <input type="email" id="inputLastName" class="form-control" name='last_Name' placeholder="Last Name" required autofocus>
+                <input type="text" id="inputLastName" class="form-control" name='last_Name' placeholder="Last Name" required autofocus>
                 <label for="inputLastName">Last Name</label>
             </div>
-
+            
             <div class="form-label-group">
-                <input type="email" id="inputGrade" class="form-control" name='grade' placeholder="Grade Level" required autofocus>
-                <label for="inputEmail">Grade Level</label>
+                <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
+                <label for="inputEmail">Email Address</label>
             </div>
-
+            
             <div class="form-label-group">
                 <input type="password" id="inputPassword" class="form-control" name='password' placeholder="Password" required>
                 <label for="inputPassword">Password</label>
             </div>
-            <!-- END Login Form Field -->
             
             <button class="btn btn-lg btn-success btn-block" type="submit" name='signup' value='login'>Create Account</button>
+            <br>
 
             <a class="btn btn-lg btn-warning btn-block" href="login.php" role="button">Back to Login</a>
-		<!-- END Basic Information -->";
         </form>
-        
-<?php include 'helper/footer.php'?>
+    <body>
+</html>
