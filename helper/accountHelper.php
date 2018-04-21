@@ -29,7 +29,7 @@
         // Otherwise, check if they are trying to log out
         else if($_POST['logout']){
             	session_destroy();
-                echo("<meta http-equiv='refresh' content='0;url=../login.php'>");            
+                echo("<meta http-equiv='refresh' content='0;url=../login.php?logout=1'>");            
         }
         // Otherwise, check if they are trying to signup
         else if($_POST['signup']){

@@ -47,7 +47,14 @@
                     </div>";
                    
                 }
-            ?>
+                // If the login attempt triggered an error, inform the user.
+                if(isset($_GET['logout'])){
+                    echo"
+                    <div class='form-lablel-group text-center alert alert-warning'>
+                        <strong>You have been successfully logged out.</strong>
+                    </div>";
+                } 
+                ?>
             
             <!-- Login Form Fields -->
             <div class="form-label-group">
