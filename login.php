@@ -60,6 +60,13 @@
                         <strong>Incorrect Login Credentials!</strong>
                     </div>";
                 }
+                else if(isset($_GET['new_account'])){
+                     echo"
+                    <div class='form-lablel-group text-center alert alert-success'>
+                        <strong>Congratualations, please log to finish account creation!</strong>
+                    </div>";
+                   
+                }
             ?>
             
             <!-- Login Form Fields -->

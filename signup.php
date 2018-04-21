@@ -35,7 +35,7 @@
 
                 // Create account and send them to the homepage
                 mysqli_query($db, $updateQuery); */
-                echo("<meta http-equiv='refresh' content='0;url=index.php?new_account=1'>");
+                echo("<meta http-equiv='refresh' content='0;url=login.php?new_account=1'>");
                 exit();
 			}
             // If the email is already taken inform the user.
