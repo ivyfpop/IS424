@@ -35,7 +35,7 @@
 			</button>
 			
 			<!-- Brand Logo -->
-			<a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png'></a>
+			<a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
 		
 			<div class='collapse navbar-collapse'>
 				
