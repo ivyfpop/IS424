@@ -10,20 +10,11 @@
 	<!-- Input Handling -->
 	
 <?php include 'helper/header.php' ?> 
-    <?php
-        // If the user is logged in, redirect them to the home page
-        if (isset($_SESSION['member_ID'])){
-            echo("<meta http-equiv='refresh' content='0;url=index.php'>");
-        }
-	?>
+    
     </head>
     
 	<body>
         <form class="form-signin" action='helper/accountHelper.php' name='signup' method='post'>
-
-            <div class="text-center mb-4">
-                <img class="mb-4" src="helper/images/website/WTC-Logo-Updated-2015-white-cow.png">
-            </div>
             
              <?php
                 // Email is already in use.
