@@ -8,6 +8,8 @@
     
     <head>
 	<!-- Input Handling -->
+	
+<?php include 'helper/header.php' ?> 
     <?php
         // If the user is logged in, redirect them to the home page
         if (isset($_SESSION['member_ID'])){
@@ -54,10 +56,10 @@
                 <label for="inputPassword">Password</label>
             </div>
             
-            <button class="btn btn-lg btn-success btn-block" type="submit" name='signup' value='login'>Create Account</button>
+            <button class="btn btn-lg btn-success btn-block" type="submit" name='signup' value='login'>Update Account</button>
             <br>
 
-            <a class="btn btn-lg btn-warning btn-block" href="login.php" role="button">Back to Login</a>
+            <a class="btn btn-lg btn-warning btn-block" href="index.php" role="button">Back to Home</a>
         </form>
     <body>
 </html>
