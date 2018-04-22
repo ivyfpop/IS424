@@ -53,6 +53,7 @@
 			mysqli_close($db);
 			while($row = mysqli_fetch_array($facultyQueryResult, MYSQLI_BOTH))
 			{
+			//stuff
             	echo"
             	<div class='form-label-group form-check form-check-inline'>
   					<input class='form-check-input' type='checkbox' id='$row[event_ID]' value='$row[event_ID]'>
