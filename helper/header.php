@@ -42,8 +42,10 @@
 				<!-- Left Nav Bar -->
 				<div class='navbar-nav'>
 					<a class='nav-link btn btn-outline-info' href='index.php'>Home</a>
-					<a class='nav-link btn btn-outline-info ml-3 disabled' href=''>Department</a>
-					<a class='nav-link btn btn-outline-info ml-3' href='faculty.php'>Faculty</a>
+					<a class='nav-link btn btn-outline-info ml-3' href=''>My Events</a>
+					<a class='nav-link btn btn-outline-info ml-3' href='faculty.php'>My Transactions</a>
+					<a class='nav-link btn btn-outline-info ml-3 disabled' href=''>Event Management</a>
+					<a class='nav-link btn btn-outline-info ml-3 disabled' href=''>Transaction Management</a>
 				</div>
 				<!-- END Left Nav Bar -->
                 
