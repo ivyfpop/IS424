@@ -3,28 +3,21 @@
   include 'helper/connect.php';
 
 
-  //Query for all events member has not signed up for
-  //assuming query result var is notSignedUp
+  //Query for all functions
 
-  echo"<div class='container header'>Sign Up</div>";
+  while ($row = $result->fetch_row()) {
 
-  while ($row =  $notSignedUp->fetch_row()) {
-    echo "<div class='card'><div class='card-body'>";
-    echo $row['function_Description']. " " . $row['function_Location'] . " " . $row['function_Date'];
-    echo "</div></div>";
+    if ($row['status'] == "pending") {
+      echo "<div class='card'><div class='card-body'>";
+      //echo result data we want dispalyed
+      echo "</div></div>";
+    } else if ($row['status'] == "approved") {
+
+    } // else if past event
   }
-  // clear results
 
-  //Query for all past events
 
-  echo"<div class='container header'>Past Events</div>";
 
-  while ($row = $pastEvents->fetch_row()) {
-    echo "<div class='card'><div class='card-body'>";
-    echo $row['function_Description']. " " . $row['function_Location'] . " " . $row['function_Date'];
-    echo "</div></div>";
-  }
-  //clear result
 
 
 
