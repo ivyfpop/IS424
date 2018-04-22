@@ -57,7 +57,7 @@
             	<div class='form-label-group form-check form-check-inline'>
   					<input class='form-check-input' type='checkbox' id='$row[event_ID]' value='$row[event_ID]'>
   					<label class='form-check-label' for='$row[event_ID]'>$row[event_Name]</label>
-				</div>"
+				</div>";
 			}
 			?>
 			
