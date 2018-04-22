@@ -23,9 +23,17 @@
       //echo result data we want dispalyed
       echo "</div></div>";
     } else if ($row['status'] == "approved") {
+      echo "<h2 class='text-center'><strong>Approved Events</strong></h2>";
       // past event
+      echo "<div class='card'><div class='card-body'>";
+      //echo result data we want dispalyed
+      echo "</div></div>";
     } else {
+      echo "<h2 class='text-center'><strong>Sign Up</strong></h2>";
       // those they can sign up for
+      echo "<div class='card'><div class='card-body'>";
+      //echo result data we want dispalyed
+      echo "</div></div>";
     }
   }
 
