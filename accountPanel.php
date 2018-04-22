@@ -8,19 +8,10 @@
 	
 		<?php include 'helper/header.php' ?> 
     
+    
+    
 	<body>
         <form class="form-signin" action='helper/accountHelper.php' name='signup' method='post'>
-            
-             <?php
-                // Email is already in use.
-                if(isset($_GET['account_error'])){
-                    echo"
-                    <div class='form-lablel-group text-center alert alert-danger'>
-                        <strong>That email is already in use!</strong>
-                    </div>";
-                }
-            ?>
-           
 
             <div class="form-label-group">
                 <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
