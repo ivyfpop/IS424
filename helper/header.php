@@ -51,7 +51,7 @@
                 
 				<!-- Right Nav Bar -->	                          			
 				<div class='navbar-nav ml-auto'>
-                    <a class='nav-link btn btn-outline-warning mr-3' href='update.php'>Account Panel</a>
+                    <a class='nav-link btn btn-outline-warning mr-3' href='accountpanel.php'>Account Panel</a>
                     <form action='helper/accountHelper.php' name='logout' method='post'>
                         <button class="nav-link btn  btn-outline-danger btn-block" type="submit" name='logout' value='logout'>Logout</button>
                     </form>
