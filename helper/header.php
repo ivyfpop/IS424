@@ -42,16 +42,17 @@
 				<!-- Left Nav Bar -->
 				<div class='navbar-nav'>
 					<a class='nav-link btn btn-outline-info' href='index.php'>Home</a>
-					<a class='nav-link btn btn-outline-info ml-3' href=''>My Events</a>
-					<a class='nav-link btn btn-outline-info ml-3' href='faculty.php'>My Transactions</a>
-					<a class='nav-link btn btn-outline-info ml-3 disabled' href=''>Event Management</a>
-					<a class='nav-link btn btn-outline-info ml-3 disabled' href=''>Transaction Management</a>
+					<a class='nav-link btn btn-outline-info ml-3' href='events.php'>My Events</a>
+					<a class='nav-link btn btn-outline-info ml-3' href='transactions.php'>My Transactions</a>
+					<a class='nav-link btn btn-outline-info ml-3 disabled' href='eventManagement.php'>Event Management</a>
+					<a class='nav-link btn btn-outline-info ml-3 disabled' href='transactionManagement.php'>Transaction Management</a>
+					<a class='nav-link btn btn-outline-info ml-3 disabled' href='accountManagement.php'>Account Management</a>
 				</div>
 				<!-- END Left Nav Bar -->
                 
 				<!-- Right Nav Bar -->	                          			
 				<div class='navbar-nav ml-auto'>
-                    <a class='nav-link btn btn-outline-warning mr-3' href='update.php'>Account Panel</a>
+                    <a class='nav-link btn btn-outline-warning mr-3' href='update.php'>My Account Panel</a>
                     <form action='helper/accountHelper.php' name='logout' method='post'>
                         <button class="nav-link btn  btn-outline-danger btn-block" type="submit" name='logout' value='logout'>Logout</button>
                     </form>
