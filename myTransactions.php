@@ -2,6 +2,8 @@
   include 'helper/header.php';
   include 'helper/connect.php';
 
+  $result = mysqli_query($db,"SELECT transaction_ID,member_ID,transaction_Amount,
+    transaction_Description FROM TRANSACTION WHERE transaction_Payment_Date = ''");
   // $pending_result
   // $due_result
   // $past_result
@@ -19,6 +21,9 @@
   </div>";
   //}
 
+  while($row = mysqli_fetch_array($facultyQueryResult, MYSQLI_BOTH))
+    echo"display row";
+
   // if ($due_result != NULL)
   // Due transactions
   echo"
@@ -27,7 +32,7 @@
 
   <!-- Create the transactions header -->
   <hr>
-  <h2 class='text-center'><strong> Transactions</strong></h2>
+  <h2 class='text-center'><strong>Due Transactions</strong></h2>
   <hr>
   </div>";
   //}
@@ -39,7 +44,7 @@
 
   <!-- Create the transactions header -->
   <hr>
-  <h3 class='text-center'><strong>Pending Transactions</strong></h3>
+  <h3 class='text-center'><strong>Past Transactions</strong></h3>
   <hr>
   </div>";
 
