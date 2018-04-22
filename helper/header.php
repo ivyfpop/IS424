@@ -35,30 +35,24 @@
 			</button>
 			
 			<!-- Brand Logo -->
-			<a class='navbar-brand' href='index.php'><img src='/helper/images/website/college_logo.png'></a>
+			<a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
 		
 			<div class='collapse navbar-collapse'>
 				
 				<!-- Left Nav Bar -->
 				<div class='navbar-nav'>
 					<a class='nav-link btn btn-outline-info' href='index.php'>Home</a>
-					<a class='nav-link btn btn-outline-info ml-3 disabled' href=''>Department</a>
-					<a class='nav-link btn btn-outline-info ml-3' href='faculty.php'>Faculty</a>
-
-					</div>
+					<a class='nav-link btn btn-outline-info ml-3' href='events.php'>My Events</a>
+					<a class='nav-link btn btn-outline-info ml-3' href='transactions.php'>My Transactions</a>
+					<a class='nav-link btn btn-outline-info ml-3 disabled' href='eventManagement.php'>Event Management</a>
+					<a class='nav-link btn btn-outline-info ml-3 disabled' href='transactionManagement.php'>Transaction Management</a>
+					<a class='nav-link btn btn-outline-info ml-3 disabled' href='accountManagement.php'>Account Management</a>
+				</div>
 				<!-- END Left Nav Bar -->
                 
-				<!-- Right Nav Bar -->	                
-				<div class='navbar-nav mx-auto'>
-					<form class='form-inline' action='faculty.php' name='search_faculty' method='post'>
-						<input class='form-control mr-3' type='text' placeholder='First Name' name='first_name'>
-						<input class='form-control mr-3' type='text' placeholder='Last Name' name='last_name'>
-						<button class='form-control btn btn-outline-warning' type='submit' name='search_faculty' value='search_faculty'>Search Faculty!</button>
-					</form>
-				</div>
-                			
+				<!-- Right Nav Bar -->	                          			
 				<div class='navbar-nav ml-auto'>
-                    <a class='nav-link btn btn-outline-warning mr-3' href='update.php'>Control Panel</a>
+                    <a class='nav-link btn btn-outline-warning mr-3' href='accountPanel.php'>My Account Panel</a>
                     <form action='helper/accountHelper.php' name='logout' method='post'>
                         <button class="nav-link btn  btn-outline-danger btn-block" type="submit" name='logout' value='logout'>Logout</button>
                     </form>
