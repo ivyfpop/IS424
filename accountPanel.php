@@ -8,8 +8,6 @@
 	
 		<?php include 'helper/header.php' ?> 
     
-    
-    
 	<body>
         <form class="form-signin" action='helper/accountHelper.php' name='signup' method='post'>
             
