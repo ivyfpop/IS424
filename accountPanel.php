@@ -5,13 +5,8 @@
     <link href="helper/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="helper/css/login.css" rel="stylesheet">
     <!-- END Dependencies -->
-    
-    <head>
-	<!-- Input Handling -->
 	
-<?php include 'helper/header.php' ?> 
-    
-    </head>
+		<?php include 'helper/header.php' ?> 
     
 	<body>
         <form class="form-signin" action='helper/accountHelper.php' name='signup' method='post'>
@@ -53,7 +48,6 @@
 			mysqli_close($db);
 			while($row = mysqli_fetch_array($facultyQueryResult, MYSQLI_BOTH))
 			{
-			//stuff
             	echo"
             	<div class='form-label-group form-check form-check-inline'>
   					<input class='form-check-input' type='checkbox' id='$row[event_ID]' value='$row[event_ID]'>
