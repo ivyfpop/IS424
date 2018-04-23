@@ -9,7 +9,7 @@
             <div class="form-row">
                 <div class="form-label-group col">
                     <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
-                    <label for="inputFirstName">First Name</label>
+                    <label for="inputFirstName">First Name1</label>
                 </div>
                 
                 <div class="form-label-group col">
