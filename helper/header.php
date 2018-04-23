@@ -25,8 +25,8 @@
     <!-- End Bootstrap / Core CSS -->
 
     <!-- navigation bar -->
-    <div class='collapse navbar-collapse'>    
-        <nav class='navbar navbar-expand navbar-dark bg-dark'>
+    <nav class='navbar navbar-expand navbar-dark bg-dark'>
+        <div class='collapse navbar-collapse'>    
                 <!-- Left Nav Bar -->
                 <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
                 <div class='navbar-nav'>
@@ -47,7 +47,7 @@
                     </form>
                 </div>
                 <!-- END Right Nav Bar -->
-        </nav>
-    </div>
+        </div>
+    </nav>
     <!-- END of Navigation Bar -->
 </head>
