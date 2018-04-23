@@ -4,27 +4,27 @@
     <?php include 'helper/header.php' ?> 
         
 	<body>
-        <form class="form-signin" action='helper/accountHelper.php' name='update' method='post'>
+        <form class="container form-signin" action='helper/accountHelper.php' name='update' method='post'>
         
             <div class="form-row">
-                <div class="form-label-group col">
+                <div class="form-label-group">
                     <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
-                    <label for="inputFirstName">First Name1</label>
+                    <label for="inputFirstName">First Name</label>
                 </div>
                 
-                <div class="form-label-group col">
+                <div class="form-label-group">
                     <input type="text" id="inputLastName" class="form-control" name='last_Name' placeholder="Last Name" required autofocus>
                     <label for="inputLastName">Last Name</label>                
                 </div>
             </div>
             
             <div class="form-row">
-                <div class="form-label-group col">
+                <div class="form-label-group">
                     <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
                     <label for="inputEmail">Email Address</label>
                 </div>
                 
-                <div class="form-label-group col">                
+                <div class="form-label-group">                
                     <input type="password" id="inputPassword" class="form-control" name='password' placeholder="Password" required>
                     <label for="inputPassword">Password</label>
                 </div>
