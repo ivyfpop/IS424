@@ -9,42 +9,42 @@
             </br>
             <center><h1> User Account Panel </h1></center>
                 
-                <div class="form-label-group mx-auto">
+                <div class="form-label-group">
                     <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
                     <label for="inputFirstName">First Name</label>
                 </div>
             
-                <div class="form-label-group mx-auto">
+                <div class="form-label-group">
                     <input type="text" id="inputLastName" class="form-control" name='last_Name' placeholder="Last Name" required autofocus>
                     <label for="inputLastName">Last Name</label>                
                 </div>
 
-                <div class="form-label-group mx-auto">
+                <div class="form-label-group">
                     <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
                     <label for="inputEmail">Email Address</label>
                 </div>
                 
-                <div class="form-label-group mx-auto">                
+                <div class="form-label-group">                
                     <input type="password" id="inputPassword" class="form-control" name='password' placeholder="Password" required>
                     <label for="inputPassword">Password</label>
                 </div>
 
-                <div class='form-check form-check-inline mx-auto'>
+                <div class='form-check form-check-inline'>
                     <input class='form-check-input' type='checkbox' id='isSprinter' value='isSprinter'>
                     <label class='form-check-label' for='isSprinter'>Sprinter</label>
                 </div>
                 
-                <div class='form-check form-check-inline mx-auto'>
+                <div class='form-check form-check-inline'>
                     <input class='form-check-input' type='checkbox' id='isDistance' value='isDistance'>
                     <label class='form-check-label' for='isDistance'>Distance</label>
                 </div>
                  
-                <div class='form-check form-check-inline mx-auto'>
+                <div class='form-check form-check-inline'>
                     <input class='form-check-input' type='checkbox' id='isThrower' value='isThrower'>
                     <label class='form-check-label' for='isThrower'>Thrower</label>
                 </div>
                 
-                <div class='form-check form-check-inline mx-auto'>
+                <div class='form-check form-check-inline'>
                     <input class='form-check-input' type='checkbox' id='isJumper' value='isJumper'>
                     <label class='form-check-label' for='isJumper'>Jumper</label>
                 </div>
