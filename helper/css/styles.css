@@ -13,9 +13,8 @@ body {
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  padding-bottom: 40px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  background: url('images/website/cattle_background.jpg') no-repeat center center fixed;
+  background: url('../images/website/cattle_background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
