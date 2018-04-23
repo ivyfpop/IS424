@@ -10,7 +10,7 @@
             <div class = "row">
                 <h1> User Account Panel </h1>
             </div>
-            <div class="row">
+            <div class="row mx-auto">
                 <div class="form-label-group">
                     <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
                     <label for="inputFirstName">First Name</label>
@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <div class="row">     
+            <div class="row mx-auto">     
                 <div class="form-label-group">
                     <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
                     <label for="inputEmail">Email Address</label>
