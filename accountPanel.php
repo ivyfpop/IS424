@@ -5,7 +5,7 @@
         
 	<body>
         <form class="container bg-faded form-signin" action='helper/accountHelper.php' name='update' method='post'>
-        
+ 
             </br>
             <center><h1> User Account Panel </h1></center>
             
@@ -56,8 +56,9 @@
             </div> 
             
             <br>
-           
-            <button class="btn btn-lg btn-success btn-block" type="submit" name='update' value='update'>Update Account</button>            
+            <div class="row">
+                <button class="btn btn-lg btn-success btn-block" type="submit" name='update' value='update'>Update Account</button>            
+            </div>
         </form>
     </body>
 </html>
