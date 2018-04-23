@@ -2,12 +2,9 @@
 <html lang="en">
 	
     <?php include 'helper/header.php' ?> 
-    
-    <link href="helper/css/login.css" rel="stylesheet">
-    
+        
 	<body>
         <form class="form-signin" action='helper/accountHelper.php' name='update' method='post'>
-
             <div class="form-label-group">
                 <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
                 <label for="inputFirstName">First Name</label>
