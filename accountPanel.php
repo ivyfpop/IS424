@@ -7,22 +7,21 @@
         <form class="container bg-faded form-signin" action='helper/accountHelper.php' name='update' method='post'>
  
             </br>
-            <div class = "row">
                 <h1> User Account Panel </h1>
-            </div>
-            <div class="row mx-auto">
-                <div class="form-label-group">
+                
+            <div class="row">
+                <div class="form-label-group mx-auto">
                     <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
                     <label for="inputFirstName">First Name</label>
                 </div>
             
-                <div class="form-label-group">
+                <div class="form-label-group mx-auto">
                     <input type="text" id="inputLastName" class="form-control" name='last_Name' placeholder="Last Name" required autofocus>
                     <label for="inputLastName">Last Name</label>                
                 </div>
             </div>
 
-            <div class="row mx-auto">     
+            <div class="row">     
                 <div class="form-label-group">
                     <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
                     <label for="inputEmail">Email Address</label>
