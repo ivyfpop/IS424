@@ -25,27 +25,29 @@
     <!-- End Bootstrap / Core CSS -->
 
     <!-- navigation bar -->
-    <nav class='navbar navbar-expand navbar-dark bg-dark'>
-            <!-- Left Nav Bar -->
-            <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
-            <div class='navbar-nav'>
-                <a class='nav-link btn btn-outline-info' href='index.php'>Home</a>
-                <a class='nav-link btn btn-outline-info ml-3' href='functions.php'>My Events</a>
-                <a class='nav-link btn btn-outline-info ml-3' href='myTransactions.php'>My Transactions</a>
-                <a class='nav-link btn btn-outline-info ml-3 disabled' href='eventManagement.php'>Event Management</a>
-                <a class='nav-link btn btn-outline-info ml-3 disabled' href='transactionManagement.php'>Transaction Management</a>
-                <a class='nav-link btn btn-outline-info ml-3 disabled' href='accountManagement.php'>Account Management</a>
-            </div>
-            <!-- END Left Nav Bar -->
+    <div class='collapse navbar-collapse'>    
+        <nav class='navbar navbar-expand navbar-dark bg-dark'>
+                <!-- Left Nav Bar -->
+                <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
+                <div class='navbar-nav'>
+                    <a class='nav-link btn btn-outline-info' href='index.php'>Home</a>
+                    <a class='nav-link btn btn-outline-info ml-3' href='functions.php'>My Events</a>
+                    <a class='nav-link btn btn-outline-info ml-3' href='myTransactions.php'>My Transactions</a>
+                    <a class='nav-link btn btn-outline-info ml-3 disabled' href='eventManagement.php'>Event Management</a>
+                    <a class='nav-link btn btn-outline-info ml-3 disabled' href='transactionManagement.php'>Transaction Management</a>
+                    <a class='nav-link btn btn-outline-info ml-3 disabled' href='accountManagement.php'>Account Management</a>
+                </div>
+                <!-- END Left Nav Bar -->
 
-            <!-- Right Nav Bar -->
-            <div class='navbar-nav ml-auto'>
-                <a class='nav-link btn btn-outline-warning mr-3' href='accountPanel.php'>My Account Panel</a>
-                <form action='helper/accountHelper.php' name='logout' method='post'>
-                    <button class="nav-link btn  btn-outline-danger mr-3" type="submit" name='logout' value='logout'>Logout</button>
-                </form>
-            </div>
-            <!-- END Right Nav Bar -->
-    </nav>
+                <!-- Right Nav Bar -->
+                <div class='navbar-nav ml-auto'>
+                    <a class='nav-link btn btn-outline-warning mr-3' href='accountPanel.php'>My Account Panel</a>
+                    <form action='helper/accountHelper.php' name='logout' method='post'>
+                        <button class="nav-link btn  btn-outline-danger mr-3" type="submit" name='logout' value='logout'>Logout</button>
+                    </form>
+                </div>
+                <!-- END Right Nav Bar -->
+        </nav>
+    </div>
     <!-- END of Navigation Bar -->
 </head>
