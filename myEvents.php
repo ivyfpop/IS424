@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php
   include 'helper/header.php';
   include 'helper/connect.php';
@@ -46,3 +48,4 @@
 
 
 ?>
+</html>
