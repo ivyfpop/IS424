@@ -3,13 +3,10 @@
   --input-padding-y: .75rem;
 }
 
-html,
-body {
-  height: 100%;
-}
-
 body {
   align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   background: url('../images/website/cattle_background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
