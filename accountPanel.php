@@ -3,8 +3,10 @@
 	
     <?php include 'helper/header.php' ?> 
     
+    <link href="helper/css/login.css" rel="stylesheet">
+    
 	<body>
-        <form class="form-signin" action='helper/accountHelper.php' name='signup' method='post'>
+        <form class="form-signin" action='helper/accountHelper.php' name='update' method='post'>
 
             <div class="form-label-group">
                 <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
@@ -26,25 +28,21 @@
                 <label for="inputPassword">Password</label>
             </div>
             
-            <?php 
-            include 'helper/connect.php';
-            $facultyQueryResult = mysqli_query($db, "SELECT* FROM EVENT");
-			mysqli_close($db);
-			while($row = mysqli_fetch_array($facultyQueryResult, MYSQLI_BOTH))
-			{
-            	echo"
-            	<div class='form-label-group form-check form-check-inline'>
-  					<input class='form-check-input' type='checkbox' id='$row[event_ID]' value='$row[event_ID]'>
-  					<label class='form-check-label' for='$row[event_ID]'>$row[event_Name]</label>
-				</div>";
-			}
-			?>
-			
+            <div class='form-label-group form-check form-check-inline'>
+                <input class='form-check-input' type='checkbox' id='isSprinter' value='isSprinter'>
+                <label class='form-check-label' for='isSprinter'>Sprinter</label>
+                
+                <input class='form-check-input' type='checkbox' id='isDistance' value='isDistance'>
+                <label class='form-check-label' for='isDistance'>Distance</label>
+                
+                <input class='form-check-input' type='checkbox' id='isThrower' value='isThrower'>
+                <label class='form-check-label' for='isThrower'>Thrower</label>
+                
+                <input class='form-check-input' type='checkbox' id='isJumper' value='isJumper'>
+                <label class='form-check-label' for='isJumper'>Jumper</label>
+            </div>
             
-            <button class="btn btn-lg btn-success btn-block" type="submit" name='signup' value='login'>Update Account</button>
-            <br>
-
-            <a class="btn btn-lg btn-warning btn-block" href="index.php" role="button">Back to Home</a>
+            <button class="btn btn-lg btn-success btn-block" type="submit" name='update' value='update'>Update Account</button>
         </form>
     </body>
 </html>
