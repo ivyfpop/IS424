@@ -1,15 +1,9 @@
-<style>
-    head {
-        padding-bottom: 35px;
-    }
-</style>
-
 <head>
     <?php
         // Start the session
         session_start();
         // If the user is not logged in, redirect them to the login page.
-        if (!isset($_SESSION['member_ID'])){
+        if (!isset($_SESSION['memberID'])){
             echo("<meta http-equiv='refresh' content='0;url=login.php'>");
         }
     ?>

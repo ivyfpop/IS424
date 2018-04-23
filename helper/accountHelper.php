@@ -9,17 +9,17 @@
         if($_POST['login']){
             // Connect to the database, run query, close connection
             include 'connect.php';		
-            $result = mysqli_query($db,"SELECT member_ID,admin_Status,first_Name,last_Name,email FROM MEMBER WHERE email = '$_POST[email]' AND password = '$_POST[password]'");
+            $result = mysqli_query($db,"SELECT memberID,adminStatus,firstName,lastName,email FROM Member WHERE email = '$_POST[email]' AND password = '$_POST[password]'");
             mysqli_close($db);
 
             //Verify that the there is a user and store the session data if so.
             if($row = mysqli_fetch_array($result, MYSQLI_BOTH)){
                 // Start the session, store data and go to index page
                 session_start();
-                $_SESSION['member_ID'] = $row['member_ID'];
-                $_SESSION['admin_Status'] = $row['admin_Status'];
-                $_SESSION['first_Name'] = $row['first_Name'];
-                $_SESSION['last_Name'] = $row['last_Name'];
+                $_SESSION['memberID'] = $row['memberID'];
+                $_SESSION['adminStatus'] = $row['adminStatus'];
+                $_SESSION['firstName'] = $row['firstName'];
+                $_SESSION['lastName'] = $row['lastName'];
                 $_SESSION['email'] = $row['email'];
                 echo"<meta http-equiv='refresh' content='0;url=../index.php'>";
             }
@@ -35,10 +35,10 @@
         else if($_POST['signup']){
              // Verify that the email isn't taken already
             include 'connect.php';
-            $result = mysqli_query($db,"SELECT * FROM MEMBER WHERE email = '$_POST[email]'");
+            $result = mysqli_query($db,"SELECT * FROM Member WHERE email = '$_POST[email]'");
             if(!$row = mysqli_fetch_array($result, MYSQLI_BOTH)){                
                 // Query used to create the account
-                $updateQuery = "INSERT INTO MEMBER (first_Name, last_Name, email, password) VALUES ('$_POST[first_Name]','$_POST[last_Name]','$_POST[email]','$_POST[password]')";
+                $updateQuery = "INSERT INTO Member (firstName, lastName, email, password) VALUES ('$_POST[firstName]','$_POST[lastName]','$_POST[email]','$_POST[password]')";
 
                 // Create account and send them to the homepage
                 mysqli_query($db, $updateQuery); 

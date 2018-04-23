@@ -9,7 +9,7 @@
 	<!-- Input Handling -->
     <?php
         // If the user is logged in, redirect them to the home page
-        if (isset($_SESSION['member_ID'])){
+        if (isset($_SESSION['memberID'])){
             echo("<meta http-equiv='refresh' content='0;url=index.php'>");
         }
 	?>
@@ -33,12 +33,12 @@
            
 
             <div class="form-label-group">
-                <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
+                <input type="text" id="inputFirstName" class="form-control" name='firstName' placeholder="First Name" required autofocus>
                 <label for="inputFirstName">First Name</label>
             </div>
 
             <div class="form-label-group">
-                <input type="text" id="inputLastName" class="form-control" name='last_Name' placeholder="Last Name" required autofocus>
+                <input type="text" id="inputLastName" class="form-control" name='lastName' placeholder="Last Name" required autofocus>
                 <label for="inputLastName">Last Name</label>
             </div>
             

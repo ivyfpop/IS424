@@ -8,7 +8,7 @@
         session_start();
 
         // If the user is already logged in, redirect them to the index
-        if (isset($_SESSION['admin_Status'])){
+        if (isset($_SESSION['adminStatus'])){
             echo("<meta http-equiv='refresh' content='0;url=index.php'>");
             exit;
         }
