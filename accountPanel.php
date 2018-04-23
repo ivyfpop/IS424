@@ -22,34 +22,34 @@
             </div>
 
             <div class="row">     
-                <div class="form-label-group">
+                <div class="form-label-group mx-auto">
                     <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
                     <label for="inputEmail">Email Address</label>
                 </div>
                 
-                <div class="form-label-group">                
+                <div class="form-label-group mx-auto">                
                     <input type="password" id="inputPassword" class="form-control" name='password' placeholder="Password" required>
                     <label for="inputPassword">Password</label>
                 </div>
             </div>
 
             <div class="row">
-                <div class='form-check form-check-inline'>
+                <div class='form-check form-check-inline mx-auto'>
                     <input class='form-check-input' type='checkbox' id='isSprinter' value='isSprinter'>
                     <label class='form-check-label' for='isSprinter'>Sprinter</label>
                 </div>
                 
-                <div class='form-check form-check-inline'>
+                <div class='form-check form-check-inline mx-auto'>
                     <input class='form-check-input' type='checkbox' id='isDistance' value='isDistance'>
                     <label class='form-check-label' for='isDistance'>Distance</label>
                 </div>
                  
-                <div class='form-check form-check-inline'>
+                <div class='form-check form-check-inline mx-auto'>
                     <input class='form-check-input' type='checkbox' id='isThrower' value='isThrower'>
                     <label class='form-check-label' for='isThrower'>Thrower</label>
                 </div>
                 
-                <div class='form-check form-check-inline'>
+                <div class='form-check form-check-inline mx-auto'>
                     <input class='form-check-input' type='checkbox' id='isJumper' value='isJumper'>
                     <label class='form-check-label' for='isJumper'>Jumper</label>
                 </div>
