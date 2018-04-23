@@ -6,6 +6,8 @@
 	<body>
         <form class="container form-signin" action='helper/accountHelper.php' name='update' method='post'>
         
+            <h1> User Account Panel </h1>
+            
             <div class="form-label-group">
                 <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
                 <label for="inputFirstName">First Name</label>
@@ -28,20 +30,21 @@
             
             <div class='form-check form-check-inline'>
                 <input class='form-check-input' type='checkbox' id='isSprinter' value='isSprinter'>
-                <label class='form-check-label' for='isSprinter'>Sprinter</label>
+                <label class='form-check-label' for='isSprinter'>Sprinter </label>
                 
                 <input class='form-check-input' type='checkbox' id='isDistance' value='isDistance'>
-                <label class='form-check-label' for='isDistance'>Distance</label>
+                <label class='form-check-label' for='isDistance'>Distance </label>
                 
                 <input class='form-check-input' type='checkbox' id='isThrower' value='isThrower'>
-                <label class='form-check-label' for='isThrower'>Thrower</label>
+                <label class='form-check-label' for='isThrower'>Thrower </label>
                 
                 <input class='form-check-input' type='checkbox' id='isJumper' value='isJumper'>
-                <label class='form-check-label' for='isJumper'>Jumper</label>
+                <label class='form-check-label' for='isJumper'>Jumper </label>
             </div>
-            
-            <button class="btn btn-lg btn-success btn-block" type="submit" name='update' value='update'>Update Account</button>
-            
+           
+            <br>
+           
+            <button class="btn btn-lg btn-success btn-block" type="submit" name='update' value='update'>Update Account</button>            
         </form>
     </body>
 </html>
