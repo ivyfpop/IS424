@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+
   include 'helper/header.php';
   
   // Start the session
@@ -8,8 +9,8 @@
 
   //  Run the queries to gather the open and complete transactions.
   include 'helper/connect.php';
-  $openTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate = NULL AND '$_SESSION[memberID]' = memberID");
-  //$pastTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate != NULL AND '$_SESSION[memberID]' = memberID");
+  $openTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate IS NULL AND '$_SESSION[memberID]' = memberID");
+  //$pastTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate IS NOT NULL AND '$_SESSION[memberID]' = memberID");
   mysqli_close($db);
 
   // Page Header
@@ -27,7 +28,7 @@
     <hr>
     <h2 class='text-center'><strong>Open Transactions</strong></h2>
     <hr>
-
+      /*
     // Print out each of the transactions
     while ($row = mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
         echo"
@@ -40,7 +41,7 @@
               <p class='card-text'>Quantity: '$row[transactionDescription]'</p>             
             </div>
           </div>";
-    }
+    }*/
   }
   </div>
   /*
