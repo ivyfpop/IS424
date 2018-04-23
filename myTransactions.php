@@ -20,7 +20,7 @@
       <h1 class='text-center'><strong>My Transactions</strong></h1>
       <hr> 
 
-
+      /*
   // Verify there are open transactions for this member
   if(mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
 
