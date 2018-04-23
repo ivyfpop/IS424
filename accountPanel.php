@@ -32,13 +32,19 @@
             <div class='form-check form-check-inline'>
                 <input class='form-check-input' type='checkbox' id='isSprinter' value='isSprinter'>
                 <label class='form-check-label' for='isSprinter'>Sprinter</label>
-                
+            </div>
+            
+            <div class='form-check form-check-inline'>
                 <input class='form-check-input' type='checkbox' id='isDistance' value='isDistance'>
                 <label class='form-check-label' for='isDistance'>Distance</label>
-                
+            </div>
+             
+            <div class='form-check form-check-inline'>
                 <input class='form-check-input' type='checkbox' id='isThrower' value='isThrower'>
                 <label class='form-check-label' for='isThrower'>Thrower</label>
-                
+            </div>
+            
+            <div class='form-check form-check-inline'>
                 <input class='form-check-input' type='checkbox' id='isJumper' value='isJumper'>
                 <label class='form-check-label' for='isJumper'>Jumper</label>
             </div>
