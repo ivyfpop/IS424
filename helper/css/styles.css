@@ -1,3 +1,8 @@
+:root {
+  --input-padding-x: .75rem;
+  --input-padding-y: .75rem;
+}
+
 body {
   display: -ms-flexbox;
   display: flex;
