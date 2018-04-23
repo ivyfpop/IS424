@@ -2,51 +2,57 @@
   include 'helper/header.php';
   include 'helper/connect.php';
 
-  $result = mysqli_query($db,"SELECT transaction_ID,member_ID,transaction_Amount,
-    transaction_Description FROM TRANSACTION WHERE transaction_Payment_Date = ''");
-  // $pending_result
-  // $due_result
-  // $past_result
+  $result = mysqli_query($db,"SELECT * FROM TRANSACTION WHERE transaction_Payment_Date = ''");
 
-  //if ($pending_result != NULL){
-  // Pending transactions
-  echo"
-  <!-- Start Container -->
-  <div class='container bg-faded p-4 my-4'>
+  while ($row = $result->fetch_row()) {
 
-  <!-- Create the transactions header -->
-  <hr>
-  <h1 class='text-center'><strong>Pending Transactions</strong></h1>
-  <hr>
-  </div>";
-  //}
+    if ($row['status'] == "pending") {
+      // pending transactions
+      echo"
+      <!-- Start Container -->
+      <div class='container bg-faded p-4 my-4'>
 
-  while($row = mysqli_fetch_array($facultyQueryResult, MYSQLI_BOTH))
-    echo"display row";
+      <!-- Create the transactions header -->
+      <hr>
+      <h2 class='text-center'><strong>Pending Transactions</strong></h2>
+      <hr>
+      </div>";
 
-  // if ($due_result != NULL)
-  // Due transactions
-  echo"
-  <!-- Start Container -->
-  <div class='container bg-faded p-4 my-4'>
+      echo "<div class='card'><div class='card-body'>";
+      //echo result data we want displayed
+      echo "</div></div>";
+    } else if ($row['status'] == "approved") {
+      // approved transactions
+      echo"
+      <!-- Start Container -->
+      <div class='container bg-faded p-4 my-4'>
 
-  <!-- Create the transactions header -->
-  <hr>
-  <h2 class='text-center'><strong>Due Transactions</strong></h2>
-  <hr>
-  </div>";
-  //}
+      <!-- Create the transactions header -->
+      <hr>
+      <h2 class='text-center'><strong>Pending Transactions</strong></h2>
+      <hr>
+      </div>";
 
-  // Past transactions
-  echo"
-  <!-- Start Container -->
-  <div class='container bg-faded p-4 my-4'>
+      echo "<div class='card'><div class='card-body'>";
+      //echo result data we want displayed
+      echo "</div></div>";
+    } else {
+      // due transactions
+      echo"
+      <!-- Start Container -->
+      <div class='container bg-faded p-4 my-4'>
 
-  <!-- Create the transactions header -->
-  <hr>
-  <h3 class='text-center'><strong>Past Transactions</strong></h3>
-  <hr>
-  </div>";
+      <!-- Create the transactions header -->
+      <hr>
+      <h2 class='text-center'><strong>Pending Transactions</strong></h2>
+      <hr>
+      </div>";
+
+      echo "<div class='card'><div class='card-body'>";
+      //echo result data we want displayed
+      echo "</div></div>";
+    }
+  }
 
   include 'helper/footer.php';
 ?>
