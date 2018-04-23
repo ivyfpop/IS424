@@ -9,9 +9,6 @@ body {
 }
 
 body {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
   align-items: center;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   background: url('../images/website/cattle_background.jpg') no-repeat center center fixed;
