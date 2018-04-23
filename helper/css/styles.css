@@ -2,11 +2,12 @@
   --input-padding-x: .75rem;
   --input-padding-y: .75rem;
 }
+head {
+    padding-bottom: 40px;
+}
 
 body {
   align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   background: url('../images/website/cattle_background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
