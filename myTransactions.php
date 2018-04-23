@@ -9,7 +9,7 @@
   //  Run the queries to gather the open and complete transactions.
   include 'helper/connect.php';
   $openTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate = NULL AND '$_SESSION[memberID]' = memberID");
-  $pastTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate != NULL AND '$_SESSION[memberID]' = memberID");
+  //$pastTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate != NULL AND '$_SESSION[memberID]' = memberID");
   mysqli_close($db);
 
   // Page Header
@@ -21,7 +21,7 @@
 
 
   // Verify there are open transactions for this member
-  if($row = $openTransactions->fetch_row()){
+  if(mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
 
     // Pending Transactions Header
     <hr>
@@ -29,7 +29,7 @@
     <hr>
 
     // Print out each of the transactions
-    while ($row = $openTransactions->fetch_row()){
+    while ($row = mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
         echo"
           <div class='card border-warning mb-3'>
             <div class='card-header'>Transaction: '$row[transactionID]'</div>
