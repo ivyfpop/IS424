@@ -1,3 +1,9 @@
+<style>
+    head {
+        padding-bottom: 35px;
+    }
+</style>
+
 <head>
     <?php
         // Start the session
