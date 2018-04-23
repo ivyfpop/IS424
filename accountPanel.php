@@ -1,14 +1,7 @@
+<!DOCTYPE html>
 <html lang="en">
-    <!-- Dependencies -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="helper/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="helper/css/login.css" rel="stylesheet">
-    <!-- END Dependencies -->
 	
-		<?php include 'helper/header.php' ?> 
-    
-    
+    <?php include 'helper/header.php' ?> 
     
 	<body>
         <form class="form-signin" action='helper/accountHelper.php' name='signup' method='post'>
@@ -53,5 +46,5 @@
 
             <a class="btn btn-lg btn-warning btn-block" href="index.php" role="button">Back to Home</a>
         </form>
-    <body>
+    </body>
 </html>

@@ -6,7 +6,6 @@
     <link href="helper/css/login.css" rel="stylesheet">
     <!-- END Dependencies -->
     
-    <head>
 	<!-- Input Handling -->
     <?php
         // If the user is logged in, redirect them to the home page
@@ -14,7 +13,6 @@
             echo("<meta http-equiv='refresh' content='0;url=index.php'>");
         }
 	?>
-    </head>
     
 	<body>
         <form class="form-signin" action='helper/accountHelper.php' name='signup' method='post'>
