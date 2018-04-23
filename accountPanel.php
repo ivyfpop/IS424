@@ -44,7 +44,9 @@
                 <label class='form-check-label' for='isJumper'>Jumper</label>
             </div>
             
-            <button class="form-row btn btn-lg btn-success btn-block" type="submit" name='update' value='update'>Update Account</button>
+            <div class="form-row">
+                <button class="btn btn-lg btn-success btn-block" type="submit" name='update' value='update'>Update Account</button>
+            </div>
         </form>
     </body>
 </html>
