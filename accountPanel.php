@@ -7,8 +7,9 @@
         <form class="container bg-faded form-signin" action='helper/accountHelper.php' name='update' method='post'>
  
             </br>
-            <center><h1> User Account Panel </h1></center>
-            
+            <div class = "row">
+                <h1> User Account Panel </h1>
+            </div>
             <div class="row">
                 <div class="form-label-group">
                     <input type="text" id="inputFirstName" class="form-control" name='first_Name' placeholder="First Name" required autofocus>
