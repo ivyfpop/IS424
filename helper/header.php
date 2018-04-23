@@ -26,17 +26,12 @@
     <!-- navigation bar -->
     <nav class='navbar navbar-expand navbar-dark bg-dark'>
 
-        <!-- Menu options for devices with small screens -->
-        <button class='navbar-toggler navbar-toggler-right' type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
-            <span class='navbar-toggler-icon'></span>
-        </button>
-
-        <!-- Brand Logo -->
-
         <div class='collapse navbar-collapse'>
+        
+            <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
+            
             <!-- Left Nav Bar -->
             <div class='navbar-nav'>
-                <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
                 <a class='nav-link btn btn-outline-info' href='index.php'>Home</a>
                 <a class='nav-link btn btn-outline-info ml-3' href='functions.php'>My Events</a>
                 <a class='nav-link btn btn-outline-info ml-3' href='myTransactions.php'>My Transactions</a>
