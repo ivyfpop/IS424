@@ -25,12 +25,8 @@
 
     <!-- navigation bar -->
     <nav class='navbar navbar-expand navbar-dark bg-dark'>
-
-        <div class='collapse navbar-collapse'>
-        
-            <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
-            
             <!-- Left Nav Bar -->
+            <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
             <div class='navbar-nav'>
                 <a class='nav-link btn btn-outline-info' href='index.php'>Home</a>
                 <a class='nav-link btn btn-outline-info ml-3' href='functions.php'>My Events</a>
@@ -49,7 +45,6 @@
                 </form>
             </div>
             <!-- END Right Nav Bar -->
-        </div>
     </nav>
     <!-- END of Navigation Bar -->
 </head>
