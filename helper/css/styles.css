@@ -2,9 +2,7 @@
   --input-padding-x: .75rem;
   --input-padding-y: .75rem;
 }
-head {
-    padding-bottom: 4000px;
-}
+
 
 body {
   align-items: center;
@@ -23,6 +21,10 @@ h1, h2, h3, h4, h5, h6, .text-heading {
 h1 {
   font-size: 4rem;
 
+}
+
+nav.navbar {
+    padding-bottom: 35px;
 }
 
 h1.index-header{
