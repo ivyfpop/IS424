@@ -31,10 +31,11 @@
             <span class='navbar-toggler-icon'></span>
         </button>
         
+        <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
+        
         <div class='collapse navbar-collapse'>
 
             <!-- Left Nav Bar -->
-            <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
             <div class='navbar-nav'>
                 <a class='nav-link btn btn-outline-info' href='index.php'>Home</a>
                 <a class='nav-link btn btn-outline-info ml-3' href='functions.php'>My Events</a>
