@@ -9,9 +9,8 @@
 
   //  Run the queries to gather the open and complete transactions.
   include 'helper/connect.php';
-  $openTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate IS NULL AND memberID = '$_SESSION[memberID]'");
+  //$openTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate IS NULL AND memberID = '$_SESSION[memberID]'");
   //$pastTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate IS NOT NULL AND '$_SESSION[memberID]' = memberID");
-  mysqli_close($db);
   
   // Page Header
   echo"
@@ -21,7 +20,7 @@
       <hr>";
 
   // Verify there are open transactions for this member
-  if(mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
+  if($openTransactions = $db->query("SELECT * FROM Transaction WHERE transactionPaymentDate IS NULL AND memberID = '$_SESSION[memberID]'")){
 
     // Open Transactions Header
     echo"
