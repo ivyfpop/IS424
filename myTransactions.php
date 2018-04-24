@@ -64,7 +64,7 @@
       }
 
         // Verify there are Past transactions for this member ADD ORDER BY payment date to keep them in order.
-        if($pastTransactions = $db->query("SELECT * FROM Transaction WHERE transactionPaymentDate IS NOT NULL AND memberID = '$_SESSION[memberID]'")){
+        if($pastTransactions = $db->query("SELECT * FROM Transaction WHERE transactionPaymentDate IS NOT NULL AND transactionApprovalDate IS NOT NULL AND memberID = '$_SESSION[memberID]'")){
 
             // Open Transactions Header
             echo"<h2 class='text-center'><strong>Past Transactions</strong></h2>";
@@ -90,7 +90,16 @@
                         <strong>Request Date:</strong> $transactionInitDate
                         </br>
                          <strong>Payment Date:</strong> $transactionPaymentDate
+                        </br>
+                         <strong>Approval Date:</strong> $transactionApprovalDate
                         </br>";
+                        
+                        //Print out the approving officer's name
+                        $approvalMemberResult = $db->query("SELECT firstName, lastName FROM Member WHERE memberID = $row[transactionApprovalMemberID]");
+                        $approvalMemberRow = mysqli_fetch_array($approvalMemberResult, MYSQLI_BOTH);
+                        echo"<strong>Approving Officer:</strong> $approvalMemberRow[firstName] $approvalMemberRow[lastName]
+                             </br>";
+                        
                         // If there is an Event associated with the transaction
                         if ($row[eventID]){
                             //Determine the name of the event
