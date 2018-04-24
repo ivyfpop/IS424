@@ -45,7 +45,7 @@
                             //Determine the name of the event
                             $eventResult = $db->query("SELECT eventName FROM Event WHERE eventID = $row[eventID]");
                             $eventRow = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
-                            echo"<strong>Event:</strong>
+                            echo"<strong>Event:</strong> $eventRow[eventName]
                                  </br>";
                         }                        
                         
