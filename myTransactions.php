@@ -39,7 +39,7 @@
                         </br>
                         <strong>Request Date:</strong> $transactionInitDate
                         </br>";
-                        
+                        /*
                         // If there is an Event associated with the transaction
                         if ($row[eventID]){
                             //Determine the name of the event
@@ -48,7 +48,7 @@
                             echo"<strong>Event:</strong> $eventRow[eventName]
                                  </br>";
                         }
-
+                        */
                         
                     echo"<strong>Amount:</strong> $row[transactionQuantity]
                         </br>                        
