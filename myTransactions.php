@@ -23,12 +23,12 @@
                 echo"
                 <div class='card border-warning mb-3'>
                     <div class='card-header row'>
-                            <button class='btn btn-link ml-3' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
+                            <button class='btn btn-link' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                 <strong>$transactionInitDate</strong> $$row[transactionQuantity]
                             </button> 
                            
                             <form action='venmo.php' name='transaction' method='post'>
-                                <button class='btn btn-success mr-3' type='submit' name='transaction' value='$row[transactionID]'>Pay Now!</button>
+                                <button class='btn btn-success ml-auto' type='submit' name='transaction' value='$row[transactionID]'>Pay Now!</button>
                             </form>
                     </div>
                     
