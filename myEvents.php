@@ -26,6 +26,14 @@ if ($registeredID !== null) {
    */
 
    $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event WHERE registeredID = '$registeredID'");
+   // add eventIDs to $signedUpArr
+
+  /* query all events, add those that are in signedUpArr to signedUpEvents area, those that aren't in signedUpArr
+   and are in the current season can be added to sign up for events and then decide which events need to be shown
+    for the past events */
+
+    
+
    if ($signedUpResults != 'FALSE') {
      echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
      //Query results and display info for each event that is signed up for and add eventID to $signedUpArr
