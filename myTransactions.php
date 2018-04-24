@@ -21,7 +21,7 @@
                 $transactionInitDate = date("m/d/y g:i A", strtotime($row[transactionInitDate]));
                 
                 echo"
-                <div class='card border-warning mb-3'>
+                <div class='card text-white bg-warning mb-3'>
                     <div class='card-header'>
                             <button class='btn btn-link float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                 <h3>PAYMENT DUE - $$row[transactionQuantity]</h3>
@@ -76,10 +76,10 @@
                 $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
                 
                 echo"
-                <div class='card border-success mb-3'>
+                <div class='card text-white bg-success mb-3'>
                     <div class='card-header'>
                             <button class='btn btn-link float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                <h3>$$transactionPaymentDate - $$row[transactionQuantity]</h3>
+                                <h3>$transactionPaymentDate - $$row[transactionQuantity]</h3>
                             </button>
                     </div>
                     
@@ -89,7 +89,7 @@
                         </br>
                         <strong>Request Date:</strong> $transactionInitDate
                         </br>
-                         <strong>Payment Completion Date:</strong> $transactionPaymentDate
+                         <strong>Payment Date:</strong> $transactionPaymentDate
                         </br>";
                         // If there is an Event associated with the transaction
                         if ($row[eventID]){
