@@ -42,7 +42,7 @@
                         // If there is an Event associated with the transaction
                         if($row[eventID]){
                             //Determine the name of the event
-                            $eventRow = mysqli_fetch_array("SELECT eventName from Event", MYSQLI_BOTH);
+                            $eventRow = mysqli_fetch_array("SELECT eventName from Event WHERE eventID = '$row[eventID]'", MYSQLI_BOTH);
                             echo"<strong>Event:</strong> $eventRow[eventName]
                                  </br>";
                         }
