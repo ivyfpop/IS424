@@ -10,7 +10,7 @@
         session_start();
 
         // Verify there are open transactions for this member, ADD ORDER BY requesting date to keep them in order.
-        if($openTransactionsopenTransactions = $db->query("SELECT * FROM Transaction WHERE transactionPaymentDate IS NULL AND memberID = '$_SESSION[memberID]'")){
+        if($openTransactions = $db->query("SELECT * FROM Transaction WHERE transactionPaymentDate IS NULL AND memberID = '$_SESSION[memberID]'")){
 
             // Open Transactions Header
             echo"<h2 class='text-center'><strong>Open Transactions</strong></h2>";
