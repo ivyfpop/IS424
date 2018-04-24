@@ -23,10 +23,16 @@ if ($registeredID !== null) {
       - $signedUpArr = all eventIDs from query
 
    */
-   
-   $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event WHERE registeredID = '$registeredID'");
 
-   //Query results and display info for each event that is signed up for and add eventID to $signedUpArr
+   $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event WHERE registeredID = '$registeredID'");
+   if ($signedUpResults !== 'FALSE') {
+     echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
+     //Query results and display info for each event that is signed up for and add eventID to $signedUpArr
+     
+
+
+
+   }
 
 
 
