@@ -14,21 +14,21 @@
   mysqli_close($db);
 
   // Page Header
+  echo"
   <div class='container bg-faded p-4 my-4'>
-
       <hr>
       <h1 class='text-center'><strong>My Transactions</strong></h1>
-      <hr> 
+      <hr>";
 
-      /*
   // Verify there are open transactions for this member
   if(mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
 
     // Pending Transactions Header
+    echo"
     <hr>
     <h2 class='text-center'><strong>Open Transactions</strong></h2>
-    <hr>
-      /*
+    <hr>";
+    
     // Print out each of the transactions
     while ($row = mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
         echo"
@@ -43,7 +43,7 @@
           </div>";
     }*/
   }
-  </div>
+  echo"</div>";
   /*
   // Verify there are open transactions for this member
   if($row = $pastTransactions->fetch_row()){
