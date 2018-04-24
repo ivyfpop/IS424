@@ -5,7 +5,7 @@ include 'helper/header.php';
 include 'helper/connect.php';
 
 //$registeredID is needed here - might need to query for
-$regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$SESSION['memberID']' ORDER BY registeredSeason + 1 DESC";
+$regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$SESSION['memberID']' ORDER BY registeredSeason DESC";
 echo "TESTING: regMemQuery: '$regMemQuery'";
 $registeredIDResult = mysqli_query($db, $regMemQuery);
 $registeredID = null;
@@ -28,7 +28,7 @@ if ($registeredID !== null) {
    if ($signedUpResults !== 'FALSE') {
      echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
      //Query results and display info for each event that is signed up for and add eventID to $signedUpArr
-     
+
 
 
 
