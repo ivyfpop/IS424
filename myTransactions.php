@@ -24,10 +24,12 @@
                 <div class='card border-warning mb-3'>
                     <div class='card-header'>
                       <h5 class='mb-0'>
-                        <button class='btn btn-link' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                            <strong>$transactionInitDate</strong> $$row[transactionQuantity]
-                        </button>
-                      </h5>
+                            <button class='btn btn-link' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
+                                <strong>$transactionInitDate</strong> $$row[transactionQuantity]
+                            </button> 
+                           
+                            <button class='btn btn-primary' role='button' href='venmo.php'>Pay Now!</button>
+                        </h5>
                     </div>
                     
                     <div id='$row[transactionID]' class='collapse'>
