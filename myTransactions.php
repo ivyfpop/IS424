@@ -28,7 +28,7 @@
                                 <strong>$transactionInitDate</strong> $$row[transactionQuantity]
                             </button> 
                            
-                            <a class='btn btn-primary' role='button' href='venmo.php'>Pay Now!</button>
+                            <a class='btn btn-primary' role='button' href='venmo.php'>Pay Now!</a>
                         </h5>
                     </div>
                     
