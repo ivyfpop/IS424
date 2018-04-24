@@ -39,11 +39,12 @@
                         </br>
                         <strong>Request Date:</strong> $transactionInitDate
                         </br>";
+                        
                         // If there is an Event associated with the transaction
-                        if($row[eventID]){
+                        if ($row[eventID]){
                             //Determine the name of the event
-                            $eventQuery = $db->query("SELECT eventName from Event WHERE eventID = $row[eventID]");
-                            $eventRow = $eventQuery->mysqli_fetch_array(MYSQLI_BOTH);
+                            $eventQuery = $db->query("SELECT eventName from Event WHERE eventID = '$row[eventID]'");
+                            $eventRow = mysqli_fetch_array($eventQuery, MYSQLI_BOTH);
                             echo"<strong>Event:</strong> $eventRow[eventName]
                                  </br>";
                         }
