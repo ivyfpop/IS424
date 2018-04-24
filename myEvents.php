@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-  include 'helper/header.php';
-  include 'helper/connect.php';
+include 'helper/header.php';
+include 'helper/connect.php';
 
+//$registeredID is needed here - might need to query for
+$regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = $SESSION['memberID'] ORDER BY registeredSeason + 1 DESC";
+echo "TESTING: regMemQuery: " . $regMemQuery;
+$registeredIDResult = mysqli_query($db, $regMemQuery);
+$registeredID = null;
+echo "TESTING: registeredID num rows = " . $registeredIDResult->num_rows;
+if ($registeredIDResult->num_rows != 0) {
+  $registeredIDRow = mysqli_fetch_array($registeredIDResult);
+  $registeredID = $registeredIDRow[0];
+  echo "TESTING: registered ID : " . $registeredID;
+}
 
-  //Query for all functions
+if ($registeredID !== null) {
+  /*
+    Signed up for events
+      - Events in Registered_Member_Event that have isComplete = no
+      - $signedUpArr = all eventIDs from query
 
-  while ($row = $result->fetch_row()) {
+   */
+   $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event WHERE registeredID = " . $registeredID);
 
-    if ($row['status'] == "pending") {
-      // pending events
-      echo"
-      <!-- Start Container -->
-      <div class='container bg-faded p-4 my-4'>
+   while ()
 
-      <!-- Create the transactions header -->
-      <hr>
-      <h2 class='text-center'><strong>Pending Transactions</strong></h2>
-      <hr>
-      </div>";
+   /*
+    Events to Sign up for
+      - check to make sure eventID isn't in $signedUpArr before displaying
 
-      echo "<div class='card'><div class='card-body'>";
-      //echo result data we want dispalyed
-      echo "</div></div>";
-    } else if ($row['status'] == "approved") {
-      echo "<h2 class='text-center'><strong>Approved Events</strong></h2>";
-      // past event
-      echo "<div class='card'><div class='card-body'>";
-      //echo result data we want dispalyed
-      echo "</div></div>";
-    } else {
-      echo "<h2 class='text-center'><strong>Sign Up</strong></h2>";
-      // those they can sign up for
-      echo "<div class='card'><div class='card-body'>";
-      //echo result data we want dispalyed
-      echo "</div></div>";
-    }
-  }
+   */
 
+   /*
+    Past Events
+      - All events that fall outside of current season
 
-
-
+   */
+} else {
+  // Display some error.
+}
 
 
 
