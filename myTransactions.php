@@ -39,30 +39,30 @@
                         </br>
                         <strong>Request Date:</strong> $transactionInitDate
                         </br>";
-                        /*
+                        
                         // If there is an Event associated with the transaction
                         if ($row[eventID]){
                             //Determine the name of the event
-                            $eventQuery = $db->query("SELECT eventName from Event WHERE eventID = '$row[eventID]'");
-                            $eventRow = mysqli_fetch_array($eventQuery, MYSQLI_BOTH);
-                            echo"<strong>Event:</strong> $eventRow[eventName]
+                            $eventResult = $db->query("SELECT eventName FROM Event WHERE eventID = $row[eventID]");
+                            $eventRow = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
+                            echo"<strong>Event:</strong>
                                  </br>";
-                        }
-                        */
+                        }                        
                         
-                    echo"<strong>Amount:</strong> $row[transactionQuantity]
-                        </br>                        
-                        <strong>Category:</strong> $row[transactionCategory]
-                        </br>                        
-                        <strong>Description:</strong>$row[transactionDescription]
-                      </div>
+                echo"
+                            <strong>Amount:</strong> $row[transactionQuantity]
+                            </br>                        
+                            <strong>Category:</strong> $row[transactionCategory]
+                            </br>                        
+                            <strong>Description:</strong>$row[transactionDescription]
+                        </div>
                     </div>
-                  </div>";             
+                </div>";             
           }
       }
 ?>
-
     </div>
+
     <!-- JS Used -->
     <script src="helper/vendor/jquery/jquery.min.js"></script>
     <script src="helper/vendor/bootstrap/js/bootstrap.min.js"></script>
