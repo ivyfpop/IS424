@@ -16,7 +16,7 @@
             echo"<h2 class='text-center'><strong>Open Transactions</strong></h2>";
 
             // Print out each of the Open transactions
-            while ($row = $openTransactions->mysqli_fetch_array()){
+            while ($row = $openTransactions->mysqli_fetch_array(MYSQLI_BOTH)){
 
                 $transactionInitDate = date("m/d/y g:i A", strtotime($row[transactionInitDate]));
                 
