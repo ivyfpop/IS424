@@ -21,8 +21,8 @@
                 $transactionInitDate = date("m/d/y g:i A", strtotime($row[transactionInitDate]));
                 
                 echo"
-                <div class='card text-white bg-warning mb-3'>
-                    <div class='card-header'>
+                <div class='card mb-3'>
+                    <div class='card-header bg-warning'>
                             <button class='btn btn-link float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                 <h3>PAYMENT DUE - $$row[transactionQuantity]</h3>
                             </button>
@@ -34,7 +34,7 @@
                     </div>
                     
                     <div id='$row[transactionID]' class='collapse'>
-                      <div class='card-body'>
+                      <div class='card-body border-warning'>
                         <strong>Transaction ID:</strong> $row[transactionID]
                         </br>
                         <strong>Request Date:</strong> $transactionInitDate
@@ -76,15 +76,15 @@
                 $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
                 
                 echo"
-                <div class='card text-white bg-success mb-3'>
-                    <div class='card-header'>
+                <div class='card mb-3'>
+                    <div class='card-header bg-success'>
                             <button class='btn btn-link float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                 <h3>$transactionPaymentDate - $$row[transactionQuantity]</h3>
                             </button>
                     </div>
                     
                     <div id='$row[transactionID]' class='collapse'>
-                      <div class='card-body'>
+                      <div class='card-body border-success'>
                         <strong>Transaction ID:</strong> $row[transactionID]
                         </br>
                         <strong>Request Date:</strong> $transactionInitDate
