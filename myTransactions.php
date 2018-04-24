@@ -21,9 +21,9 @@
                 $transactionInitDate = date("m/d/y g:i A", strtotime($row[transactionInitDate]));
                 
                 echo"
-                <div class='card mb-3'>
-                    <div class='card-header bg-warning'>
-                            <button class='btn btn-link float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
+                <div class='card mb-3 border-danger'>
+                    <div class='card-header bg-danger'>
+                            <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                 <h3>PAYMENT DUE - $$row[transactionQuantity]</h3>
                             </button>
                             <form action='venmo.php' name='transaction' method='post'>
@@ -76,9 +76,9 @@
                 $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
                 
                 echo"
-                <div class='card mb-3'>
+                <div class='card mb-3 border-success'>
                     <div class='card-header bg-success'>
-                            <button class='btn btn-link float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
+                            <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                 <h3>$transactionPaymentDate - $$row[transactionQuantity]</h3>
                             </button>
                     </div>
