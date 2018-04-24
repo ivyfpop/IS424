@@ -4,7 +4,7 @@
 include 'helper/header.php';
 include 'helper/connect.php';
 
-//$registeredID is needed here - might need to query for
+//Querying for registeredID from Registered_Member with memberID
 $regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$SESSION['memberID']' ORDER BY registeredSeason DESC";
 echo "TESTING: regMemQuery: '$regMemQuery'";
 $registeredIDResult = mysqli_query($db, $regMemQuery);
@@ -15,7 +15,8 @@ if ($registeredIDResult->num_rows != 0) {
   $registeredID = $registeredIDRow[0];
   echo "TESTING: registered ID: '$registeredID'";
 }
-
+// If registeredID doesn't exist need to decide which info to display
+//      for sure can't show signed up for - could show events to sign up for
 if ($registeredID !== null) {
   /*
     Signed up for events
@@ -25,7 +26,7 @@ if ($registeredID !== null) {
    */
 
    $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event WHERE registeredID = '$registeredID'");
-   if ($signedUpResults !== 'FALSE') {
+   if ($signedUpResults != 'FALSE') {
      echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
      //Query results and display info for each event that is signed up for and add eventID to $signedUpArr
 
@@ -33,8 +34,6 @@ if ($registeredID !== null) {
 
 
    }
-
-
 
    /*
     Events to Sign up for
@@ -47,9 +46,13 @@ if ($registeredID !== null) {
       - All events that fall outside of current season
 
    */
+
 } else {
   // Display some error.
+  echo"TESTING: Unable to find registeredID";
 }
+
+mysqli_close($db);
 
 
 
