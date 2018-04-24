@@ -3,7 +3,7 @@
 <?php include 'helper/header.php'?>
   
     <div class='container bg-faded p-4 my-4'>
-    <h1 class='text-center'><strong>My Transactions</strong></h1>";
+    <h1 class='text-center'><strong>My Transactions</strong></h1>
 
 <?php 
         include 'helper/connect.php';
@@ -19,18 +19,18 @@
           while ($row = mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
  
             echo"
-            <div class='card text-white bg-danger mb-3'>
+            <div class='card border-warning mb-3'>
                 <div class='card-header'>
                   <h5 class='mb-0'>
                     <button class='btn btn-link' type='button' data-toggle='collapse' data-target='#collapseOne'>
-                      Collapsible Group Item #1
+                        '$row[transactionInitDate' - '$row[transactionQuantity]'
                     </button>
                   </h5>
                 </div>
                 
                 <div id='collapseOne' class='collapse show'>
                   <div class='card-body'>
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusam  sthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.
+                    '$row[transactionDescription'
                   </div>
                 </div>
               </div>";             
