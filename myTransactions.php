@@ -23,7 +23,7 @@
                 <div class='card-header'>
                   <h5 class='mb-0'>
                     <button class='btn btn-link' type='button' data-toggle='collapse' data-target='#collapseOne'>
-                        '$row[transactionInitDate' - '$row[transactionQuantity]'
+                        '$row[transactionInitDate]' - '$row[transactionQuantity]'
                     </button>
                   </h5>
                 </div>
