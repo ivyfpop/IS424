@@ -23,14 +23,15 @@
                 <div class='card-header'>
                   <h5 class='mb-0'>
                     <button class='btn btn-link' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                        $row[transactionInitDate] - $$row[transactionQuantity]
+                        <strong>Transaction Date:</strong> $row[transactionInitDate] <strong> Amount:</strong> $$row[transactionQuantity]
                     </button>
                   </h5>
                 </div>
                 
-                <div id='$row[transactionID]' class='collapse show'>
+                <div id='$row[transactionID]' class='collapse'>
                   <div class='card-body'>
-                    '$row[transactionDescription]'
+                    <strong>Description:</strong>
+                    $row[transactionDescription]
                   </div>
                 </div>
               </div>";             
