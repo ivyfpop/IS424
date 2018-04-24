@@ -24,7 +24,7 @@
                 <div class='card border-warning mb-3'>
                     <div class='card-header'>
                     
-                            <button class='btn btn-link float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
+                            <button class='btn btn-link float-left h2' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                 <strong>$transactionInitDate</strong> $$row[transactionQuantity]
                             </button> 
                            
