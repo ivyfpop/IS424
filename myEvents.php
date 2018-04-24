@@ -28,7 +28,7 @@ if ($registeredID !== null) {
    if ($signedUpResults !== 'FALSE') {
      echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
      //Query results and display info for each event that is signed up for and add eventID to $signedUpArr
-     
+
 
 
 
