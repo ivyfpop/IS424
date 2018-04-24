@@ -30,7 +30,7 @@
                 
                 <div id='collapseOne' class='collapse show'>
                   <div class='card-body'>
-                    '$row[transactionDescription'
+                    '$row[transactionDescription]'
                   </div>
                 </div>
               </div>";             
