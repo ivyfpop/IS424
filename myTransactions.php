@@ -12,7 +12,7 @@
   $openTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate IS NULL AND memberID = '$_SESSION[memberID]'");
   //$pastTransactions = mysqli_query($db,"SELECT * FROM Transaction WHERE transactionPaymentDate IS NOT NULL AND '$_SESSION[memberID]' = memberID");
   mysqli_close($db);
-
+  
   // Page Header
   echo"
   <div class='container bg-faded p-4 my-4'>
@@ -23,12 +23,12 @@
   // Verify there are open transactions for this member
   if(mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
 
-    // Pending Transactions Header
+    // Open Transactions Header
     echo"
     <hr>
     <h2 class='text-center'><strong>Open Transactions</strong></h2>
     <hr>";
-    
+
     // Print out each of the transactions
     while ($row = mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
         echo"
@@ -36,36 +36,16 @@
             <div class='card-header'>Transaction: '$row[transactionID]'</div>
             <div class='card-body'>
               <p class='card-text'>Quantity: '$row[transactionQuantity]'</p>
-              <p class='card-text'>Quantity: '$row[eventID]'</p>             
-              <p class='card-text'>Quantity: '$row[transactionCategory]'</p>             
-              <p class='card-text'>Quantity: '$row[transactionDescription]'</p>             
-            </div>
-          </div>";
-    }*/
-  }
-  echo"</div>";
-  /*
-  // Verify there are open transactions for this member
-  if($row = $pastTransactions->fetch_row()){
-
-    // Pending Transactions Header
-    <hr>
-    <h2 class='text-center'><strong>Past Transactions</strong></h2>
-    <hr>
-
-    // Print out each of the transactions
-    while ($row = $pastTransactions->fetch_row()){
-        echo"
-          <div class='card border-warning mb-3'>
-            <div class='card-header'>Transaction $row[transactionID]</div>
-            <div class='card-body text-warning'>
-              <h5 class='card-title'>Warning card title</h5>
-              <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class='card-text'>EventID: '$row[eventID]'</p>             
+              <p class='card-text'>Category: '$row[transactionCategory]'</p>             
+              <p class='card-text'>Description: '$row[transactionDescription]'</p>             
             </div>
           </div>";
     }
-  } 
-  */
+  }
+
+  echo"</div>";
+  
   /*
 
   // Print all of the pending transactions
