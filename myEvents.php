@@ -4,9 +4,9 @@
 include 'helper/header.php';
 include 'helper/connect.php';
 
-// //Querying for registeredID from Registered_Member with memberID
-// $regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$SESSION['memberID']' ORDER BY registeredSeason DESC";
-// echo "TESTING: regMemQuery: '$regMemQuery'";
+//Querying for registeredID from Registered_Member with memberID
+$regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$SESSION['memberID']' ORDER BY registeredSeason DESC";
+echo "TESTING: regMemQuery: '$regMemQuery'";
 // $registeredIDResult = mysqli_query($db, $regMemQuery);
 // $registeredID = null;
 // echo "TESTING: registeredID num rows: '$registeredIDResult->num_rows'";
@@ -59,7 +59,6 @@ include 'helper/connect.php';
 //   // Display some error.
 //   echo"TESTING: Unable to find registeredID";
 // }
-echo"yo";
 mysqli_close($db);
 
 
