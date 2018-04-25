@@ -4,10 +4,10 @@
 include 'helper/header.php';
 session_start();
 include 'helper/connect.php';
-echo "MemberID: " . $SESSION[memberID];
+echo "MemberID: " . $_SESSION[memberID];
 
 //Querying for registeredID from Registered_Member with memberID
-$regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$SESSION[memberID]' ORDER BY registeredSeason DESC";
+$regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$_SESSION[memberID]' ORDER BY registeredSeason DESC";
 echo "TESTING: regMemQuery: " . $regMemQuery;
 $registeredIDResult = mysqli_query($db, $regMemQuery);
 $registeredID = null;
