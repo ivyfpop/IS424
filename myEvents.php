@@ -5,7 +5,7 @@ include 'helper/header.php';
 include 'helper/connect.php';
 
 //Querying for registeredID from Registered_Member with memberID
-$regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$SESSION['memberID']' ORDER BY registeredSeason DESC";
+$regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$SESSION[memberID]' ORDER BY registeredSeason DESC";
 // echo "TESTING: regMemQuery: " . $regMemQuery;
 // $registeredIDResult = mysqli_query($db, $regMemQuery);
 // $registeredID = null;
