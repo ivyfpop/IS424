@@ -4,18 +4,14 @@
 include 'helper/header.php';
 session_start();
 include 'helper/connect.php';
-echo "MemberID: " . $_SESSION[memberID];
 
 //Querying for registeredID from Registered_Member with memberID
 $regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$_SESSION[memberID]' ORDER BY registeredSeason DESC";
-echo "TESTING: regMemQuery: " . $regMemQuery;
 $registeredIDResult = mysqli_query($db, $regMemQuery);
 $registeredID = null;
-echo "TESTING: registeredID num rows: '$registeredIDResult->num_rows'";
 if ($registeredIDResult->num_rows != 0) {
   $registeredIDRow = mysqli_fetch_array($registeredIDResult);
   $registeredID = $registeredIDRow[0];
-  echo "TESTING: registered ID: '$registeredID'";
 }
 // // If registeredID doesn't exist need to decide which info to display
 // //      for sure can't show signed up for - could show events to sign up for
