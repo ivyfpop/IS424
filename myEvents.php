@@ -3,7 +3,7 @@
 <?php
 include 'helper/header.php';
 include 'helper/connect.php';
-
+echo "MemberID: " . $SESSION['memberID'];
 //Querying for registeredID from Registered_Member with memberID
 $regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$SESSION[memberID]' ORDER BY registeredSeason DESC";
 echo "TESTING: regMemQuery: " . $regMemQuery;
