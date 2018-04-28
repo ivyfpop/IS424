@@ -12,9 +12,6 @@
         // Verify there are open transactions for this member, ADD ORDER BY requesting date to keep them in order.
         if($openTransactions = $db->query("SELECT * FROM Transaction WHERE transactionPaymentDate IS NULL AND memberID = '$_SESSION[memberID]'")){
 
-            // Open Transactions Header
-            echo"<h2 class='text-center'><strong>Open Transactions</strong></h2>";
-
             // Print out each of the Open transactions
             while ($row = mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
 
@@ -66,9 +63,6 @@
         // Verify there are Pending transactions for this member ADD ORDER BY payment date to keep them in order.
         if($pendingTransactions = $db->query("SELECT * FROM Transaction WHERE transactionPaymentDate IS NOT NULL AND transactionApprovalDate IS NULL AND memberID = '$_SESSION[memberID]'")){
 
-            // Open Transactions Header
-            echo"<h2 class='text-center'><strong>Pending Transactions</strong></h2>";
-
             // Print out each of the past transactions
             while ($row = mysqli_fetch_array($pendingTransactions, MYSQLI_BOTH)){
 
@@ -117,9 +111,6 @@
 
         // Verify there are Past transactions for this member ADD ORDER BY payment date to keep them in order.
         if($completeTransactions = $db->query("SELECT * FROM Transaction WHERE transactionPaymentDate IS NOT NULL AND transactionApprovalDate IS NOT NULL AND memberID = '$_SESSION[memberID]'")){
-
-            // Open Transactions Header
-            echo"<h2 class='text-center'><strong>Past Transactions</strong></h2>";
 
             // Print out each of the past transactions
             while ($row = mysqli_fetch_array($completeTransactions, MYSQLI_BOTH)){

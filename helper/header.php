@@ -21,16 +21,16 @@
     <!-- End Bootstrap / Core CSS -->
 
     <!-- navigation bar -->
-    <nav class='navbar navbar-expand navbar-dark bg-dark'>
+    <nav class='navbar navbar-expand bg-white'>
         <!-- Left Nav Bar -->
-        <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='100' height='100'></a>
+        <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='36' height='36'></a>
         <div class='navbar-nav'>
-            <a class='nav-link btn btn-outline-info' href='index.php'>Home</a>
-            <a class='nav-link btn btn-outline-info ml-3' href='myEvents.php'>My Events</a>
-            <a class='nav-link btn btn-outline-info ml-3' href='myTransactions.php'>My Transactions</a>
-            <?php if ($_SESSION['adminStatus'] !== null) echo"<a class='nav-link btn btn-outline-info ml-3' href='eventManagement.php'>Event Management</a>";?>
-            <?php if ($_SESSION['adminStatus'] !== null) echo"<a class='nav-link btn btn-outline-info ml-3' href='transactionManagement.php'>Transaction Management</a>";?>
-            <?php if ($_SESSION['adminStatus'] !== null) echo"<a class='nav-link btn btn-outline-info ml-3' href='accountManagement.php'>Account Management</a>";?>
+            <a class='nav-link btn btn-outline-danger' href='index.php'>Home</a>
+            <a class='nav-link btn btn-outline-danger ml-3' href='myEvents.php'>My Events</a>
+            <a class='nav-link btn btn-outline-danger ml-3' href='myTransactions.php'>My Transactions</a>
+            <a class='nav-link btn btn-outline-danger ml-3' href='eventManagement.php'>Event Management</a>
+            <a class='nav-link btn btn-outline-danger ml-3' href='transactionManagement.php'>Transaction Management</a>
+            <a class='nav-link btn btn-outline-danger ml-3' href='accountManagement.php'>Account Management</a>
         </div>
         <!-- END Left Nav Bar -->
 
