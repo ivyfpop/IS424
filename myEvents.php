@@ -28,7 +28,9 @@
              - $signedUpArr = all eventIDs from query
           */
 
-        $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event WHERE registeredID = '$registeredID'");
+        $signedUpResults = mysqli_query($db, "SELECT * SELECT * FROM Registered_Member_Event
+          INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
+          '$registeredID'");
 
         if ($signedUpResults != 'FALSE') {
           // add eventIDs to $signedUpArr
@@ -51,7 +53,7 @@
           while($row = mysqli_fetch_array($signedUpResults, MYSQLI_BOTH)){
 
             // events signed up for
-            if ($row[isComplete]){
+            if ($row[isComplete] == 0){
               echo"
               <div class='card mb-3 border-warning'>
                   <div class='card-header bg-warning'>
@@ -81,6 +83,23 @@
                       "</div>
                   </div>
               </div>";
+            } else if ($row[isComplete] == 1) {
+              echo"
+              <div class='card mb-3 border-success'>
+                  <div class='card-header bg-success'>
+                          <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
+                              <h3>$transactionPaymentDate - $$row[transactionQuantity]</h3>
+                          </button>
+                  </div>
+
+                  <div id='$row[eventID]' class='collapse'>
+                    <div class='card-body border-success'>
+                      <strong>Event ID:</strong> $row[eventID]
+                      </br>
+                      <strong>Transaction ID:</strong> $row[transactionID]
+                      </br>
+                      <strong>event
+                    ";
             }
           }
 
