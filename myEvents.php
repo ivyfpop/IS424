@@ -31,6 +31,7 @@
         $signedUpResults = mysqli_query($db, "SELECT * SELECT * FROM Registered_Member_Event
           INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
           '$registeredID'");
+          echo mysqli_num_rows($signedUpResults);
 
         if ($signedUpResults != 'FALSE') {
           // add eventIDs to $signedUpArr
@@ -44,7 +45,6 @@
          /* query all events, add those that are in signedUpArr to signedUpEvents area, those that aren't in signedUpArr
           and are in the current season can be added to sign up for events and then decide which events need to be shown
            for the past events */
-           echo mysqli_num_rows($signedUpResults);
 
           /*$pastEventResults = mysqli_query($db, "SELECT eventID FROM Event");*/
 
@@ -103,6 +103,8 @@
             }
           }
 
+        } else {
+          echo "nope";
         } // end $signedUpResults !== null
 
           /*
