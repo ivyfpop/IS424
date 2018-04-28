@@ -28,7 +28,7 @@
              - $signedUpArr = all eventIDs from query
           */
 
-        $signedUpResults = mysqli_query($db, "SELECT * SELECT * FROM Registered_Member_Event
+        $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event
           INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
           '$registeredID'");
           echo mysqli_num_rows($signedUpResults);
