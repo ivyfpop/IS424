@@ -31,75 +31,50 @@
         $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event
           INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
           '$registeredID'");
-          echo mysqli_num_rows($signedUpResults);
 
         if ($signedUpResults != 'FALSE') {
-          // add eventIDs to $signedUpArr
-          /*$signedUpArr = array();
-          while($row = mysqli_fetch_array($signedUpResults, MYSQLI_BOTH)){
-            array_push($signedUpArr,$row);
-          }*/
 
-         // TODO debate if this is indeed true (won't all events include events from the beginning of time?
-         //      meaning we can't just assume events that aren't in the array are in the current season?)
-         /* query all events, add those that are in signedUpArr to signedUpEvents area, those that aren't in signedUpArr
-          and are in the current season can be added to sign up for events and then decide which events need to be shown
-           for the past events */
-
-          /*$pastEventResults = mysqli_query($db, "SELECT eventID FROM Event");*/
-
-          // events signed up for header TODO check if any exist before printing?
           echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
           //Query results and display info for each event that is signed up for and add eventID to $signedUpArr
           while($row = mysqli_fetch_array($signedUpResults, MYSQLI_BOTH)){
             // events signed up for
             if ($row[isComplete] == 0){
               echo"
-              <div class='card mb-3 border-warning'>
-                  <div class='card-header bg-warning'>
-                          <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[eventID]'>
-                              <h3>PENDING - $$row[eventID]</h3>
-                          </button>
+              <div class='card mb-3 border-danger'>
+                <div class='card-header bg-danger'>
+                  <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
+                      <h3>'$row[eventName]'</h3>
+                  </button>
                   </div>
-
-                  <div id='$row[eventID]' class='collapse'>
-                    <div class='card-body border-warning'>
-                      <strong>Event ID:</strong> $row[eventID]
-                      </br>
+                  <div id='$row[transactionID]' class='collapse'>
+                    <div class='card-body border-success'>
                       <strong>Transaction ID:</strong> $row[transactionID]
                       </br>
-                      <strong>Car Capacity:</strong> $row[carCapacity]
-                      </br>";
-
-                      // If there is an Event associated with the transaction
-                      if ($row[eventID]){
-                          //Determine the name of the event
-                          $eventResult = $db->query("SELECT eventName FROM Event WHERE eventID = $row[eventID]");
-                          $eventRow = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
-                          echo"<strong>Event Name:</strong> $eventRow[eventName]
-                               </br>";
-                      }
-
-                      "</div>
+                      <strong>
+                    </div>
                   </div>
-              </div>";
+                </div>";
             } else if ($row[isComplete] == 1) {
               echo"
               <div class='card mb-3 border-success'>
-                  <div class='card-header bg-success'>
-                          <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                              <h3>$transactionPaymentDate - $$row[transactionQuantity]</h3>
-                          </button>
+                <div class='card-header bg-success'>
+                  <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
+                      <h3>$transactionPaymentDate - $$row[transactionQuantity]</h3>
+                  </button>
                   </div>
-
-                  <div id='$row[eventID]' class='collapse'>
+                  <div id='$row[transactionID]' class='collapse'>
                     <div class='card-body border-success'>
-                      <strong>Event ID:</strong> $row[eventID]
-                      </br>
                       <strong>Transaction ID:</strong> $row[transactionID]
                       </br>
-                      <strong>event
-                    ";
+                      <strong>Request Date:</strong> $transactionInitDate
+                      </br>
+                      <strong>Payment Date:</strong> $transactionPaymentDate
+                      </br>
+                        <strong>Approval Date:</strong> $transactionApprovalDate
+                      </br>
+                    </div>
+                  </div>
+                </div>";
             }
           }
 
