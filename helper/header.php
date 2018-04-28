@@ -6,6 +6,7 @@
         if (!isset($_SESSION['memberID'])){
             echo("<meta http-equiv='refresh' content='0;url=login.php'>");
         }
+        echo("$_SERVER['REQUEST_URI']");
     ?>
 
     <!-- meta values -->
@@ -25,7 +26,6 @@
         <!-- Left Nav Bar -->
         <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='36' height='36'></a>
         <div class='navbar-nav'>
-            <?php echo"$_SERVER['REQUEST_URI']";?><
             <a class='nav-link btn btn-danger' href='index.php'>Home</a>
             <a class='nav-link btn btn-outline-danger ml-3' href='myEvents.php'>My Events</a>
             <a class='nav-link btn btn-outline-danger ml-3' href='myTransactions.php'>My Transactions</a>
