@@ -6,8 +6,6 @@
         if (!isset($_SESSION['memberID'])){
             echo("<meta http-equiv='refresh' content='0;url=login.php'>");
         }
-        $uri = $_SERVER['REQUEST_URI'];
-        echo("<p>$uri<p>"); // Outputs: URI        
     ?>
 
     <!-- meta values -->
@@ -27,12 +25,24 @@
         <!-- Left Nav Bar -->
         <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='36' height='36'></a>
         <div class='navbar-nav'>
-            <a class='nav-link btn btn-danger' href='index.php'>Home</a>
-            <a class='nav-link btn btn-outline-danger ml-3' href='myEvents.php'>My Events</a>
-            <a class='nav-link btn btn-outline-danger ml-3' href='myTransactions.php'>My Transactions</a>
-            <a class='nav-link btn btn-outline-danger ml-3' href='eventManagement.php'>Event Management</a>
-            <a class='nav-link btn btn-outline-danger ml-3' href='transactionManagement.php'>Transaction Management</a>
-            <a class='nav-link btn btn-outline-danger ml-3' href='accountManagement.php'>Account Management</a>
+            <?php
+                // Current page
+                $uri = $_SERVER['REQUEST_URI'];
+                
+                if(!strcmp($uri, "/index.php")){
+                    echo "<a class='nav-link btn btn-danger' href='index.php'>Home</a>"
+                }
+                else{
+                    echo "<a class='nav-link btn btn-outline-danger' href='index.php'>Home</a>"
+                    
+                }
+            ?>
+                <a class='nav-link btn btn-danger' href='index.php'>Home</a>
+                <a class='nav-link btn btn-outline-danger ml-3' href='myEvents.php'>My Events</a>
+                <a class='nav-link btn btn-outline-danger ml-3' href='myTransactions.php'>My Transactions</a>
+                <a class='nav-link btn btn-outline-danger ml-3' href='eventManagement.php'>Event Management</a>
+                <a class='nav-link btn btn-outline-danger ml-3' href='transactionManagement.php'>Transaction Management</a>
+                <a class='nav-link btn btn-outline-danger ml-3' href='accountManagement.php'>Account Management</a>
         </div>
         <!-- END Left Nav Bar -->
 
