@@ -37,13 +37,13 @@
             echo"
             <div class='card mb-3 border-success'>
               <div class='card-header bg-success'>
-                <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
+                <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[eventID]'>
                     <h3>$row[eventName]</h3>
                 </button>
                 </div>
-                <div id='$row[transactionID]' class='collapse'>
+                <div id='$row[eventID]' class='collapse'>
                   <div class='card-body border-success'>
-                    <strong>Transaction ID:</strong> $row[transactionID]
+                    <strong>Event ID:</strong> $row[eventID]
                     </br>
                     <strong>Event Category:</strong> $row[eventCategory]
                     </br>
