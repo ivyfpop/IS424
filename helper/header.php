@@ -30,10 +30,10 @@
                 $uri = $_SERVER['REQUEST_URI'];
                 
                 if(!strcmp($uri, "/index.php")){
-                    echo "<a class='nav-link btn btn-danger' href='index.php'>Home</a>"
+                    echo("<a class='nav-link btn btn-danger' href='index.php'>Home</a>");
                 }
                 else{
-                    echo "<a class='nav-link btn btn-outline-danger' href='index.php'>Home</a>"
+                    echo("<a class='nav-link btn btn-outline-danger' href='index.php'>Home</a>");
                     
                 }
             ?>
