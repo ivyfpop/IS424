@@ -21,7 +21,7 @@
                 <div class='card mb-3 border-danger'>
                     <div class='card-header bg-danger'>
                             <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                <h3>PAYMENT DUE - $$row[transactionQuantity]</h3>
+                                <h3>$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
                             </button>
                             <form action='https://venmo.com/WiscoTC' name='transaction' method='post'>
                                 <button class='btn btn-success float-right' type='submit' name='transaction' value='$row[transactionID]'>
@@ -73,7 +73,7 @@
                 <div class='card mb-3 border-warning'>
                     <div class='card-header bg-warning'>
                             <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                <h3>PENDING - $$row[transactionQuantity]</h3>
+                                <h3>$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
                             </button>
                     </div>
                     
@@ -123,7 +123,7 @@
                 <div class='card mb-3 border-success'>
                     <div class='card-header bg-success'>
                             <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                <h3>$transactionPaymentDate - $$row[transactionQuantity]</h3>
+                                <h3>$row[transactionID] - $transactionPaymentDate - $$row[transactionQuantity]</h3>
                             </button>
                     </div>
                     
