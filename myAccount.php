@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php include 'helper/header.php'
-          include 'helper/connect.php'
+    <?php include 'helper/header.php';
+          include 'helper/connect.php';
 					session_start();
 
 					$accountQuery = "SELECT * FROM Member WHERE memberID = '$_SESSION[memberID]'";
