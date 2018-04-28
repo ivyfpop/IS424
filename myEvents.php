@@ -34,6 +34,7 @@
         if ($signUpForResults != 'FALSE') {
           echo"<hr><h2 class='text-center'><strong>Sign Up For Events</strong></h2><hr>";
           while($row = mysqli_fetch_array($signUpForResults, MYSQLI_BOTH)) {
+//TODO add sign up button -> handle sign up :) 
             echo"
             <div class='card mb-3 border-success'>
               <div class='card-header bg-success'>
@@ -50,8 +51,6 @@
                     <strong>Date:</strong> $row[eventDate]
                     </br>
                     <strong>Location:</strong> $row[eventAddress], $row[eventCity], $row[eventState], $row[eventZip]
-                    </br>
-                    <strong>Leave By:</strong> $row[leaveBy]
                     </br>
                     <strong>Description:</strong> $row[eventBio]
                     </br>
