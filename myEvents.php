@@ -31,7 +31,6 @@
         $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event
           INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
           '$registeredID'");
-          echo mysqli_num_rows($signedUpResults);
 
         if ($signedUpResults != 'FALSE') {
 
@@ -44,19 +43,14 @@
               <div class='card mb-3 border-danger'>
                 <div class='card-header bg-danger'>
                   <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                      <h3>$transactionPaymentDate - $$row[transactionQuantity]</h3>
+                      <h3>'$row[eventName]'</h3>
                   </button>
                   </div>
                   <div id='$row[transactionID]' class='collapse'>
                     <div class='card-body border-success'>
                       <strong>Transaction ID:</strong> $row[transactionID]
                       </br>
-                      <strong>Request Date:</strong> $transactionInitDate
-                      </br>
-                      <strong>Payment Date:</strong> $transactionPaymentDate
-                      </br>
-                        <strong>Approval Date:</strong> $transactionApprovalDate
-                      </br>
+                      <strong>
                     </div>
                   </div>
                 </div>";
