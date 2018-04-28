@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php include 'helper/header.php';
+    <?php include 'helper/accountHelper.php';
+		      include 'helper/header.php';
           include 'helper/connect.php';
 					session_start();
 
