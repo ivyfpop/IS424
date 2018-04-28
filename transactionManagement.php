@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'helper/header.php'?>
+    
 
     <div class='container bg-faded p-4 my-4'>
+
+        <div class='navbar-nav mx-auto'>
+            <form class='form-inline' action='faculty.php' name='search_faculty' method='post'>
+                <input class='form-control mr-3' type='text' placeholder='First Name' name='first_name'>
+                <input class='form-control mr-3' type='text' placeholder='Last Name' name='last_name'>
+                <button class='form-control btn btn-outline-warning' type='submit' name='search_faculty' value='search_faculty'>Search Faculty!</button>
+            </form>
+        </div>
+
     <h1 class='text-center'><strong>My Transactions</strong></h1>
 
     <?php
