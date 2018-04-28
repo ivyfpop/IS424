@@ -34,7 +34,7 @@
         if ($signUpForResults != 'FALSE') {
           echo"<hr><h2 class='text-center'><strong>Sign Up For Events</strong></h2><hr>";
           while($row = mysqli_fetch_array($signUpForResults, MYSQLI_BOTH)) {
-//TODO add sign up button -> handle sign up :) 
+//TODO add sign up button -> handle sign up :)
             echo"
             <div class='card mb-3 border-success'>
               <div class='card-header bg-success'>
@@ -61,7 +61,7 @@
           }
         }
 
-
+        //TODO add isComplete = 0 to query. make another query that has isComplete = 1
 
         //Querying for all events in Registered_Member_Event with user's registeredID
         $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event
