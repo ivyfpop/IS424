@@ -15,6 +15,7 @@
 						$email = $row[email];
 						$password = $row[password];
 					}
+					//value=<?php echo "'$firstName'";
 		?>
 
 	  <body>
@@ -24,7 +25,7 @@
             <center><h1> User Account Panel </h1></center>
 
                 <div class="form-label-group">
-                    <input type="text" id="inputFirstName" class="form-control" name='first_Name' value='<?php echo "$firstName";?>' placeholder="First Name" required autofocus>
+                    <input type="text" id="inputFirstName" class="form-control" name='first_Name'  placeholder="First Name" required autofocus>
                     <label for="inputFirstName">First Name</label>
                 </div>
 
