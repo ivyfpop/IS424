@@ -2,17 +2,15 @@
 <html lang="en">
 <?php include 'helper/header.php'?>
     
+    <div class='navbar-nav mx-auto'>
+        <form class='form-inline' action='faculty.php' name='search_faculty' method='post'>
+            <input class='form-control mr-3' type='text' placeholder='First Na123123123123123123123me' name='first_name'>
+            <input class='form-control mr-3' type='text' placeholder='Last Name' name='last_name'>
+            <button class='form-control btn btn-outline-warning' type='submit' name='search_faculty' value='search_faculty'>Search Faculty!</button>
+        </form>
+    </div>
 
     <div class='container bg-faded p-4 my-4'>
-
-        <div class='navbar-nav mx-auto'>
-            <form class='form-inline' action='faculty.php' name='search_faculty' method='post'>
-                <input class='form-control mr-3' type='text' placeholder='First Name' name='first_name'>
-                <input class='form-control mr-3' type='text' placeholder='Last Name' name='last_name'>
-                <button class='form-control btn btn-outline-warning' type='submit' name='search_faculty' value='search_faculty'>Search Faculty!</button>
-            </form>
-        </div>
-
     <h1 class='text-center'><strong>My Transactions</strong></h1>
 
     <?php
@@ -30,8 +28,7 @@
 
                 $transactionInitDate = date("m/d/y g:i A", strtotime($row[transactionInitDate]));
 
-                echo"
-                <div class='card mb-3 border-danger'>
+            echo"<div class='card mb-3 border-danger'>
                     <div class='card-header bg-danger'>
                             <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                 <h3>PAYMENT DUE - $$row[transactionQuantity]</h3>
