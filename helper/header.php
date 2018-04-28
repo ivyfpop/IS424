@@ -29,6 +29,7 @@
                 // Current page
                 $uri = $_SERVER['REQUEST_URI'];
                 
+                // Home Page
                 if(!strcmp($uri, "/index.php")){
                     echo("<a class='nav-link btn btn-danger' href='index.php'>Home</a>");
                 }
@@ -36,13 +37,53 @@
                     echo("<a class='nav-link btn btn-outline-danger' href='index.php'>Home</a>");
                     
                 }
+                
+                // myEvents Page
+                if(!strcmp($uri, "/index.php")){
+                    echo("<a class='nav-link btn btn-danger ml-3' href='myEvents.php'>My Events</a>");
+                }
+                else{
+                    echo("<a class='nav-link btn btn-outline-danger ml-3' href='myEvents.php'>My Events</a>");
+                    
+                }
+                
+                // myTransactions Page
+                if(!strcmp($uri, "/index.php")){
+                    echo("<a class='nav-link btn btn-danger ml-3' href='myTransactions.php'>My Transactions</a>");
+                }
+                else{
+                    echo("<a class='nav-link btn btn-outline-danger ml-3' href='myTransactions.php'>My Transactions</a>");
+                    
+                }
+                
+                // eventManagement Page
+                if(!strcmp($uri, "/index.php")){
+                    echo("<a class='nav-link btn btn-danger ml-3' href='eventManagement.php'>Event Management</a>");
+                }
+                else{
+                    echo("<a class='nav-link btn btn-outline-danger ml-3' href='eventManagement.php'>Event Management</a>");
+                    
+                }
+                
+                // transactionManagement Page
+                if(!strcmp($uri, "/index.php")){
+                    echo("<a class='nav-link btn btn-danger ml-3' href='transactionManagement.php'>Transaction Managemen</a>");
+                }
+                else{
+                    echo("<a class='nav-link btn btn-outline-danger ml-3' href='transactionManagement.php'>Transaction Managemen</a>");
+                    
+                }
+                
+                // accountManagement Page
+                if(!strcmp($uri, "/index.php")){
+                    echo("<a class='nav-link btn btn-danger ml-3' href='accountManagement.php'>Account Managemen</a>");
+                }
+                else{
+                    echo("<a class='nav-link btn btn-outline-danger ml-3' href='accountManagement.php'>Account Managemen</a>");
+                    
+                }                
+                
             ?>
-                <a class='nav-link btn btn-danger' href='index.php'>Home</a>
-                <a class='nav-link btn btn-outline-danger ml-3' href='myEvents.php'>My Events</a>
-                <a class='nav-link btn btn-outline-danger ml-3' href='myTransactions.php'>My Transactions</a>
-                <a class='nav-link btn btn-outline-danger ml-3' href='eventManagement.php'>Event Management</a>
-                <a class='nav-link btn btn-outline-danger ml-3' href='transactionManagement.php'>Transaction Management</a>
-                <a class='nav-link btn btn-outline-danger ml-3' href='accountManagement.php'>Account Management</a>
         </div>
         <!-- END Left Nav Bar -->
 
