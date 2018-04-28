@@ -28,9 +28,9 @@
             <a class='nav-link btn btn-outline-info' href='index.php'>Home</a>
             <a class='nav-link btn btn-outline-info ml-3' href='myEvents.php'>My Events</a>
             <a class='nav-link btn btn-outline-info ml-3' href='myTransactions.php'>My Transactions</a>
-            <a class='nav-link btn btn-outline-info ml-3 <?php if ($_SESSION['adminStatus'] === null) echo"disabled";?>' href='eventManagement.php'>Event Management</a>
-            <a class='nav-link btn btn-outline-info ml-3 <?php if ($_SESSION['adminStatus'] === null) echo"disabled";?>' href='transactionManagement.php'>Transaction Management</a>
-            <a class='nav-link btn btn-outline-info ml-3 <?php if ($_SESSION['adminStatus'] === null) echo"disabled";?>' href='accountManagement.php'>Account Management</a>
+            <?php if ($_SESSION['adminStatus'] !== null) echo"<a class='nav-link btn btn-outline-info ml-3' href='eventManagement.php'>Event Management</a>";?>
+            <?php if ($_SESSION['adminStatus'] !== null) echo"<a class='nav-link btn btn-outline-info ml-3' href='transactionManagement.php'>Transaction Management</a>";?>
+            <?php if ($_SESSION['adminStatus'] !== null) echo"<a class='nav-link btn btn-outline-info ml-3' href='accountManagement.php'>Account Management</a>";?>
         </div>
         <!-- END Left Nav Bar -->
 
