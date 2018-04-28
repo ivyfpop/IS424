@@ -26,7 +26,7 @@
                             <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                 <h3>PAYMENT DUE - $$row[transactionQuantity]</h3>
                             </button>
-                            <form action='https://venmo.com/WiscoTC' name='transaction' method='post'>
+                            <form action='venmo.php' name='transaction' method='post'>
                                 <button class='btn btn-success float-right' type='submit' name='transaction' value='$row[transactionID]'>
                                     <h3>Pay Now!</h3>
                                 </button>
