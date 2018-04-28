@@ -9,7 +9,7 @@
 					$accountQuery = "SELECT * FROM Member WHERE memberID = '$_SESSION[memberID]'";
 		      $accountResult = mysqli_query($db, $accountQuery);
 
-					if ($row = mysqli_fetch_array($accountQuery, MYSQLI_BOTH)){
+					if ($row = mysqli_fetch_array($accountResult, MYSQLI_BOTH)){
 						$firstName = $row[firstName];
 						$lastName = $row[lastName];
 						$email = $row[email];
@@ -17,7 +17,7 @@
 					}
 		?>
 
-	<body>
+	  <body>
         <form class="container bg-faded form-signin" action='helper/accountHelper.php' name='update' method='post'>
 
             </br>
