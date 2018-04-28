@@ -50,7 +50,14 @@
                     <div class='card-body border-success'>
                       <strong>Transaction ID:</strong> $row[transactionID]
                       </br>
-                      <strong>
+                      <strong>Event Category:</strong> $row[eventCategory]
+                      </br>
+                      <strong>Date:</strong> $row[eventDate]
+                      </br>
+                      <strong>Location:</strong> $row[eventAddress], $row[eventCity], $row[eventState], $row[eventZip]
+                      </br>
+                      <strong>Description:</strong> $row[eventBio]
+                      </br>
                     </div>
                   </div>
                 </div>";
@@ -59,19 +66,21 @@
               <div class='card mb-3 border-success'>
                 <div class='card-header bg-success'>
                   <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                      <h3>$transactionPaymentDate - $$row[transactionQuantity]</h3>
+                      <h3>'$row[eventName]'</h3>
                   </button>
                   </div>
                   <div id='$row[transactionID]' class='collapse'>
                     <div class='card-body border-success'>
-                      <strong>Transaction ID:</strong> $row[transactionID]
-                      </br>
-                      <strong>Request Date:</strong> $transactionInitDate
-                      </br>
-                      <strong>Payment Date:</strong> $transactionPaymentDate
-                      </br>
-                        <strong>Approval Date:</strong> $transactionApprovalDate
-                      </br>
+                    <strong>Transaction ID:</strong> $row[transactionID]
+                    </br>
+                    <strong>Event Category:</strong> $row[eventCategory]
+                    </br>
+                    <strong>Date:</strong> $row[eventDate]
+                    </br>
+                    <strong>Location:</strong> $row[eventAddress], $row[eventCity], $row[eventState], $row[eventZip]
+                    </br>
+                    <strong>Description:</strong> $row[eventBio]
+                    </br>
                     </div>
                   </div>
                 </div>";
