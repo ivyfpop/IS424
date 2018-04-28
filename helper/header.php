@@ -6,7 +6,6 @@
         if (!isset($_SESSION['memberID'])){
             echo("<meta http-equiv='refresh' content='0;url=login.php'>");
         }
-        echo("$_SERVER['REQUEST_URI']");
     ?>
 
     <!-- meta values -->
