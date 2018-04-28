@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php include 'helper/accountHelper.php';
+    <?php //include 'helper/accountHelper.php';
 		      include 'helper/header.php';
           include 'helper/connect.php';
 					session_start();
 
-					$accountQuery = "SELECT * FROM Member WHERE memberID = '$_SESSION[memberID]'";
+					/*$accountQuery = "SELECT * FROM Member WHERE memberID = '$_SESSION[memberID]'";
 		      $accountResult = mysqli_query($db, $accountQuery);
 
 					if ($row = mysqli_fetch_array($accountResult, MYSQLI_BOTH)){
@@ -14,8 +14,8 @@
 						$lastName = $row[lastName];
 						$email = $row[email];
 						$password = $row[password];
-					}
-					//value=<?php echo "'$firstName'";
+					}*/
+					//
 		?>
 
 	  <body>
@@ -25,7 +25,7 @@
             <center><h1> User Account Panel </h1></center>
 
                 <div class="form-label-group">
-                    <input type="text" id="inputFirstName" class="form-control" name='first_Name'  placeholder="First Name" required autofocus>
+                    <input type="text" id="inputFirstName" class="form-control" name='first_Name' value=<?php echo "'$_SESSION[firstName]'";?> placeholder="First Name" required autofocus>
                     <label for="inputFirstName">First Name</label>
                 </div>
 
