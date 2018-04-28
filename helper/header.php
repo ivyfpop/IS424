@@ -25,7 +25,7 @@
         <!-- Left Nav Bar -->
         <a class='navbar-brand' href='index.php'><img src='/helper/images/website/WTC-Logo-Updated-2015-white-cow.png' width='36' height='36'></a>
         <div class='navbar-nav'>
-            <a class='nav-link btn btn-outline-danger' href='index.php'>Home</a>
+            <a class='nav-link btn btn-danger' href='index.php'>Home</a>
             <a class='nav-link btn btn-outline-danger ml-3' href='myEvents.php'>My Events</a>
             <a class='nav-link btn btn-outline-danger ml-3' href='myTransactions.php'>My Transactions</a>
             <a class='nav-link btn btn-outline-danger ml-3' href='eventManagement.php'>Event Management</a>
@@ -36,9 +36,9 @@
 
         <!-- Right Nav Bar -->
         <div class='navbar-nav ml-auto'>
-            <a class='nav-link btn btn-outline-warning mr-3' href='myAccount.php'>My Account Panel</a>
+            <a class='nav-link btn btn-outline-dark mr-3' href='myAccount.php'>My Account Panel</a>
             <form action='helper/accountHelper.php' name='logout' method='post'>
-                <button class="nav-link btn  btn-outline-danger mr-3" type="submit" name='logout' value='logout'>Logout</button>
+                <button class="nav-link btn  btn-warning mr-3" type="submit" name='logout' value='logout'>Logout</button>
             </form>
         </div>
         <!-- END Right Nav Bar -->
