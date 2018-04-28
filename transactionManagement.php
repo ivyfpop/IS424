@@ -2,9 +2,9 @@
 <html lang="en">
 <?php include 'helper/header.php'?>
     
-    <div class='navbar-nav mx-auto'>
+    <div class='navbar navbar-dark bg-danger d-flex justify-content-center'>
         <form class='form-inline' action='faculty.php' name='search_faculty' method='post'>
-            <input class='form-control mr-3' type='text' placeholder='First Na123123123123123123123me' name='first_name'>
+            <input class='form-control mr-3' type='text' placeholder='First Name' name='first_name'>
             <input class='form-control mr-3' type='text' placeholder='Last Name' name='last_name'>
             <button class='form-control btn btn-outline-warning' type='submit' name='search_faculty' value='search_faculty'>Search Faculty!</button>
         </form>
