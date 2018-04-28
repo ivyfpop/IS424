@@ -96,10 +96,10 @@
                 
                 // myAccount Page
                 if(!strcmp($uri, "/myAccount.php")){
-                    echo("<a class='nav-link btn btn-warning ml-3' href='myAccount.php'>My Account Panel</a>");
+                    echo("<a class='nav-link btn btn-warning mr-3' href='myAccount.php'>My Account Panel</a>");
                 }
                 else{
-                    echo("<a class='nav-link btn btn-outline-warning ml-3' href='myAccount.php'>My Account Panel</a>");      
+                    echo("<a class='nav-link btn btn-outline-warning mr-3' href='myAccount.php'>My Account Panel</a>");      
                 }
             ?>
             <form action='helper/accountHelper.php' name='logout' method='post'>
