@@ -34,7 +34,6 @@
         if ($signUpForResults != 'FALSE') {
           echo"<hr><h2 class='text-center'><strong>Sign Up For Events</strong></h2><hr>";
           while($row = mysqli_fetch_array($signUpForResults, MYSQLI_BOTH)) {
-            echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
             echo"
             <div class='card mb-3 border-success'>
               <div class='card-header bg-success'>
