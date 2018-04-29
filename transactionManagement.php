@@ -28,7 +28,7 @@
             $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
 
             // If a search was submitted, determine the correct query
-            if($_POST['transactionSearch']){
+            if(isset($_POST['transactionSearch'])){
                 // Member Last Name Query
                 if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
@@ -202,7 +202,7 @@
                         }
                     }
                 }
-            }
+            
         ?>
     </div>
     
