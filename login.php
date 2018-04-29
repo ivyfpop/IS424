@@ -76,4 +76,5 @@
         <!-- END Login Form -->
 
     </body>
+    <?php include 'helper/footer.php' ?>
 </html>

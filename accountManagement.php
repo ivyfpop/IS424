@@ -54,4 +54,5 @@
             <button class="btn btn-lg btn-success btn-block" type="submit" name='update' value='update'>Update Account</button>
         </form>
     </body>
+    <?php include 'helper/footer.php' ?>    
 </html>

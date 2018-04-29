@@ -31,7 +31,7 @@
             echo"<div class='card mb-3 border-danger'>
                     <div class='card-header bg-danger'>
                             <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                <h3>PAYMENT DUE - $$row[transactionQuantity]</h3>
+                                <h3>$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
                             </button>
                             <form action='https://venmo.com/WiscoTC' name='transaction' method='post'>
                                 <button class='btn btn-success float-right' type='submit' name='transaction' value='$row[transactionID]'>
@@ -82,6 +82,11 @@
                 $transactionInitDate = date("m/d/y g:i A", strtotime($row[transactionInitDate]));
                 $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
 
+                // If the transaction is unpaid transaction 
+                if()}{
+                }
+            
+                // else-if the transaction is 
                 echo"
                 <div class='card mb-3 border-warning'>
                     <div class='card-header bg-warning'>
@@ -184,8 +189,5 @@
         }
     ?>
     </div>
-
-    <!-- JS Used -->
-    <script src="helper/vendor/jquery/jquery.min.js"></script>
-    <script src="helper/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <?php include 'helper/footer.php' ?>
 </html>

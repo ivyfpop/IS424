@@ -58,4 +58,5 @@
             <a class="btn btn-lg btn-warning btn-block" href="login.php" role="button">Back to Login</a>
         </form>
     <body>
+    <?php include 'helper/footer.php' ?>    
 </html>
