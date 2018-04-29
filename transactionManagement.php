@@ -8,7 +8,7 @@
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue'>
             
             <select type="text" class="form-control mr-3" name='transactionSearchType' id='transactionSearchType'>
-                <option selected value="0">25 Most Recent</option>                        
+                <option value="0" selected>25 Most Recent</option>                        
                 <option value="1">Last Name</option>            
                 <option value="2">Transaction ID</option>
                 <option value="3">Event ID</option>
@@ -23,11 +23,11 @@
     <h1 class='text-center'><strong>My Transactions</strong></h1>
         <?php
             session_start();
-            /*
+            
             
             // If a search was submitted, determine the correct query
             if($_POST['transactionSearchValue']){
-          
+                
                 echo"<p>$_POST['transactionSeachType']</p>";
                 echo"<p>$_POST['transactionSearchValue']</p>";
                 
@@ -35,7 +35,7 @@
                 $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
                
                 // Member Name Query
-                else if($_POST['transactionSearchType'] == 1){
+                if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
                 }
                 // Transaction ID Query
@@ -206,7 +206,7 @@
                         }
                     }
                 }
-            }*/
+            }
         ?>
     </div>
     
