@@ -3,7 +3,7 @@
 <?php include 'helper/header.php'?>
     
     <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
-        <form class='form-inline' action='transactionManagement.php' name='searchTransactions' method='post'>
+        <form class='form-inline' action='transactionManagement.php' name='transactionSearch' method='post'>
         
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue'>
             
@@ -14,7 +14,7 @@
                 <option value="4">Member ID</option>
             </select>
             
-            <button class='form-control btn btn-success' type='submit'>Search Transactions!</button>
+            <button class='form-control btn btn-success' type='submit' name='transactionSearch'>Search Transactions!</button>
         </form>
     </div>
 
@@ -48,10 +48,10 @@
                 
                 
                 
-                // Connect to the database, run query, and close connection.
-                include 'helper/connect.php';
-                $transactions = $db->query($transactionQuery);
-                mysqli_close($db);
+            // Connect to the database, run query, and close connection.
+            include 'helper/connect.php';
+            $transactions = $db->query($transactionQuery);
+            mysqli_close($db);
                             
                 // Verify there are transactions
                 if($transactions){            
