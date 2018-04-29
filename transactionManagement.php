@@ -25,18 +25,9 @@
             session_start();
 
             // If a search was submitted, determine the correct query
-<<<<<<< HEAD
             if($_POST['transactionSearch']){
                 
-                /* No value was entered.
-                if(!$_POST['transactionSearchValue'] && $_POST['transactionSearchType'] != 0){
-                    echo"<div class='text-center alert alert-warning'>
-                            <strong>Your search returned no results.</strong>
-                         </div>";                  
-                }*/
-                // Member Last Name Query
-=======
-            if($_POST['transactionSearchValue']){
+
                 
                 //echo"<p>$_POST['transactionSeachType']</p>";
                 echo"<p>$_POST[transactionSearchValue]</p>";
@@ -45,7 +36,6 @@
                 $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
                 
                 // Member Name Query
->>>>>>> parent of f77720e... Transaction Stuff
                 if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
                 }
@@ -217,11 +207,6 @@
                         }
                     }
                 }
-            }
-            else{
-                echo"<div class='text-center alert alert-warning'>
-                        <strong>Please enter a value in order to search.</strong>
-                    </div>";              
             }
         ?>
     </div>
