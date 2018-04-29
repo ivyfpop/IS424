@@ -31,7 +31,7 @@
             if($_POST['transactionSearch']){
                 
                 // No value was entered.
-                if(!$_POST['transactionSearchValue'] && $_POST['transactionSearchType'] != 0}
+                if(!$_POST['transactionSearchValue'] && $_POST['transactionSearchType'] != 0){
                     echo"<div class='text-center alert alert-warning'>
                             <strong>Your search returned no results.</strong>
                          </div>";                  
