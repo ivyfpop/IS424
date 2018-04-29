@@ -18,8 +18,6 @@
         </form>
     </div>
 
-    <div class='container bg-faded p-4 my-4'>
-    <h1 class='text-center'><strong>My Transactions</strong></h1>
         <?php
             session_start();
             
@@ -60,7 +58,9 @@
             mysqli_close($db);
                             
                 // Verify there are transactions
-                if($transactions){            
+                if($transactions){
+                        echo"<div class='container bg-faded p-4 my-4'>
+                                <h1 class='text-center'><strong>My Transactions</strong></h1>";
                     // Loop through all of their transactions
                     while ($row = mysqli_fetch_array($transactions, MYSQLI_BOTH)){
                         // Date that the transaction was created.
