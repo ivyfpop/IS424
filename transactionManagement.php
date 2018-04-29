@@ -6,6 +6,7 @@
         <form class='form-inline' action='transactionManagement.php' name='searchTransactions' method='post'>
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue'>
             <select type="text" class="form-control mr-3" name='transactionSearchType'>
+                <option value="0">Last Name</option>                        
                 <option value="1">Last Name</option>            
                 <option selected="" value="2">Transaction ID</option>
                 <option value="3">Event ID</option>
@@ -24,7 +25,7 @@
             if($_POST['transactionSearchValue']){
                 
                 // Will hold the query used to display transactions
-                $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
+                $transactionQuery;
                 
                 // Member Name Query
                 if($_POST['transactionSearchType'] == 1){
@@ -41,6 +42,9 @@
                 // Member ID Query
                 else if($_POST['transactionSearchType'] == 4){
                     $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchType]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
+                }
+                else if($_POST['transactionSearchType'] == 0){
+                    $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
                 }
                 
                 
