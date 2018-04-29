@@ -26,17 +26,13 @@
             
             // If a search was submitted, determine the correct query
             if($_POST['transactionSearchValue']){
-                
-                // Will hold the query used to display transactions
-                $transactionQuery;
-                
-                echo"$_POST['transactionSeachType']";
-                echo"$_POST['transactionSearchValue']";
+          
+                echo"<p>$_POST['transactionSeachType']</p>";
+                echo"<p>$_POST['transactionSearchValue']</p>";
                 
                 // Default, most recent ones.
-                if($_POST['transactionSearchType'] == 0){
-                    $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
-                }
+                $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
+               
                 // Member Name Query
                 else if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
