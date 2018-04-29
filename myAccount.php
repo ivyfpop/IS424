@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php //include 'helper/accountHelper.php';
-		      include 'helper/header.php';
+    <?php include 'helper/header.php';
           include 'helper/connect.php';
 					session_start();
 
 					/*$accountQuery = "SELECT * FROM Member WHERE memberID = '$_SESSION[memberID]'";
-		      $accountResult = mysqli_query($db, $accountQuery);
-
-					if ($row = mysqli_fetch_array($accountResult, MYSQLI_BOTH)){
-						$firstName = $row[firstName];
-						$lastName = $row[lastName];
-						$email = $row[email];
-						$password = $row[password];
-					}*/
-					//
+		      $accountResult = mysqli_query($db, $accountQuery);*/
 		?>
 
 	  <body>
@@ -30,12 +21,12 @@
                 </div>
 
                 <div class="form-label-group">
-                    <input type="text" id="inputLastName" class="form-control" name='last_Name' placeholder="Last Name" required autofocus>
+                    <input type="text" id="inputLastName" class="form-control" name='last_Name' value=<?php echo "'$_SESSION[lastName]'";?> placeholder="Last Name" required autofocus>
                     <label for="inputLastName">Last Name</label>
                 </div>
 
                 <div class="form-label-group">
-                    <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
+                    <input type="email" id="inputEmail" class="form-control" name='email' value=<?php echo "'$_SESSION[email]'";?> placeholder="Email Address" required autofocus>
                     <label for="inputEmail">Email Address</label>
                 </div>
 
@@ -65,9 +56,11 @@
                 </div>
 
             <br>
-
+            <br>
             <button class="btn btn-lg btn-success btn-block" type="submit" name='update' value='update'>Update Account</button>
         </form>
+        <br>
+        <br>
     </body>
     <?php include 'helper/footer.php' ?>
 </html>
