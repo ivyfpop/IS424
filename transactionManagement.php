@@ -4,9 +4,7 @@
     
     <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
         <form class='form-inline' action='transactionManagement.php' name='transactionSearch' method='post'>
-        
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue'>
-            
             <select type="text" class="form-control mr-3" name='transactionSearchType' id='transactionSearchType'>
                 <option selected value="1">Last Name</option>            
                 <option value="2">Transaction ID</option>
@@ -30,7 +28,11 @@
                 
                 // Search field was empty
                 if(!$_POST['transactionSearchValue']){
-                    echo"<div class='alert alert-danger text-center' role='alert'><strong>Please enter a value into the search field!</strong></div>";
+                    echo"<div class='alert alert-danger mx-auto text-center w-50' role='alert'><strong>Please enter a value into the search field!</strong>
+                            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                <span aria-hidden='true'>&times;</span>
+                            </button>
+                          </div>";
                     $transactionQuery = "";  
                 }
                 // Member Last Name Query
@@ -212,7 +214,7 @@
             }
             // Let the user know that their query returned no results.
             else if($transactionQuery){
-                echo"<div class='alert alert-warning text-center' role='alert'><strong>Your search returned no results, please try again!</strong></div>";                    
+                echo"<div class='alert alert-warning text-center mx-auto text-center w-50' role='alert'><strong>Your search returned no results, please try again!</strong></div>";                    
             }
         ?>
     
