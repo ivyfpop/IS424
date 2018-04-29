@@ -8,7 +8,7 @@
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue'>
             
             <select type="text" class="form-control mr-3" name='transactionSearchType' id='transactionSearchType'>
-                <option selected value="0">25 Most Recent</option>                        
+                <option selected="" value="0">25 Most Recent</option>                        
                 <option value="1">Last Name</option>            
                 <option value="2">Transaction ID</option>
                 <option value="3">Event ID</option>
