@@ -31,7 +31,8 @@
                 
                 // Search field was empty
                 if(!$_POST['transactionSearchValue']){
-                    echo"<div class='alert alert-danger' role='alert'>Please enter a value into the search field!</div>";
+                    echo"<div class='alert alert-danger text-center' role='alert'><strong>Please enter a value into the search field!</strong></div>";
+                    $transactionQuery = "";  
                 }
                 // Member Last Name Query
                 else if($_POST['transactionSearchType'] == 1){
