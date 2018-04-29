@@ -28,8 +28,13 @@
 
             // If a search was submitted, determine the correct query
             if(isset($_POST['transactionSearch'])){
+                
+                // Search field was empty
+                if(!$_POST['transactionSearchValue']){
+                    echo"<p> Fuck You </p>";
+                }
                 // Member Last Name Query
-                if($_POST['transactionSearchType'] == 1){
+                else if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
                 }
                 // Transaction ID Query
