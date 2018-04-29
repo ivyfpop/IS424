@@ -24,7 +24,7 @@
             if($_POST['transactionSearchValue']){
                 
                 // Will hold the query used to display transactions
-                $transactionQuery;
+                $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
                 
                 // Member Name Query
                 if($_POST['transactionSearchType'] == 1){
@@ -42,6 +42,7 @@
                 else if($_POST['transactionSearchType'] == 4){
                     $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchType]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
+                
                 
                 // Connect to the database, run query, and close connection.
                 include 'helper/connect.php';
