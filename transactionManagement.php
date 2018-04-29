@@ -33,7 +33,7 @@
                 
                 // Default, most recent ones.
                 $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
-               
+                /*
                 // Member Name Query
                 if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
@@ -50,7 +50,7 @@
                 else if($_POST['transactionSearchType'] == 4){
                     $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
-
+                */
                 
                 
                 // Connect to the database, run query, and close connection.
@@ -58,7 +58,7 @@
                 $transactions = $db->query($transactionQuery);
                 mysqli_close($db);
                             
-                // Verify there are open transactions for this member, ADD ORDER BY requesting date to keep them in order.
+                // Verify there are transactions
                 if($transactions){            
                     // Loop through all of their transactions
                     while ($row = mysqli_fetch_array($transactions, MYSQLI_BOTH)){
