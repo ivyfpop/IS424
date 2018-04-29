@@ -15,7 +15,7 @@
                 <option value="4">Member ID</option>
             </select>
             
-            <button class='form-control btn btn-success' type='submit' name='transactionSearch'>Search Transactions!</button>
+            <button class='form-control btn btn-success' type='submit'>Search Transactions!</button>
         </form>
     </div>
 
@@ -23,19 +23,13 @@
     <h1 class='text-center'><strong>My Transactions</strong></h1>
         <?php
             session_start();
+            
+            // Default Query
+            $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
 
             // If a search was submitted, determine the correct query
             if($_POST['transactionSearch']){
-                
-
-                
-                //echo"<p>$_POST['transactionSeachType']</p>";
-                echo"<p>$_POST[transactionSearchValue]</p>";
-                
-                // Default, most recent ones.
-                $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
-                
-                // Member Name Query
+                // Member Last Name Query
                 if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
                 }
@@ -51,6 +45,7 @@
                 else if($_POST['transactionSearchType'] == 4){
                     $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
+            }
                 
                 
                 
