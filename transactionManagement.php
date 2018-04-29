@@ -30,12 +30,12 @@
             // If a search was submitted, determine the correct query
             if($_POST['transactionSearch']){
                 
-                // No value was entered.
+                /* No value was entered.
                 if(!$_POST['transactionSearchValue'] && $_POST['transactionSearchType'] != 0){
                     echo"<div class='text-center alert alert-warning'>
                             <strong>Your search returned no results.</strong>
                          </div>";                  
-                }
+                }*/
                 // Member Last Name Query
                 else if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
