@@ -23,13 +23,12 @@
     <h1 class='text-center'><strong>My Transactions</strong></h1>
         <?php
             session_start();
-            
-            
+
             // If a search was submitted, determine the correct query
             if($_POST['transactionSearchValue']){
                 
-                echo"<p>$_POST['transactionSeachType']</p>";
-                echo"<p>$_POST['transactionSearchValue']</p>";
+                //echo"<p>$_POST['transactionSeachType']</p>";
+                //echo"<p>$_POST['transactionSearchValue']</p>";
                 
                 // Default, most recent ones.
                 $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
