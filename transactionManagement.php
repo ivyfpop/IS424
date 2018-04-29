@@ -23,6 +23,7 @@
     <h1 class='text-center'><strong>My Transactions</strong></h1>
         <?php
             session_start();
+            /*
             
             // If a search was submitted, determine the correct query
             if($_POST['transactionSearchValue']){
@@ -205,7 +206,7 @@
                         }
                     }
                 }
-            }
+            }*/
         ?>
     </div>
     
