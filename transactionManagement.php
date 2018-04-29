@@ -4,14 +4,17 @@
     
     <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
         <form class='form-inline' action='transactionManagement.php' name='searchTransactions' method='post'>
+        
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue'>
-            <select type="text" class="form-control mr-3" name='transactionSearchType'>
-                <option value="0">Last Name</option>                        
+            
+            <select type="text" class="form-control mr-3" name='transactionSearchType' id='transactionSearchType'>
+                <option selected value="0">25 Most Recent</option>                        
                 <option value="1">Last Name</option>            
-                <option selected="" value="2">Transaction ID</option>
+                <option value="2">Transaction ID</option>
                 <option value="3">Event ID</option>
                 <option value="4">Member ID</option>
-            </select>            
+            </select>
+            
             <button class='form-control btn btn-success' type='submit'>Search Transactions!</button>
         </form>
     </div>
@@ -27,25 +30,30 @@
                 // Will hold the query used to display transactions
                 $transactionQuery;
                 
+                echo"$_POST['transactionSeachType']";
+                echo"$_POST['transactionSearchValue']";
+                
+                // Default, most recent ones.
+                if($_POST['transactionSearchType'] == 0){
+                    $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
+                }
                 // Member Name Query
-                if($_POST['transactionSearchType'] == 1){
-                    $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchType]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
+                else if($_POST['transactionSearchType'] == 1){
+                    $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
                 }
                 // Transaction ID Query
                 else if($_POST['transactionSearchType'] == 2){
-                    $transactionQuery = "SELECT * FROM Transaction WHERE transactionID = '$_POST[transactionSearchType]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";
+                    $transactionQuery = "SELECT * FROM Transaction WHERE transactionID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";
                 }
                 // EventID Query
                 else if($_POST['transactionSearchType'] == 3){
-                    $transactionQuery = "SELECT * FROM Transaction WHERE eventID = '$_POST[transactionSearchType]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
+                    $transactionQuery = "SELECT * FROM Transaction WHERE eventID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
                 // Member ID Query
                 else if($_POST['transactionSearchType'] == 4){
-                    $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchType]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
+                    $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
-                else if($_POST['transactionSearchType'] == 0){
-                    $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
-                }
+
                 
                 
                 // Connect to the database, run query, and close connection.
