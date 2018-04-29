@@ -15,7 +15,7 @@
                 <option value="4">Member ID</option>
             </select>
             
-            <button class='form-control btn btn-success' type='submit'>Search Transactions!</button>
+            <button class='form-control btn btn-success' type='submit' name='transactionSearch'>Search Transactions!</button>
         </form>
     </div>
 
@@ -28,9 +28,16 @@
             $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";            
             
             // If a search was submitted, determine the correct query
-            if($_POST['transactionSearchValue']){
+            if($_POST['transactionSearch']){
+                
+                // No value was entered.
+                if(!$_POST['transactionSearchValue']}
+                    echo"<div class='text-center alert alert-warning'>
+                            <strong>Your search returned no results.</strong>
+                         </div>";                  
+                }
                 // Member Last Name Query
-                if($_POST['transactionSearchType'] == 1){
+                else if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
                 }
                 // Transaction ID Query
@@ -200,6 +207,11 @@
                                 
                     }
                 }
+            }
+            else{
+                echo"<div class='text-center alert alert-warning'>
+                        <strong>Please enter a value in order to search.</strong>
+                    </div>";              
             }
         ?>
     </div>
