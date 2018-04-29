@@ -37,7 +37,7 @@
                          </div>";                  
                 }*/
                 // Member Last Name Query
-                else if($_POST['transactionSearchType'] == 1){
+                if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
                 }
                 // Transaction ID Query
