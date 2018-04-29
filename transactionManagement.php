@@ -59,8 +59,8 @@
                             
                 // Verify there are transactions
                 if($transactions){
-                        echo"<div class='container bg-faded p-4 my-4'>
-                                <h1 class='text-center'><strong>My Transactions</strong></h1>";
+                        // Open the containte
+                        echo"<div class='container bg-faded p-4 my-4'>";
                     // Loop through all of their transactions
                     while ($row = mysqli_fetch_array($transactions, MYSQLI_BOTH)){
                         // Date that the transaction was created.
@@ -206,10 +206,13 @@
                                     
                         }
                     }
+                    // Close the container.
+                    echo"</div>";
                 }
-            
+                else{
+                    echo"<div class='alert alert-warning text-center' role='alert'><strong>Your search returned no results, please try again!</strong></div>";                    
+                }
         ?>
-    </div>
     
   <?php include 'helper/footer.php' ?>
 </html>
