@@ -58,7 +58,7 @@
             mysqli_close($db);
                             
                 // Verify there are transactions
-                if($transactions){
+                if($transactions && $transactionQuery){
                         // Open the containte
                         echo"<div class='container bg-faded p-4 my-4'>";
                     // Loop through all of their transactions
@@ -210,7 +210,7 @@
                     echo"</div>";
                 }
                 // Let the user know that their query returned no results.
-                else if($transactionQuery){
+                else{
                     echo"<div class='alert alert-warning text-center' role='alert'><strong>Your search returned no results, please try again!</strong></div>";                    
                 }
         ?>
