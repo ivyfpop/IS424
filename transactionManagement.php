@@ -30,7 +30,8 @@
                 }*/
                 include 'helper/connect.php';
                 session_start();
-
+            }
+            
             // Verify there are open transactions for this member, ADD ORDER BY requesting date to keep them in order.
             if($openTransactions = $db->query($transactionQuery)){            
                 // Loop through all of their transactions
