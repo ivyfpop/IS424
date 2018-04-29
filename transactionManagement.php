@@ -211,7 +211,7 @@
                 echo"</div>";
             }
             // Let the user know that their query returned no results.
-            else{
+            else if($transactionQuery){
                 echo"<div class='alert alert-warning text-center' role='alert'><strong>Your search returned no results, please try again!</strong></div>";                    
             }
         ?>
