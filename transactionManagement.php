@@ -25,7 +25,7 @@
                 
                 // Will hold the query used to display transactions
                 $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
-                /*
+                
                 // Member Name Query
                 if($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchType]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
@@ -42,17 +42,17 @@
                 else if($_POST['transactionSearchType'] == 4){
                     $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchType]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
-                */
+                
                 
                 // Connect to the database, run query, and close connection.
                 include 'helper/connect.php';
-                $openTransactions = $db->query($transactionQuery)
+                $transactions = $db->query($transactionQuery);
                 mysqli_close($db);
                             
                 // Verify there are open transactions for this member, ADD ORDER BY requesting date to keep them in order.
-                if($openTransactions = $db->query($transactionQuery)){            
+                if($transactions){            
                     // Loop through all of their transactions
-                    while ($row = mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
+                    while ($row = mysqli_fetch_array($transactions, MYSQLI_BOTH)){
                         // Date that the transaction was created.
                         $transactionInitDate = date("m/d/y g:i A", strtotime($row[transactionInitDate]));
                         
