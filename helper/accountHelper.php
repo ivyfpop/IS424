@@ -55,35 +55,30 @@
 
             include 'connect.php';
 
-            $_isSprinter = $_isThrower = $_isDistance = $_isJumper = 0;
+            $isSprinter = $isThrower = $isDistance = $isJumper = 0;
 
-            //if (isset($_POST['isSprinter']) && $_POST['isSprinter'] == 'isSprinter'){
-            if (isset($_POST['isSprinter']))
-              $_isSprinter = 1;
-            //if (isset($_POST['isThrower']) && $_POST['isThrower'] == 'isThrower'){
-            if (isset($_POST['isThrower']))
-              $_isThrower = 1;
-            //if (isset($_POST['isDistance']) && $_POST['isDistance'] == 'isDistance'){
-            if (isset($_POST['isDistance']))
-              $_isDistance = 1;
-            //if (isset($_POST['isJumper']) && $_POST['isJumper'] == 'isJumper'){
-            if (isset($_POST['isJumper']))
-              $_isJumper = 1;
+            if (isset($_POST['isSprinter'])) $isSprinter = 1;
+            if (isset($_POST['isThrower'])) $isThrower = 1;
+            if (isset($_POST['isDistance'])) $isDistance = 1;
+            if (isset($_POST['isJumper'])) $isJumper = 1;
 
             // Query used to update the account
             // update doesn't support SET () VALUES ()
-            $updateQuery = "UPDATE Member SET firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', email = '$_POST[email]', password = '$_POST[password]', isSprinter = $_isSprinter, isDistance = $_isDistance, isThrower = $_isThrower, isJumper = $_isJumper WHERE memberID = $_SESSION[memberID]";
+            $updateQuery = "UPDATE Member SET firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', email = '$_POST[email]', password = '$_POST[password]', isSprinter = $isSprinter, isDistance = $isDistance, isThrower = $isThrower, isJumper = $isJumper WHERE memberID = $_SESSION[memberID]";
 
             // Update account and send them to the homepage
-            if (mysqli_query($db, $updateQuery)){
+            if (mysqli_query($db, $updateQuery)) {
+
+              // TODO update $_SESSION values (firstName, lastName, email)
 
               if ($_POST['self-update'])
                 echo("<meta http-equiv='refresh' content='0;url=../myAccount.php'>");
               else
                 echo("<meta http-equiv='refresh' content='0;url=../accountManagement.php'>");
 
-            } else
-              echo "<h1>Query failed!</h1>";
+            } else {
+              // failure
+            }
 
         }
         // Otherwise just redirect them to the index page.
