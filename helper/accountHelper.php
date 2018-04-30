@@ -54,9 +54,25 @@
         else if($_POST['self-update'] || $_POST['admin-update']){
 
             include 'connect.php';
+
+            $_isSprinter = $_isThrower = $_isDistance = $_isJumper = 0;
+
+            if (isset($_POST['isSprinter']) && $_POST['isSprinter'] == 'isSprinter'){
+              $_isSprinter = 1;
+            }
+            if (isset($_POST['isThrower']) && $_POST['isThrower'] == 'isThrower'){
+              $_isThrower = 1;
+            }
+            if (isset($_POST['isDistance']) && $_POST['isDistance'] == 'isDistance'){
+              $_isDistance = 1;
+            }
+            if (isset($_POST['isJumper']) && $_POST['isJumper'] == 'isJumper'){
+              $_isJumper = 1;
+            }
+
             // Query used to update the account
             // update doesn't support SET () VALUES ()
-            $updateQuery = "UPDATE Member SET firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', email = '$_POST[email]', password = '$_POST[password]', isSprinter = $_POST[isSprinter], isDistance = $_POST[isDistance], isThrower = $_POST[isThrower], isJumper = $_POST[isJumper] WHERE memberID = $_SESSION[memberID]";
+            $updateQuery = "UPDATE Member SET firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', email = '$_POST[email]', password = '$_POST[password]', isSprinter = $_isSprinter, isDistance = $_isDistance, isThrower = $_isThrower, isJumper = $_isJumper WHERE memberID = $_SESSION[memberID]";
 
             // Update account and send them to the homepage
             if (mysqli_query($db, $updateQuery)){
@@ -65,9 +81,9 @@
                 echo("<meta http-equiv='refresh' content='0;url=../myAccount.php'>");
               else
                 echo("<meta http-equiv='refresh' content='0;url=../accountManagement.php'>");
-            } else {
+                
+            } else
               echo "<h1>Query failed!</h1>";
-            }
 
         }
         // Otherwise just redirect them to the index page.
