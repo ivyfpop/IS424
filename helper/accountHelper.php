@@ -58,21 +58,17 @@
             $_isSprinter = $_isThrower = $_isDistance = $_isJumper = 0;
 
             //if (isset($_POST['isSprinter']) && $_POST['isSprinter'] == 'isSprinter'){
-            if (isset($_POST['isSprinter'])){
+            if (isset($_POST['isSprinter']))
               $_isSprinter = 1;
-            }
             //if (isset($_POST['isThrower']) && $_POST['isThrower'] == 'isThrower'){
-            if (isset($_POST['isThrower'])){
+            if (isset($_POST['isThrower']))
               $_isThrower = 1;
-            }
             //if (isset($_POST['isDistance']) && $_POST['isDistance'] == 'isDistance'){
-            if (isset($_POST['isDistance'])){
+            if (isset($_POST['isDistance']))
               $_isDistance = 1;
-            }
             //if (isset($_POST['isJumper']) && $_POST['isJumper'] == 'isJumper'){
-            if (isset($_POST['isJumper'])){
+            if (isset($_POST['isJumper']))
               $_isJumper = 1;
-            }
 
             // Query used to update the account
             // update doesn't support SET () VALUES ()
