@@ -70,7 +70,7 @@
               $_isDistance = 1;
             }
             //if (isset($_POST['isJumper']) && $_POST['isJumper'] == 'isJumper'){
-            if (isset($_POST['isJumper']){
+            if (isset($_POST['isJumper'])){
               $_isJumper = 1;
             }
 
