@@ -117,7 +117,7 @@
               */
               echo"<hr><h2 class='text-center'><strong>Past Events</strong></h2><hr>";
               if ($pastEvents != 'FALSE') {
-                while($row = mysqli_fetch_array($signedUpResults, MYSQLI_BOTH)){
+                while($row = mysqli_fetch_array($pastEvents, MYSQLI_BOTH)){
                   echo"
                   <div class='card mb-3 border-success'>
                     <div class='card-header bg-success'>
@@ -143,9 +143,7 @@
                       </div>
                     </div>";
                 }
-              } echo"<p4>There are no past results to display for this account. </p4>
-
-
+              } echo"<p4>There are no past results to display for this account. </p4>";
       } else {
           // Not Registered Header
           echo"<h2 class='text-center'><strong>You Are Not Registered!</strong></h2>";
