@@ -5,8 +5,12 @@
           include 'helper/connect.php';
 					session_start();
 
-					/*$accountQuery = "SELECT * FROM Member WHERE memberID = '$_SESSION[memberID]'";
-		      $accountResult = mysqli_query($db, $accountQuery);*/
+					$eventQuery = "SELECT isSprinter,isThrower,isDistance,isJumper FROM Member WHERE memberID = '$_SESSION[memberID]'";
+		      $eventResult = mysqli_query($db, $eventQuery);
+          mysqli_close($db);
+
+          //Verify that the there is a user and store the session data if so.
+          $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 		?>
 
 	  <body>
@@ -36,22 +40,22 @@
                 </div>
 
                 <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='isSprinter' value='isSprinter'>
+                    <input class='form-check-input' type='checkbox' id='isSprinter' value='isSprinter' <?php if ($row['isSprinter']) echo "checked"?>>
                     <label class='form-check-label' for='isSprinter'>Sprinter</label>
                 </div>
 
                 <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='isDistance' value='isDistance'>
+                    <input class='form-check-input' type='checkbox' id='isDistance' value='isDistance' <?php if ($row['isDistance']) echo "checked"?>>
                     <label class='form-check-label' for='isDistance'>Distance</label>
                 </div>
 
                 <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='isThrower' value='isThrower'>
+                    <input class='form-check-input' type='checkbox' id='isThrower' value='isThrower' <?php if ($row['isThrower']) echo "checked"?>>
                     <label class='form-check-label' for='isThrower'>Thrower</label>
                 </div>
 
                 <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='isJumper' value='isJumper'>
+                    <input class='form-check-input' type='checkbox' id='isJumper' value='isJumper' <?php if ($row['isJumper']) echo "checked"?>>
                     <label class='form-check-label' for='isJumper'>Jumper</label>
                 </div>
 
