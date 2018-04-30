@@ -1,4 +1,4 @@
 <?php
-echo $_POST[registeredID];
+echo $_POST['registeredID'];
 
  ?>
