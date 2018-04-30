@@ -56,6 +56,7 @@
                     </br>
                     <form action='eventSignUp.php' name='eventSignUp' method='post'>
                       <input type='hidden' name='registeredID' id='registeredID' value=$registeredID>
+                      <input type='hidden' name='eventID' value=$row[eventID]>
                       <button type='submit' class='btn btn-danger'>Sign Up</button>
                     </form>
                     </br>
