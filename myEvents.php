@@ -66,20 +66,16 @@
         //Querying for all events in Registered_Member_Event with user's registeredID
         $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event
           INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
-          '$registeredID'");
+          '$registeredID' AND isComplete = 0");
           /*
             Current Events display.
             A current event is one that is in the Registered_Member_Event table and
             has isComplete set to 0. This means that the event has not happened yet.
           */
         if ($signedUpResults != 'FALSE') { //Making sure that query returns data
+          echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
           while($row = mysqli_fetch_array($signedUpResults, MYSQLI_BOTH)){
-            //Events that have not been paid for - red background
-            if ($row[isComplete] == 0){
-              //TODO need to find a better way to place the events udner teh correct header
-              // -> looping through row and need to show "Events signed up for" and
-              // Past Events.
-              echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
+            //Events that have not been completed (they haven't happened yet)
               echo"
               <div class='card mb-3 border-danger'>
                 <div class='card-header bg-danger'>
@@ -104,40 +100,48 @@
                     </div>
                   </div>
                 </div>";
-            } else if ($row[isComplete] == 1) { //Events that have been paid for - green background
+              }
+            }
+            //TODO do we want this to show all past events for the memeber ID instead
+            //of just the registeredID?
+            $pastEvents = mysqli_query($db, "SELECT * FROM Registered_Member_Event
+              INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
+              '$registeredID' AND isComplete = 1");
               /*
                Past Events Display.
                A past event is one that has already happened, meaning the attribute isComplete is
                set to 1 in the database.
               */
               echo"<hr><h2 class='text-center'><strong>Past Events</strong></h2><hr>";
-              echo"
-              <div class='card mb-3 border-success'>
-                <div class='card-header bg-success'>
-                  <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                      <h3>$row[eventID] - $row[eventName]</h3>
-                  </button>
-                  </div>
-                  <div id='$row[transactionID]' class='collapse'>
-                    <div class='card-body border-success'>
-                      <strong>Transaction ID:</strong> $row[transactionID]
-                      </br>
-                      <strong>Event Category:</strong> $row[eventCategory]
-                      </br>
-                      <strong>Date:</strong> $row[eventDate]
-                      </br>
-                      <strong>Location:</strong> $row[eventAddress], $row[eventCity], $row[eventState], $row[eventZip]
-                      </br>
-                      <strong>Leave By:</strong> $row[leaveBy]
-                      </br>
-                      <strong>Description:</strong> $row[eventBio]
-                      </br>
-                    </div>
-                  </div>
-                </div>";
-            }
-          }
-        }
+              if ($pastEvents != 'FALSE') {
+                while($row = mysqli_fetch_array($signedUpResults, MYSQLI_BOTH)){
+                  echo"
+                  <div class='card mb-3 border-success'>
+                    <div class='card-header bg-success'>
+                      <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
+                          <h3>$row[eventID] - $row[eventName]</h3>
+                      </button>
+                      </div>
+                      <div id='$row[transactionID]' class='collapse'>
+                        <div class='card-body border-success'>
+                          <strong>Transaction ID:</strong> $row[transactionID]
+                          </br>
+                          <strong>Event Category:</strong> $row[eventCategory]
+                          </br>
+                          <strong>Date:</strong> $row[eventDate]
+                          </br>
+                          <strong>Location:</strong> $row[eventAddress], $row[eventCity], $row[eventState], $row[eventZip]
+                          </br>
+                          <strong>Leave By:</strong> $row[leaveBy]
+                          </br>
+                          <strong>Description:</strong> $row[eventBio]
+                          </br>
+                        </div>
+                      </div>
+                    </div>";
+                }
+              } echo"<p4>There are no past results to display for this account. </p4>
+
 
       } else {
           // Not Registered Header
