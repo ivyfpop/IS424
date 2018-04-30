@@ -9,7 +9,7 @@
 
         // If the user is already logged in, redirect them to the index
         if (isset($_SESSION['memberID'])){
-            header('Location: http://www.track.finkmp.com');
+            header('Location: http://track.finkmp.com');
             exit;
         }
     ?>		

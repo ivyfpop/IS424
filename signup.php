@@ -10,7 +10,7 @@
     <?php
         // If the user is logged in, redirect them to the home page
         if (isset($_SESSION['memberID'])){
-            header('Location: http://www.track.finkmp.com');
+            header('Location: http://track.finkmp.com');
         }
 	?>
     
