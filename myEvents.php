@@ -66,6 +66,8 @@
               //TODO sign up button
 
           }
+        } else {
+          echo"<div class='container'>There are no events for you to sign up for at this time. Please check back soon!</div>";
         }
 
         //TODO add isComplete = 0 to query. make another query that has isComplete = 1
@@ -108,6 +110,8 @@
                   </div>
                 </div>";
               }
+            } else {
+              echo"<div class='container' style='text-align:center;'>You are not signed up for any events</div>";
             }
             //TODO do we want this to show all past events for the memeber ID instead
             //of just the registeredID?
@@ -147,7 +151,9 @@
                       </div>
                     </div>";
                 }
-              } echo"<p4>There are no past results to display for this account. </p4>";
+              } else {
+                echo"<div class='container' style='text-align:center;'>There are no past results to display for this account. </div>";
+              }
       } else {
           // Not Registered Header
           echo"<h2 class='text-center'><strong>You Are Not Registered!</strong></h2>";
