@@ -9,8 +9,7 @@
 		      $eventResult = mysqli_query($db, $eventQuery);
           mysqli_close($db);
 
-          //Verify that the there is a user and store the session data if so.
-          $row = mysqli_fetch_array($result, MYSQLI_BOTH);
+          $row = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
 		?>
 
 	  <body>

@@ -2,7 +2,14 @@
 <html lang="en">
 
     <?php include 'helper/header.php';
+          include 'helper/connect.php';
           session_start();
+
+          $eventQuery = "SELECT isSprinter,isThrower,isDistance,isJumper FROM Member WHERE memberID = '$_SESSION[memberID]'";
+		      $eventResult = mysqli_query($db, $eventQuery);
+          mysqli_close($db);
+
+          $row = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
     ?>
 
 	<body>
