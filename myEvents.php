@@ -54,7 +54,10 @@
                     </br>
                     <strong>Description:</strong> $row[eventBio]
                     </br>
-                    <button type='button' class='btn btn-danger'>Sign Up</button>
+                    <form action='eventSignUp.php' name='eventSignUp' method='post'>
+                      <input type='hidden' name='registeredID' id='registeredID' value=$_POST[registeredID]/>
+                      <button type='button' class='btn btn-danger'>Sign Up</button>
+                    </form>
                     </br>
                   </div>
                 </div>
