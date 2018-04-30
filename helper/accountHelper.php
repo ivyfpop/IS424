@@ -37,7 +37,7 @@
             $result = mysqli_query($db,"SELECT * FROM Member WHERE email = '$_POST[email]'");
             if(!$row = mysqli_fetch_array($result, MYSQLI_BOTH)){
                 // Query used to create the account
-                $updateQuery = "INSERT INTO Member (firstName, lastName, email, password) VALUES ('$_POST[firstName]','$_POST[lastName]','$_POST[email]','$_POST[password]')";
+                //$updateQuery = "INSERT INTO Member (firstName, lastName, email, password) VALUES ('$_POST[firstName]','$_POST[lastName]','$_POST[email]','$_POST[password]')";
 
                 // Create account and send them to the homepage
                 mysqli_query($db, $updateQuery);
