@@ -56,7 +56,7 @@
             include 'connect.php';
             // Query used to update the account
             // update doesn't support SET () VALUES ()
-            $updateQuery = "UPDATE Member SET firstName = '$_POST['firstName']', lastName = '$_POST[lastName]', email = '$_POST[email]', password = '$_POST[password]', isSprinter = $_POST[isSprinter], isDistance = $_POST[isDistance], isThrower = $_POST[isThrower], isJumper = $_POST[isJumper] WHERE memberID = $_SESSION[memberID]";
+            $updateQuery = "UPDATE Member SET firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', email = '$_POST[email]', password = '$_POST[password]', isSprinter = $_POST[isSprinter], isDistance = $_POST[isDistance], isThrower = $_POST[isThrower], isJumper = $_POST[isJumper] WHERE memberID = $_SESSION[memberID]";
 
             // Update account and send them to the homepage
             if (mysqli_query($db, $updateQuery)){
