@@ -56,7 +56,7 @@
             include 'connect.php';
             // Query used to update the account
             $updateQuery = "UPDATE Member SET (firstName, lastName, email, password, isSprinter, isDistance, isThrower, isJumper) VALUES ('$_POST[firstName]','$_POST[lastName]','$_POST[email]','$_POST[password]','$_POST[isSprinter]','$_POST[isDistance]','$_POST[isThrower]','$_POST[isDistance]') WHERE memberID = '$_SESSION['memberID']'";
-
+            echo "<h1>here</h1>";
             // Update account and send them to the homepage
             mysqli_query($db, $updateQuery);
 
