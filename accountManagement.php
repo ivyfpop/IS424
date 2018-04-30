@@ -13,7 +13,7 @@
     ?>
 
 	<body>
-        <form class="container bg-faded form-signin" action='helper/accountHelper.php' name='update' method='post'>
+        <form class="container bg-faded form-signin" action='helper/accountHelper.php' name='admin-update' method='post'>
 
             </br>
             <center><h1> User Account Panel </h1></center>
