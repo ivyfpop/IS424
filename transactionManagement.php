@@ -60,7 +60,7 @@
                 $approveQuery = "UPDATE Transaction SET transactionPaymentDate = NOW(), transactionApprovalDate = NOW(), transactionApprovalMemberID = '$memberID' WHERE transactionID = '$transactionID'";
                 $db->query($approveQuery);
                 mysqli_close();
-                echo"<p>$transactionQuery</p>";
+                echo"<p>$approveQuery</p>";
                 $transactionQuery = $_POST['transactionQuery'];
             }
                 
