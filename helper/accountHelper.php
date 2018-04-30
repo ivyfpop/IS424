@@ -57,16 +57,20 @@
 
             $_isSprinter = $_isThrower = $_isDistance = $_isJumper = 0;
 
-            if (isset($_POST['isSprinter']) && $_POST['isSprinter'] == 'isSprinter'){
+            //if (isset($_POST['isSprinter']) && $_POST['isSprinter'] == 'isSprinter'){
+            if (isset($_POST['isSprinter'])){
               $_isSprinter = 1;
             }
-            if (isset($_POST['isThrower']) && $_POST['isThrower'] == 'isThrower'){
+            //if (isset($_POST['isThrower']) && $_POST['isThrower'] == 'isThrower'){
+            if (isset($_POST['isThrower'])){
               $_isThrower = 1;
             }
-            if (isset($_POST['isDistance']) && $_POST['isDistance'] == 'isDistance'){
+            //if (isset($_POST['isDistance']) && $_POST['isDistance'] == 'isDistance'){
+            if (isset($_POST['isDistance'])){
               $_isDistance = 1;
             }
-            if (isset($_POST['isJumper']) && $_POST['isJumper'] == 'isJumper'){
+            //if (isset($_POST['isJumper']) && $_POST['isJumper'] == 'isJumper'){
+            if (isset($_POST['isJumper']){
               $_isJumper = 1;
             }
 
@@ -81,7 +85,7 @@
                 echo("<meta http-equiv='refresh' content='0;url=../myAccount.php'>");
               else
                 echo("<meta http-equiv='refresh' content='0;url=../accountManagement.php'>");
-                
+
             } else
               echo "<h1>Query failed!</h1>";
 
