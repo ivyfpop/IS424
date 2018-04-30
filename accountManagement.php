@@ -5,7 +5,7 @@
           include 'helper/connect.php';
           session_start();
 
-          $eventQuery = "SELECT isSprinter,isThrower,isDistance,isJumper FROM Member WHERE memberID = '$_SESSION[memberID]'";
+          $eventQuery = "SELECT password,isSprinter,isThrower,isDistance,isJumper FROM Member WHERE memberID = '$_SESSION[memberID]'";
 		      $eventResult = mysqli_query($db, $eventQuery);
           mysqli_close($db);
 
@@ -19,12 +19,12 @@
             <center><h1> User Account Panel </h1></center>
 
                 <div class="form-label-group">
-                    <input type="text" id="inputFirstName" class="form-control" name='first_Name' value=<?php echo "'$_SESSION[firstName]'";?> placeholder="First Name" required autofocus>
+                    <input type="text" id="inputFirstName" class="form-control" name='firstName' value=<?php echo "'$_SESSION[firstName]'";?> placeholder="First Name" required autofocus>
                     <label for="inputFirstName">First Name</label>
                 </div>
 
                 <div class="form-label-group">
-                    <input type="text" id="inputLastName" class="form-control" name='last_Name' value=<?php echo "'$_SESSION[lastName]'";?> placeholder="Last Name" required autofocus>
+                    <input type="text" id="inputLastName" class="form-control" name='lastName' value=<?php echo "'$_SESSION[lastName]'";?> placeholder="Last Name" required autofocus>
                     <label for="inputLastName">Last Name</label>
                 </div>
 
@@ -34,27 +34,27 @@
                 </div>
 
                 <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" name='password' placeholder="Password" required>
+                    <input type="password" id="inputPassword" class="form-control" name='password' value=<?php echo "'$row[password]'";?> placeholder="Password" required>
                     <label for="inputPassword">Password</label>
                 </div>
 
                 <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='isSprinter' value='isSprinter' <?php if ($row['isSprinter']) echo "checked";?>>
+                    <input class='form-check-input' type='checkbox' id='isSprinter' value='isSprinter' <?php if ($row[isSprinter]) echo "checked";?>>
                     <label class='form-check-label' for='isSprinter'>Sprinter</label>
                 </div>
 
                 <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='isDistance' value='isDistance' <?php if ($row['isDistance']) echo "checked";?>>
+                    <input class='form-check-input' type='checkbox' id='isDistance' value='isDistance' <?php if ($row[isDistance]) echo "checked";?>>
                     <label class='form-check-label' for='isDistance'>Distance</label>
                 </div>
 
                 <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='isThrower' value='isThrower' <?php if ($row['isThrower']) echo "checked";?>>
+                    <input class='form-check-input' type='checkbox' id='isThrower' value='isThrower' <?php if ($row[isThrower]) echo "checked";?>>
                     <label class='form-check-label' for='isThrower'>Thrower</label>
                 </div>
 
                 <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='isJumper' value='isJumper' <?php if ($row['isJumper']) echo "checked";?>>
+                    <input class='form-check-input' type='checkbox' id='isJumper' value='isJumper' <?php if ($row[isJumper]) echo "checked";?>>
                     <label class='form-check-label' for='isJumper'>Jumper</label>
                 </div>
 
