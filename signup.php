@@ -8,6 +8,9 @@
     
 	<!-- Input Handling -->
     <?php
+        // Start the session
+        session_start();
+        
         // If the user is logged in, redirect them to the home page
         if (isset($_SESSION['memberID'])){
             header('Location: http://track.finkmp.com');
