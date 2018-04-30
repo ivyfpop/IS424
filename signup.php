@@ -10,7 +10,7 @@
     <?php
         // If the user is logged in, redirect them to the home page
         if (isset($_SESSION['memberID'])){
-            echo("<meta http-equiv='refresh' content='0;url=index.php'>");
+            header('Location: http://www.track.finkmp.com');
         }
 	?>
     

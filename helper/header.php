@@ -4,7 +4,7 @@
         session_start();
         // If the user is not logged in, redirect them to the login page.
         if (!isset($_SESSION['memberID'])){
-            echo("<meta http-equiv='refresh' content='0;url=login.php'>");
+            header('Location: http://track.finkmp.com/login.php');
         }
     ?>
 
