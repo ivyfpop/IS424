@@ -51,7 +51,7 @@
                 else if($_POST['transactionSearchType'] == 4){
                     $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
-            }
+            }/*
             // If a transaction approval was made, use the same query.
             else if(isset($_POST['transactionApproval'])){
                 include 'helper/connect.php';
