@@ -24,10 +24,10 @@
             $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
 
             // If a search was submitted, determine the correct query
-            if(isset($_POST['transactionSearch'])){
+            if (isset($_POST['transactionSearch'])){
 
                 // Search field was empty
-                if(!$_POST['transactionSearchValue']){
+                if (!$_POST['transactionSearchValue']){
                     echo"<div class='alert alert-danger mx-auto text-center w-50' role='alert'><strong>Please enter a value into the search field!</strong>
                             <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                                 <span aria-hidden='true'>&times;</span>
@@ -36,29 +36,29 @@
                     $transactionQuery = "";  
                 }
                 // Member Last Name Query
-                else if($_POST['transactionSearchType'] == 1){
+                else if ($_POST['transactionSearchType'] == 1){
                     $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
                 }
                 // Transaction ID Query
-                else if($_POST['transactionSearchType'] == 2){
+                else if ($_POST['transactionSearchType'] == 2){
                     $transactionQuery = "SELECT * FROM Transaction WHERE transactionID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";
                 }
                 // EventID Query
-                else if($_POST['transactionSearchType'] == 3){
+                else if ($_POST['transactionSearchType'] == 3){
                     $transactionQuery = "SELECT * FROM Transaction WHERE eventID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
                 // Member ID Query
-                else if($_POST['transactionSearchType'] == 4){
+                else if ($_POST['transactionSearchType'] == 4){
                     $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
-            }/*
+            }
             // If a transaction approval was made, use the same query.
-            else if(isset($_POST['transactionApproval'])){
+            else if (isset($_POST['transactionApproval'])){
                 include 'helper/connect.php';
-                $db->query("UPDATE Transaction SET transactionPaymentDate = NOW() ,transactionApprovalDate = NOW(),  transactionApprovalMemberID = $_SESSION['memberID'] WHERE transactionID = $_POST['transactionID']");
+                $db->query("UPDATE Transaction SET transactionPaymentDate = NOW(), transactionApprovalDate = NOW(), transactionApprovalMemberID = $_SESSION['memberID'] WHERE transactionID = $_POST['transactionID']");
                 mysqli_close();
                 $transactionQuery = $_POST['transactionQuery'];
-            }*/
+            }
                 
                 
                 
