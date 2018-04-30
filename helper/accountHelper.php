@@ -70,6 +70,9 @@
             if (mysqli_query($db, $updateQuery)) {
 
               // TODO update $_SESSION values (firstName, lastName, email)
+              $_SESSION['firstName'] = $_POST['firstName'];
+              $_SESSION['lastName'] = $_POST['lastName'];
+              $_SESSION['email'] = $_POST['email'];
 
               if ($_POST['self-update'])
                 echo("<meta http-equiv='refresh' content='0;url=../myAccount.php'>");
