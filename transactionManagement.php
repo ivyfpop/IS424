@@ -25,7 +25,7 @@
 
             // If a search was submitted, determine the correct query
             if(isset($_POST['transactionSearch'])){
-                
+
                 // Search field was empty
                 if(!$_POST['transactionSearchValue']){
                     echo"<div class='alert alert-danger mx-auto text-center w-50' role='alert'><strong>Please enter a value into the search field!</strong>
@@ -52,6 +52,12 @@
                     $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
             }
+            // If a transaction approval was made, use the same query.
+            else if(isset($_POST['transactionApproval'])){
+                include 'helper/connect.php';
+                $db->query("UPDATE Transaction SET transactionPaymentDate = NOW() ,transactionApprovalDate = NOW(),  transactionApprovalMemberID = $_SESSION['memberID'] WHERE transactionID = $_POST['transactionID']");
+                $transactionQuery = $_POST['transactionQuery'];
+            }
                 
                 
                 
@@ -59,7 +65,11 @@
             include 'helper/connect.php';
             $transactions = $db->query($transactionQuery);
             mysqli_close($db);
-                            
+
+            // If there is only one transaction returned, go right to the modify transaction page.
+            //if($transactions && $transactions->num_rows){
+                // Redirect to the transactionModification.php?transactionID=$POST['transactionValue'];
+            //}
             // Verify there are transactions
             if($transactions && $transactions->num_rows){
                     // Open the containte
@@ -79,13 +89,14 @@
                                     </button>
 
                                     <form action='transactionModification.php' name='transactionApproval' method='post'>
+                                        <input type='hidden' name='id' value='$transactionQuery'>
                                         <button class='btn btn-success float-right' type='submit' name='transactionApproval' value='$row[transactionID]'>
                                             <h3>Approve Transaction</h3>
                                         </button>
                                     </form>
 
                                     <form action='transactionModification.php' name='transactionModification' method='post'>
-                                        <button class='btn btn-warning float-right' type='submit' name='transactionModification' value='$row[transactionID]'>
+                                        <button class='btn btn-warning float-right mr-3' type='submit' name='transactionModification' value='$row[transactionID]'>
                                             <h3>Modify</h3>
                                         </button>
                                     </form>
@@ -130,6 +141,7 @@
                                     </button>
 
                                     <form action='transactionModification.php' name='transactionApproval' method='post'>
+                                        <input type='hidden' name='id' value='$transactionQuery'>
                                         <button class='btn btn-success float-right' type='submit' name='transactionApproval' value='$row[transactionID]'>
                                             <h3>Approve Transaction</h3>
                                         </button>
@@ -186,7 +198,7 @@
                                         <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                             <h3>$row[transactionID] - $transactionPaymentDate - $$row[transactionQuantity]</h3>
                                         </button>
-                                        
+
                                         <form action='transactionModification.php' name='transactionModification' method='post'>
                                             <button class='btn btn-warning float-right' type='submit' name='transactionModification' value='$row[transactionID]'>
                                                 <h3>Modify</h3>
