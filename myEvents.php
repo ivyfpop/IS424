@@ -39,7 +39,7 @@
             <div class='card mb-3 border-success'>
               <div class='card-header bg-success'>
                 <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[eventID]'>
-                    <h3>$row[eventID] - $row[eventName]</h3>
+                    <h3>$row[eventName]</h3>
                 </button>
                 </div>
                 <div id='$row[eventID]' class='collapse'>
@@ -54,7 +54,7 @@
                     </br>
                     <strong>Description:</strong> $row[eventBio]
                     </br>
-                    <button type='button' class='btn btn-primary'>Sign Up</button>
+                    <button type='button' class='btn btn-danger'>Sign Up</button>
                     </br>
                   </div>
                 </div>
@@ -83,7 +83,7 @@
               <div class='card mb-3 border-danger'>
                 <div class='card-header bg-danger'>
                   <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                      <h3>$row[eventID] - $row[eventName]</h3>
+                      <h3>$row[eventName]</h3>
                   </button>
                   </div>
                   <div id='$row[transactionID]' class='collapse'>
@@ -122,7 +122,7 @@
                   <div class='card mb-3 border-success'>
                     <div class='card-header bg-success'>
                       <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                          <h3>$row[eventID] - $row[eventName]</h3>
+                          <h3>$row[eventName]</h3>
                       </button>
                       </div>
                       <div id='$row[transactionID]' class='collapse'>
