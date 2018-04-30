@@ -8,8 +8,8 @@
         session_start();
 
         // If the user is already logged in, redirect them to the index
-        if (isset($_SESSION['adminStatus'])){
-            echo("<meta http-equiv='refresh' content='0;url=index.php'>");
+        if (isset($_SESSION['memberID'])){
+            header('Location: http://www.track.finkmp.com')
             exit;
         }
     ?>		
