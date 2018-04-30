@@ -54,9 +54,12 @@
                     </br>
                     <strong>Description:</strong> $row[eventBio]
                     </br>
+                    <button type='button' class='btn btn-primary'>Sign Up</button>
+                    </br>
                   </div>
                 </div>
               </div>";
+              //TODO sign up button
 
           }
         }
