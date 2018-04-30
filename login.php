@@ -1,16 +1,13 @@
 <html lang="en">
 
-    <title>WTC Login</title>
+    <title>Login</title>
 
     <!-- Check current session state -->
     <?php
-        // Start the session
+        // Verify the user is NOT logged in.
         session_start();
-
-        // If the user is already logged in, redirect them to the index
         if (isset($_SESSION['memberID'])){
             header('Location: http://track.finkmp.com');
-            exit;
         }
     ?>		
     <!-- End Session State Check -->
@@ -32,14 +29,14 @@
             </div>
         
             <?php
-                // If the login attempt triggered an error, inform the user.
+                // Login error message.
                 if(isset($_GET['login_error'])){
                     echo"
                     <div class='form-lablel-group text-center alert alert-danger'>
                         <strong>Incorrect Login Credentials!</strong>
                     </div>";
                 }
-                // If the user just created their account, inform them to login.
+                // New Account successful creation message.
                 else if(isset($_GET['new_account'])){
                      echo"
                     <div class='form-lablel-group text-center alert alert-success'>
@@ -47,14 +44,14 @@
                     </div>";
                    
                 }
-                // If the login attempt triggered an error, inform the user.
-                if(isset($_GET['logout'])){
+                // Logout successful message.
+                else if(isset($_GET['logout'])){
                     echo"
                     <div class='form-lablel-group text-center alert alert-warning'>
                         <strong>You have been successfully logged out.</strong>
                     </div>";
                 } 
-                ?>
+            ?>
             
             <!-- Login Form Fields -->
             <div class="form-label-group">

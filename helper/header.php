@@ -1,8 +1,7 @@
 <head>
     <?php
-        // Start the session
+        // Verify the user is logged in.
         session_start();
-        // If the user is not logged in, redirect them to the login page.
         if (!isset($_SESSION['memberID'])){
             header('Location: http://track.finkmp.com/login.php');
         }

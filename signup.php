@@ -5,13 +5,12 @@
     <link href="helper/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="helper/css/login.css" rel="stylesheet">
     <!-- END Dependencies -->
-    
-	<!-- Input Handling -->
+
+    <title>Signup</title>
+
     <?php
-        // Start the session
+        // Verify the user is NOT logged in.
         session_start();
-        
-        // If the user is logged in, redirect them to the home page
         if (isset($_SESSION['memberID'])){
             header('Location: http://track.finkmp.com');
         }
@@ -56,8 +55,6 @@
             </div>
             
             <button class="btn btn-lg btn-success btn-block" type="submit" name='signup' value='login'>Create Account</button>
-            <br>
-
             <a class="btn btn-lg btn-warning btn-block" href="login.php" role="button">Back to Login</a>
         </form>
     <body>
