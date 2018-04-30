@@ -56,6 +56,7 @@
             else if(isset($_POST['transactionApproval'])){
                 include 'helper/connect.php';
                 $db->query("UPDATE Transaction SET transactionPaymentDate = NOW() ,transactionApprovalDate = NOW(),  transactionApprovalMemberID = $_SESSION['memberID'] WHERE transactionID = $_POST['transactionID']");
+                mysqli_close();
                 $transactionQuery = $_POST['transactionQuery'];
             }
                 
