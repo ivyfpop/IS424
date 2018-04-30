@@ -4,7 +4,7 @@
         // Start the session
         session_start();
 
-        // Otherwise, check if they are trying to log in.
+        // Check if they are trying to login.
         if($_POST['login']){
             // Connect to the database, run query, close connection
             include 'connect.php';
@@ -20,17 +20,19 @@
                 $_SESSION['firstName'] = $row['firstName'];
                 $_SESSION['lastName'] = $row['lastName'];
                 $_SESSION['email'] = $row['email'];
-                echo"<meta http-equiv='refresh' content='0;url=../index.php'>";
+                header('Location: http://track.finkmp.com');
             }
             // Login credentails were wrong; inform the user.
-            else echo"<meta http-equiv='refresh' content='0;url=../login.php?login_error=1'>";
+            else{
+                header('Location: http://track.finkmp.com/login.php?login_error=1');
+            }
         }
-        // Otherwise, check if they are trying to log out
+        // Check if they are trying to log out
         else if($_POST['logout']){
             	session_destroy();
-                echo("<meta http-equiv='refresh' content='0;url=../login.php?logout=1'>");
+                header('Location: http://track.finkmp.com/login.php?logout=1');
         }
-        // Otherwise, check if they are trying to signup
+        // Check if they are trying to sign up
         else if($_POST['signup']){
              // Verify that the email isn't taken already
             include 'connect.php';
@@ -41,16 +43,14 @@
 
                 // Create account and send them to the homepage
                 mysqli_query($db, $updateQuery);
-                echo("<meta http-equiv='refresh' content='0;url=../login.php?new_account=1'>");
-                exit();
+                header('Location: http://track.finkmp.com/login.php?new_account=1');
             }
             // If the email is already taken inform the user.
             else{
-                echo("<meta http-equiv='refresh' content='0;url=../signup.php?account_error=1'>");
-                exit();
+                header('Location: http://track.finkmp.com/signup.php?account_error=1');
             }
         }
-        // Otherwise, check if they are updating their account
+        // Check if they are trying to update their account.
         else if($_POST['self-update'] || $_POST['admin-update']){
 
             include 'connect.php';
@@ -86,7 +86,7 @@
         }
         // Otherwise just redirect them to the index page.
         else{
-            echo("<meta http-equiv='refresh' content='0;url=../index.php'>");
+            header('Location: http://track.finkmp.com');
         }
     ?>
 <html>

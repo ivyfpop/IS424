@@ -55,32 +55,35 @@
                     
                 }
                 
-                // eventManagement Page
-                if(!strcmp($uri, "/eventManagement.php")){
-                    echo("<a class='nav-link btn btn-danger ml-3' href='eventManagement.php'>Event Management</a>");
-                }
-                else{
-                    echo("<a class='nav-link btn btn-outline-danger ml-3' href='eventManagement.php'>Event Management</a>");
+                // Administrative links
+                session_start();
+                if($_SESSION['adminStatus']){
+                    // eventManagement Page
+                    if(!strcmp($uri, "/eventManagement.php")){
+                        echo("<a class='nav-link btn btn-danger ml-3' href='eventManagement.php'>Event Management</a>");
+                    }
+                    else{
+                        echo("<a class='nav-link btn btn-outline-danger ml-3' href='eventManagement.php'>Event Management</a>");
+                        
+                    }
                     
-                }
-                
-                // transactionManagement Page
-                if(!strcmp($uri, "/transactionManagement.php")){
-                    echo("<a class='nav-link btn btn-danger ml-3' href='transactionManagement.php'>Transaction Management</a>");
-                }
-                else{
-                    echo("<a class='nav-link btn btn-outline-danger ml-3' href='transactionManagement.php'>Transaction Management</a>");
+                    // transactionManagement Page
+                    if(!strcmp($uri, "/transactionManagement.php")){
+                        echo("<a class='nav-link btn btn-danger ml-3' href='transactionManagement.php'>Transaction Management</a>");
+                    }
+                    else{
+                        echo("<a class='nav-link btn btn-outline-danger ml-3' href='transactionManagement.php'>Transaction Management</a>");
+                        
+                    }
                     
+                    // accountManagement Page
+                    if(!strcmp($uri, "/accountManagement.php")){
+                        echo("<a class='nav-link btn btn-danger ml-3' href='accountManagement.php'>Account Management</a>");
+                    }
+                    else{
+                        echo("<a class='nav-link btn btn-outline-danger ml-3' href='accountManagement.php'>Account Management</a>");
+                    }
                 }
-                
-                // accountManagement Page
-                if(!strcmp($uri, "/accountManagement.php")){
-                    echo("<a class='nav-link btn btn-danger ml-3' href='accountManagement.php'>Account Management</a>");
-                }
-                else{
-                    echo("<a class='nav-link btn btn-outline-danger ml-3' href='accountManagement.php'>Account Management</a>");
-                    
-                }                
                 
             ?>
         </div>
