@@ -55,7 +55,10 @@
             // If a transaction approval was made, use the same query.
             else if (isset($_POST['transactionApproval'])){
                 include 'helper/connect.php';
-                //$db->query("UPDATE Transaction SET transactionPaymentDate = NOW(), transactionApprovalDate = NOW(), transactionApprovalMemberID = $_SESSION['memberID'] WHERE transactionID = $_POST['transactionID']");
+                $memberID = $_SESSION['memberID'];
+                $transactionID = $_POST['transactionID'];
+                $approveQuery = "UPDATE Transaction SET transactionPaymentDate = NOW(), transactionApprovalDate = NOW(), transactionApprovalMemberID = '$memberID' WHERE transactionID = '$transactionID'";
+                $db->query($approveQuery);
                 mysqli_close();
                 $transactionQuery = $_POST['transactionQuery'];
             }
@@ -89,7 +92,7 @@
                                         <h3>$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
                                     </button>
 
-                                    <form action='transactionModification.php' name='transactionApproval' method='post'>
+                                    <form action='transactionManagement.php' name='transactionApproval' method='post'>
                                         <input type='hidden' name='id' value='$transactionQuery'>
                                         <button class='btn btn-success float-right' type='submit' name='transactionApproval' value='$row[transactionID]'>
                                             <h3>Approve Transaction</h3>
@@ -141,7 +144,7 @@
                                         <h3>$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
                                     </button>
 
-                                    <form action='transactionModification.php' name='transactionApproval' method='post'>
+                                    <form action='transactionManagement.php' name='transactionApproval' method='post'>
                                         <input type='hidden' name='id' value='$transactionQuery'>
                                         <button class='btn btn-success float-right' type='submit' name='transactionApproval' value='$row[transactionID]'>
                                             <h3>Approve Transaction</h3>
