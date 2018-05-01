@@ -61,7 +61,7 @@ include 'helper/connect.php';
   echo"
     <input type='hidden' name='eventID' value=$_POST[eventID]>
     <input type='hidden' name='registeredID' value=$_POST[registeredID]>
-    <button type='submit' name='submitSignUp' class='btn btn-danger'>Confirm Sign Up</button>
+    <button type='submit' name='submitSignUp' value='submitSignUp' class='btn btn-danger'>Confirm Sign Up</button>
   </form>";
   mysqli_close($db);
  ?>
