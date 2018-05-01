@@ -33,14 +33,14 @@
                 // Login error message.
                 if(isset($_GET['login_error'])){
                     echo"
-                    <div class='form-lablel-group text-center alert alert-danger'>
+                    <div class='form-label-group text-center alert alert-danger'>
                         <strong>Incorrect Login Credentials!</strong>
                     </div>";
                 }
                 // New Account successful creation message.
                 else if(isset($_GET['new_account'])){
                      echo"
-                    <div class='form-lablel-group text-center alert alert-success'>
+                    <div class='form-label-group text-center alert alert-success'>
                         <strong>Please log to finish account creation!</strong>
                     </div>";
                    
@@ -48,7 +48,7 @@
                 // Logout successful message.
                 else if(isset($_GET['logout'])){
                     echo"
-                    <div class='form-lablel-group text-center alert alert-warning'>
+                    <div class='form-label-group text-center alert alert-warning'>
                         <strong>You have been successfully logged out.</strong>
                     </div>";
                 } 
