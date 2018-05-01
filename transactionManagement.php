@@ -93,12 +93,12 @@
                                         <h3>$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
                                     </button>
 
-                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'>Modify</a>
+                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-link btn-info float-right'><h3>Modify</h3></a>
 
                                     <form action='transactionManagement.php' name='transactionApproval' method='post'>
                                         <input type='hidden' name='transactionQuery' value='$transactionQuery'>
                                         <input type='hidden' name='transactionID' value='$row[transactionID]'>
-                                        <button class='btn btn-success float-right' type='submit' name='transactionApproval' value='$row[transactionID]'>
+                                        <button class='btn btn-success float-right mr-3' type='submit' name='transactionApproval' value='$row[transactionID]'>
                                             <h3>Approve</h3>
                                         </button>
                                     </form>
@@ -142,12 +142,12 @@
                                         <h3>$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
                                     </button>
 
-                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'>Modify</a>
+                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-link btn-info float-right'><h3>Modify</h3></a>
 
                                     <form action='transactionManagement.php' name='transactionApproval' method='post'>
                                         <input type='hidden' name='transactionQuery' value='$transactionQuery'>
                                         <input type='hidden' name='transactionID' value='$row[transactionID]'>
-                                        <button class='btn btn-success float-right' type='submit' name='transactionApproval' value='$row[transactionID]'>
+                                        <button class='btn btn-success float-right mr-3' type='submit' name='transactionApproval' value='$row[transactionID]'>
                                             <h3>Approve</h3>
                                         </button>
                                     </form>
