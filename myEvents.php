@@ -173,7 +173,7 @@
             }
             mysqli_free_result($pastEvents);
           } else { //User has not completed any events.
-            echo"<div class='container' style='text-align:center;'>There are no past results to display for this account. </div>";
+            echo"<div class='container' style='text-align:center;'>There are no past events to display for this account. </div>";
           }
   } else {
       // Not Registered Header
