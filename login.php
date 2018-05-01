@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html lang="en">
 
-    <title>Login</title>
+    <title>WTC Login</title>
 
     <!-- Check current session state -->
     <?php
@@ -53,7 +54,6 @@
                 } 
             ?>
             
-            <!-- Login Form Fields -->
             <div class="form-label-group">
                 <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
                 <label for="inputEmail">Email Address</label>
@@ -63,9 +63,8 @@
                 <input type="password" id="inputPassword" class="form-control" name='password' placeholder="Password" required>
                 <label for="inputPassword">Password</label>
             </div>
-            <!-- END Login Form Field -->
             
-            <button class="btn btn-lg btn-success btn-block" type="submit" name='login' value='login'>Login</button>
+            <button class="btn btn-lg btn-success btn-block" type="submit" name='login'>Login</button>
 
             <a class="btn btn-lg btn-warning btn-block" href="signup.php" role="button">Sign Up!</a>
 

@@ -36,8 +36,8 @@ include 'helper/connect.php';
   echo"
   <form action='myEvents.php' method='post'>
   <div class='form-group'>
-    <label for='leaveBy'><strong>Time you are able to leave by.</strong></label>
-    <input type='text' name='leaveBy' id='leaveBy'>
+    <label for='leaveBy'><strong>Leave By: </strong></label>
+    <input type='text' name='leaveBy' id='leaveBy' required autofocus>
     <small id='leaveByHelp' class='form-text text-muted'>Please enter times in CST in 24-Hour format and include seconds. Example: 2:00 PM would be entered as 14:00:00</small>
   </div>";
   //Asking user for numberOfSeatsAvailable - see top for description.

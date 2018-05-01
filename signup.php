@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     <!-- Dependencies -->
     <meta charset="utf-8">
@@ -6,7 +7,7 @@
     <link href="helper/css/login.css" rel="stylesheet">
     <!-- END Dependencies -->
 
-    <title>Signup</title>
+    <title>WTC Signup</title>
 
     <?php
         // Verify the user is NOT logged in.
@@ -32,29 +33,29 @@
                     </div>";
                 }
             ?>
-           
-
+            
             <div class="form-label-group">
-                <input type="text" id="inputFirstName" class="form-control" name='firstName' placeholder="First Name" required autofocus>
+                <input type="text" id="inputFirstName" class="form-control" name='firstName'required autofocus>
                 <label for="inputFirstName">First Name</label>
             </div>
 
             <div class="form-label-group">
-                <input type="text" id="inputLastName" class="form-control" name='lastName' placeholder="Last Name" required autofocus>
+                <input type="text" id="inputLastName" class="form-control" name='lastName'required>
                 <label for="inputLastName">Last Name</label>
             </div>
             
             <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" name='email' placeholder="Email Address" required autofocus>
+                <input type="email" id="inputEmail" class="form-control" name='email' required>
                 <label for="inputEmail">Email Address</label>
             </div>
             
             <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" name='password' placeholder="Password" required>
+                <input type="password" id="inputPassword" class="form-control" name='password' required>
                 <label for="inputPassword">Password</label>
             </div>
             
-            <button class="btn btn-lg btn-success btn-block" type="submit" name='signup' value='login'>Create Account</button>
+            <button class="btn btn-lg btn-success btn-block" type="submit" name='signup'>Create Account</button>
+            
             <a class="btn btn-lg btn-warning btn-block" href="login.php" role="button">Back to Login</a>
         </form>
     <body>
