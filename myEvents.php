@@ -6,9 +6,9 @@ include 'helper/header.php';
   include 'helper/connect.php';
   if(isset($_POST['submitSignUp'])) {
     if (isset($_POST['numberOfSeatsAvailable'])) {
-      $eventSignUpQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], NULL)";
+      $eventSignUpQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], 0)";
     } else {
-      $eventSignUpQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, 0, NULL)";
+      $eventSignUpQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, 0, 0)";
     }
     echo $eventSignUpQuery;
     mysqli_query($db, $eventSignUpQuery);
