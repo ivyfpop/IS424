@@ -75,7 +75,7 @@
             if (isset($_POST['isSprinter'])) $isSprinter = 1;
             if (isset($_POST['isThrower'])) $isThrower = 1;
             if (isset($_POST['isDistance'])) $isDistance = 1;
-            if (isset($_POST['isJumper'])) $isJumper = 1;*/
+            if (isset($_POST['isJumper'])) $isJumper = 1;
 
             // Update account and send them to the homepage
             include 'connect.php';
