@@ -1,9 +1,6 @@
 <html lang="en">
     <!-- Check current session state -->
-    <?php
-        // Start the session
-        session_start();
-        
+    <?php     
         // If they are logging in
         if(isset($_POST['login'])){
             // Connect to the database, run query, close connection
@@ -25,7 +22,7 @@
                 include 'connect.php';
                 $registeredResult = mysqli_query($db,"SELECT * FROM Registered_Member WHERE memberID = '$row[memberID]' ORDER BY registeredSeason DESC LIMIT 1");
                 mysqli_close($db);
-                // Current season is hard coded right now. Will need to create season in the database.
+                // Current season is hard coded right now. Will need to create season table in the database.
                 if($registeredResult->num_rows == 1 && !strcmp($row['registeredSeason'],"2017-2018")){
                     $_SESSION['registeredSeason'] = $row['registeredSeason'];
                     $_SESSION['fallDuesDate'] = $row['registeredSeason'];
@@ -43,6 +40,7 @@
         }
         // Check if they are trying to log out
         else if(isset($_POST['logout'])){
+                session_start();
             	session_destroy();
                 header('Location: http://track.finkmp.com/login.php?logout=1');
         }
@@ -67,7 +65,8 @@
         else if(isset($_POST['self-update']) || isset($_POST['admin-update'])){
 
             include 'connect.php';
-
+            session_start();
+            
             $isSprinter = $isThrower = $isDistance = $isJumper = 0;
 
             if (isset($_POST['isSprinter'])) $isSprinter = 1;
