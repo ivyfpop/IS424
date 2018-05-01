@@ -10,7 +10,7 @@ include 'helper/header.php';
     } else {
       $eventSignUpQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, 0, NULL)";
     }
-    echo $errQuery;
+    echo $eventSignUpQuery;
     mysqli_query($db, $eventSignUpQuery);
   }
 ?>
