@@ -10,7 +10,7 @@ include 'helper/header.php';
   <h1 class='text-center'><strong>My Events</strong></h1>
 
 <?php
-  if(isset($_POST[submitSignUp])) {
+  if(isset($_POST['submitSignUp'])) {
     $errQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], NULL)";
     mysqli_query($db, "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], NULL)");
   }
