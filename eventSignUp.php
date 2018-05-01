@@ -37,8 +37,7 @@ include 'helper/connect.php';
   <form action='myEvents.php' method='post'>
   <div class='form-group'>
     <label for='leaveBy'><strong>Leave By: </strong></label>
-    <input type='text' name='leaveBy' id='leaveBy' required autofocus>
-    <small id='leaveByHelp' class='form-text text-muted'>Please enter times in CST in 24-Hour format and include seconds. Example: 2:00 PM would be entered as 14:00:00</small>
+    <input type='time' name='leaveBy' id='leaveBy' required autofocus>
   </div>";
   //Asking user for numberOfSeatsAvailable - see top for description.
   if ($driverStatusRow[driverAuthorizationDate] != NULL) {
@@ -46,8 +45,7 @@ include 'helper/connect.php';
     <div class='form-group'>
       <label for='numberOfSeatsAvailable'>Seats available in car</label>
       <select class='from-control' name='numberOfSeatsAvailable' id='numberOfSeatsAvailable'>
-        <option selected disabled>Select</option>
-        <option value='0'>0</option>
+        <option value='0' selected>0</option>
         <option value='1'>1</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
