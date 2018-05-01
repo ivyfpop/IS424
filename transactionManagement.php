@@ -67,12 +67,12 @@
 
             // If there is only one transaction returned, go right to the modify transaction page.
             if($transactions && $transactions->num_rows == 1 && isset($_POST['transactionSearch'])){
-                $transactionID = $_POST['transactionID'];
-                $headerString = "Location: http://track.finkmp.com/transactionManagementUpdate.php?transactionID=$transactionID";
+                $oneRow = mysqli_fetch_array($transactions, MYSQLI_BOTH);
+                $headerString = "Location: http://track.finkmp.com/transactionManagementUpdate.php?transactionID=$oneRow[transactionID]";
                 header($headerString);
             }
-            // Verify there are transactions
-            if($transactions && $transactions->num_rows){
+            // More than one transaction, loop through and print them all out.
+            else if($transactions && $transactions->num_rows){
                 // Open the containte
                 echo"<div class='container bg-faded p-4 my-4'>";
                 // Loop through all of their transactions
