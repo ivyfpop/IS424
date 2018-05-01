@@ -20,17 +20,17 @@
                 $_SESSION['firstName'] = $row['firstName'];
                 $_SESSION['lastName'] = $row['lastName'];
                 $_SESSION['email'] = $row['email'];
-                //header('Location: http://track.finkmp.com');
+                header('Location: http://track.finkmp.com');
             }
             // Login credentails were wrong; inform the user.
             else{
-                //header('Location: http://track.finkmp.com/login.php?login_error=1');
+                header('Location: http://track.finkmp.com/login.php?login_error=1');
             }
         }
         // Check if they are trying to log out
         else if($_POST['logout']){
             	session_destroy();
-              //  header('Location: http://track.finkmp.com/login.php?logout=1');
+                header('Location: http://track.finkmp.com/login.php?logout=1');
         }
         // Check if they are trying to sign up
         else if($_POST['signup']){
@@ -42,11 +42,11 @@
                 $updateQuery = "INSERT INTO Member (firstName, lastName, email, password) VALUES ('$_POST[firstName]','$_POST[lastName]','$_POST[email]','$_POST[password]')";
                 // Create account and send them to the homepage
                 $db->query($updateQuery);
-              //  header('Location: http://track.finkmp.com/login.php?new_account=1');
+                header('Location: http://track.finkmp.com/login.php?new_account=1');
             }
             // If the email is already taken inform the user.
             else{
-                //header('Location: http://track.finkmp.com/signup.php?account_error=1');
+                header('Location: http://track.finkmp.com/signup.php?account_error=1');
             }
         }
         // Check if they are trying to update their account.
@@ -70,19 +70,19 @@
                 //Stuff
             }
 
-            if (isset($_POST['self-update']))
+            if (isset($_POST['self-update'])) {
                 $_SESSION['firstName'] = $_POST['firstName'];
                 $_SESSION['lastName'] = $_POST['lastName'];
                 $_SESSION['email'] = $_POST['email'];
-                //header('Location: http://track.finkmp.com/myAccount.php');
-            else if (isset($_POST['admin-update'])){
-              //header('Location: http://track.finkmp.com/accountManagement.php');
+                header('Location: http://track.finkmp.com/myAccount.php');
+            } else if (isset($_POST['admin-update'])){
+              header('Location: http://track.finkmp.com/accountManagement.php');
             }
 
         }
         // Otherwise just redirect them to the index page.
         else{
-            //header('Location: http://track.finkmp.com');
+            header('Location: http://track.finkmp.com');
         }
     ?>
 <html>
