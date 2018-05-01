@@ -93,19 +93,13 @@
                                         <h3>$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
                                     </button>
 
-                                    <form action='transactionManagement.php' name='transactionApproval' method='post'>
+                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'>Modify</a>
 
+                                    <form action='transactionManagement.php' name='transactionApproval' method='post'>
                                         <input type='hidden' name='transactionQuery' value='$transactionQuery'>
                                         <input type='hidden' name='transactionID' value='$row[transactionID]'>
-
                                         <button class='btn btn-success float-right' type='submit' name='transactionApproval' value='$row[transactionID]'>
-                                            <h3>Approve Transaction</h3>
-                                        </button>
-                                    </form>
-
-                                    <form action='transactionModification.php' name='transactionModification' method='post'>
-                                        <button class='btn btn-warning float-right mr-3' type='submit' name='transactionModification' value='$row[transactionID]'>
-                                            <h3>Modify</h3>
+                                            <h3>Approve</h3>
                                         </button>
                                     </form>
                             </div>
@@ -148,18 +142,13 @@
                                         <h3>$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
                                     </button>
 
+                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'>Modify</a>
+
                                     <form action='transactionManagement.php' name='transactionApproval' method='post'>
                                         <input type='hidden' name='transactionQuery' value='$transactionQuery'>
                                         <input type='hidden' name='transactionID' value='$row[transactionID]'>
-                                        
                                         <button class='btn btn-success float-right' type='submit' name='transactionApproval' value='$row[transactionID]'>
-                                            <h3>Approve Transaction</h3>
-                                        </button>
-                                    </form>
-                                    
-                                    <form action='transactionModification.php' name='transactionModification' method='post'>
-                                        <button class='btn btn-warning float-right mr-3' type='submit' name='transactionID' value='$row[transactionID]'>
-                                            <h3>Modify</h3>
+                                            <h3>Approve</h3>
                                         </button>
                                     </form>
                             </div>
@@ -210,6 +199,7 @@
                                         </button>
 
                                         <form action='transactionModification.php' name='transactionModification' method='post'>
+                                            <input type='hidden' name='transactionID' value='$row[transactionID]'>
                                             <button class='btn btn-warning float-right' type='submit' name='transactionID' value='$row[transactionID]'>
                                                 <h3>Modify</h3>
                                             </button>
