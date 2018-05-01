@@ -55,7 +55,6 @@
 
             // Connect to the database, run query, and close connection.
             $transactions = $db->query($transactionQuery);
-            mysqli_close($db);
 
             // If there is only one transaction returned, go right to the modify transaction page.
             if($transactions && $transactions->num_rows == 1 && isset($_POST['transactionSearch'])){
@@ -230,6 +229,7 @@
             else if($transactionQuery){
                 echo"<div class='alert alert-warning text-center mx-auto text-center w-50' role='alert'><strong>Your search returned no results, please try again!</strong></div>";                    
             }
+            mysqli_close($db);            
             include 'helper/footer.php'
     ?>
 </html>
