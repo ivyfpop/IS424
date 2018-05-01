@@ -93,7 +93,7 @@
                                         <h3>$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
                                     </button>
 
-                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-link btn-info float-right'><h3>Modify</h3></a>
+                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
 
                                     <form action='transactionManagement.php' name='transactionApproval' method='post'>
                                         <input type='hidden' name='transactionQuery' value='$transactionQuery'>
@@ -142,7 +142,7 @@
                                         <h3>$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
                                     </button>
 
-                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-link btn-info float-right'><h3>Modify</h3></a>
+                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
 
                                     <form action='transactionManagement.php' name='transactionApproval' method='post'>
                                         <input type='hidden' name='transactionQuery' value='$transactionQuery'>
@@ -197,13 +197,7 @@
                                         <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                             <h3>$row[transactionID] - $transactionPaymentDate - $$row[transactionQuantity]</h3>
                                         </button>
-
-                                        <form action='transactionModification.php' name='transactionModification' method='post'>
-                                            <input type='hidden' name='transactionID' value='$row[transactionID]'>
-                                            <button class='btn btn-warning float-right' type='submit' name='transactionID' value='$row[transactionID]'>
-                                                <h3>Modify</h3>
-                                            </button>
-                                        </form>
+                                        <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
                                 </div>
                                 
                                 <div id='$row[transactionID]' class='collapse'>
