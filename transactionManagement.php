@@ -7,7 +7,7 @@
         <a href='transactionManagementUpdate.php?newTransaction=1' class='btn btn-warning mr-3'>New Transaction</a>
         
         <form class='form-inline' action='transactionManagement.php' name='transactionSearch' method='post'>
-            <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue'>
+            <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue' required>
             <select type="text" class="form-control mr-3" name='transactionSearchType' id='transactionSearchType'>
                 <option selected value="1">Last Name</option>            
                 <option value="2">Transaction ID</option>
