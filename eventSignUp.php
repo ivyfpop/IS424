@@ -25,7 +25,7 @@ include 'helper/connect.php';
 
   if ($eventDetails->num_rows == 1) {
     $row = $eventDetails->fetch_row();
-    echo"<h3>Event ID: $row[eventID]";
+    echo"<h3>Event ID: $row[0]";
   }
 
  ?>
