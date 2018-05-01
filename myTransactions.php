@@ -22,7 +22,7 @@
                         <div class='card mb-3 border-danger'>
                             <div class='card-header bg-danger'>
                                     <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                        <h3>$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
+                                        <h3>#$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
                                     </button>
                                     <form action='https://venmo.com/WiscoTC' name='transaction' method='post'>
                                         <button class='btn btn-success float-right' type='submit' name='transaction' value='$row[transactionID]'>
@@ -43,7 +43,7 @@
                                     //Determine the name of the event
                                     $eventResult = $db->query("SELECT eventName FROM Event WHERE eventID = $row[eventID]");
                                     $eventRow = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
-                                    echo"<strong>Event Name:</strong> $eventRow[eventName]
+                                    echo"<strong>Event Name(If any):</strong> $eventRow[eventName]
                                          </br>";
                                 }
                                 // Otherwise print out the category for the event
@@ -66,7 +66,7 @@
                         echo"<div class='card mb-3 border-warning'>
                             <div class='card-header bg-warning'>
                                     <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                        <h3>$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
+                                        <h3>#$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
                                     </button>
                             </div>
                             
@@ -84,7 +84,7 @@
                                     //Determine the name of the event
                                     $eventResult = $db->query("SELECT eventName FROM Event WHERE eventID = $row[eventID]");
                                     $eventRow = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
-                                    echo"<strong>Event Name:</strong> $eventRow[eventName]
+                                    echo"<strong>Event Name(If any):</strong> $eventRow[eventName]
                                          </br>";
                                 }
                                 // Otherwise print out the category for the event
@@ -104,7 +104,7 @@
                     }
                     // The transaction has been approved.
                     else{
-                        // Dates assocaited with a approved transaction
+                        // Dates associated with a approved transaction
                         $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
                         $transactionApprovalDate = date("m/d/y g:i A", strtotime($row[transactionApprovalDate]));
                         
@@ -112,7 +112,7 @@
                         echo"<div class='card mb-3 border-success'>
                                 <div class='card-header bg-success'>
                                         <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                            <h3>$row[transactionID] - $transactionPaymentDate - $$row[transactionQuantity]</h3>
+                                            <h3>#$row[transactionID] - $transactionPaymentDate - $$row[transactionQuantity]</h3>
                                         </button>
                                 </div>
                                 
@@ -120,6 +120,8 @@
                                   <div class='card-body border-success'>
                                     <strong>Transaction ID:</strong> $row[transactionID]
                                     </br>
+                                    <strong>Amount:</strong> $$row[transactionQuantity]
+                                    </br> 
                                     <strong>Request Date:</strong> $transactionInitDate
                                     </br>
                                      <strong>Payment Date:</strong> $transactionPaymentDate
@@ -138,7 +140,7 @@
                                         //Determine the name of the event
                                         $eventResult = $db->query("SELECT eventName FROM Event WHERE eventID = $row[eventID]");
                                         $eventRow = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
-                                        echo"<strong>Event Name:</strong> $eventRow[eventName]
+                                        echo"<strong>Event Name(If any):</strong> $eventRow[eventName]
                                              </br>";
                                     }
                                     // Otherwise print out the category for the event
@@ -147,8 +149,7 @@
                                              </br>";
                                     }
                                     
-                                   echo"<strong>Amount:</strong> $$row[transactionQuantity]
-                                        </br>                                            
+                                   echo"                                           
                                         <strong>Description:</strong> $row[transactionDescription]
                                     </div>
                                 </div>

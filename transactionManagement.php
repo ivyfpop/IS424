@@ -30,7 +30,6 @@
 
             // If a search was submitted, determine the correct query
             if (isset($_POST['transactionSearch'])){
-
                 // Search field was empty
                 if (!$_POST['transactionSearchValue']){
                     echo"<div class='alert alert-danger mx-auto text-center w-50' role='alert'><strong>Please enter a value into the search field!</strong>
@@ -63,8 +62,7 @@
                 $transactionQuery = $_POST['transactionQuery'];
             }
                 
-                
-                
+
             // Connect to the database, run query, and close connection.
             $transactions = $db->query($transactionQuery);
             mysqli_close($db);
@@ -76,11 +74,10 @@
             }
             // More than one transaction, loop through and print them all out.
             else if($transactions && $transactions->num_rows){
-                // Open the containte
+                // Open the container
                 echo"<div class='container bg-faded p-4 my-4'>";
                 // Loop through all of their transactions
                 while ($row = mysqli_fetch_array($transactions, MYSQLI_BOTH)){
-
                     // Date that the transaction was created.
                     $transactionInitDate = date("m/d/y g:i A", strtotime($row[transactionInitDate]));
                     
@@ -89,7 +86,7 @@
                         echo"<div class='card mb-3 border-danger'>
                                 <div class='card-header bg-danger'>
                                         <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                            <h3>$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
+                                            <h3>#$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
                                         </button>
 
                                         <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
@@ -120,13 +117,13 @@
                     }
                     // The transaction is pending.
                     else if($row[transactionApprovalDate] == NULL){
-                        // Date assocaited with a pending transaction
+                        // Date associated with a pending transaction
                         $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
 
                         echo"<div class='card mb-3 border-warning'>
                                 <div class='card-header bg-warning'>
                                     <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                        <h3>$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
+                                        <h3>#$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
                                     </button>
 
                                     <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
@@ -155,13 +152,11 @@
                                         <strong>Description:</strong> $row[transactionDescription]
                                     </div>
                                 </div>
-                            </div>";             
-                           
-                        
+                            </div>";
                     }
                     // The transaction has been approved.
                     else{
-                        // Dates assocaited with a approved transaction
+                        // Dates associated with a approved transaction
                         $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
                         $transactionApprovalDate = date("m/d/y g:i A", strtotime($row[transactionApprovalDate]));
                         
@@ -169,7 +164,7 @@
                         echo"<div class='card mb-3 border-success'>
                                 <div class='card-header bg-success'>
                                         <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                            <h3>$row[transactionID] - $transactionPaymentDate - $$row[transactionQuantity]</h3>
+                                            <h3>#$row[transactionID] - $transactionPaymentDate - $$row[transactionQuantity]</h3>
                                         </button>
                                         <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
                                 </div>
