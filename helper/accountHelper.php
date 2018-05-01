@@ -26,7 +26,7 @@
                 $registeredResult = mysqli_query($db,"SELECT * FROM Registered_Member WHERE memberID = '$row[memberID]' ORDER BY registeredSeason DESC LIMIT 1");
                 mysqli_close($db);
                 // Current season is hard coded right now. Will need to create season in the database.
-                if($registeredResult-> == 1 && !strcmp($row['registeredSeason'],"2017-2018")){
+                if($registeredResult->num_rows == 1 && !strcmp($row['registeredSeason'],"2017-2018")){
                     $_SESSION['registeredSeason'] = $row['registeredSeason'];
                     $_SESSION['fallDuesDate'] = $row['registeredSeason'];
                     $_SESSION['springDuesDate'] = $row['springDuesDate'];
@@ -36,7 +36,7 @@
                 
                 header('Location: http://track.finkmp.com');
             }
-            // Login credentails were wrong; inform the user.
+            // Login credentials were wrong; inform the user.
             else{
                 header('Location: http://track.finkmp.com/login.php?login_error=1');
             }
