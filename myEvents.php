@@ -4,16 +4,18 @@
 include 'helper/header.php';
   session_start();
   include 'helper/connect.php';
+  if(isset($_POST['submitSignUp'])) {
+    $errQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], NULL)";
+    echo $errQuery;
+    mysqli_query($db, "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], NULL)");
+  }
 ?>
 
   <div class='container bg-faded p-4 my-4'>
   <h1 class='text-center'><strong>My Events</strong></h1>
 
 <?php
-  if(isset($_POST['submitSignUp'])) {
-    $errQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], NULL)";
-    mysqli_query($db, "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], NULL)");
-  }
+
 
   //Querying for registeredID from Registered_Member with memberID
   $regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$_SESSION[memberID]' ORDER BY registeredSeason DESC";
