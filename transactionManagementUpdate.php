@@ -9,8 +9,8 @@
         if(!$_SESSION[admin_status]){
             header("Location: http://track.finkmp.com");
         }
-        
 
+        /*
         // Admin is updating a transaction record.
         if(isset($_GET[transactionID]){
             // Run a query to gather all the transaction data
@@ -18,7 +18,7 @@
             $transactionResult = $db->query("SELECT * FROM Transaction, Member JOIN Member ON transactionApprovalMemberID = memberID WHERE transactionID = $_GET[transactionID]");
             mysqli_close($db);
             $row = mysqli_fetch_array($eventResult, MYSQLI_BOTH);            
-        }
+        }*/
 
 
     ?>
@@ -44,7 +44,7 @@
                 </div>
                 
                 <div class="form-label-group">
-                    <input type="text" id="inputDescription" class="form-control" name='transactionDescription' required>
+                    <input type="text" id="inputDescription" class="form-control" name='transactionDescription'>
                     <label for="inputDescription">(OPTIONAL) Description</label>
                 </div>
                 
