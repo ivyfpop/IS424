@@ -23,7 +23,7 @@
                 $registeredResult = mysqli_query($db,"SELECT * FROM Registered_Member WHERE memberID = '$row[memberID]' ORDER BY registeredSeason DESC LIMIT 1");
                 mysqli_close($db);
                 // Current season is hard coded right now. Will need to create season table in the database.
-                if($registeredResult->num_rows == 1 && !strcmp($row['registeredSeason'],"2017-2018")){
+                if($registeredResult->num_rows == 1 && strcmp($row['registeredSeason'],"2017-2018") == 0){
                     $_SESSION['registeredSeason'] = $row['registeredSeason'];
                     $_SESSION['fallDuesDate'] = $row['registeredSeason'];
                     $_SESSION['springDuesDate'] = $row['springDuesDate'];
