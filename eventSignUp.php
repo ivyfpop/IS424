@@ -19,14 +19,46 @@ include 'helper/connect.php';
 */
 ?>
 <div class="container bg-faded p-4 my-4">
-  <h2 class="text-center">Event Details</h2>
+  <h1 class="text-center">Event Details</h1>
 <?php
   $eventDetails = mysqli_query($db, "SELECT * FROM Event WHERE eventID = 10");
 
   if ($eventDetails->num_rows == 1) {
     $row = $eventDetails->fetch_array(MYSQLI_ASSOC);
     echo"<h3>Event ID: $row[eventID]";
+    echo"<h3>Event Name: $row[eventName]";
+    echo"<h3>Date of Event: $row[eventDate]";
+    echo"<h3>Event Location: $row[eventAddress] $row[eventCity] $row[eventState] $row[eventZip]";
+    echo"<h3>Description: $row[eventBio]";
   }
+
+  mysqli_free_reult($eventDetails);
+
+  $driverStatus = mysqli_query($db, "SELECT driverAuthorizationDate FROM Member WHERE memberID
+        = $_SESSION['memberID']");
+
+  echo"
+  <form action='myEvents.php method='post'>";
+  if ($driverStatus->num_rows == 1) {
+    echo"
+    <div class='form-group' name='submitSignUp'>
+      <label for='numberOfSeatsAvailable'>Seats available in car</label>
+      <select class='from-control' id='numberOfSeatsAvailable'>
+        <option selected disabled>Select</option>
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+      </select>
+    </div>";
+  }
+
+  echo"<button type='submit' class='btn btn-danger eventSignUp'>Confirm Sign Up</button>
+    </form>";
 
  ?>
 </div>

@@ -12,6 +12,8 @@ include 'helper/header.php';
 <?php
 
 
+
+
   //Querying for registeredID from Registered_Member with memberID
   $regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$_SESSION[memberID]' ORDER BY registeredSeason DESC";
   $registeredIDResult = mysqli_query($db, $regMemQuery);
@@ -24,7 +26,6 @@ include 'helper/header.php';
    // TODO: If registeredID doesn't exist need to decide which info to display
    // for sure can't show signed up for - could show events to sign up for
   if ($registeredID !== null) {
-
     /*
      Events to Sign up for
        - check to make sure eventID isn't in $signedUpArr before displaying
@@ -35,7 +36,6 @@ include 'helper/header.php';
     if ($signUpForResults != 'FALSE') {
       echo"<hr><h2 class='text-center'><strong>Sign Up For Events</strong></h2><hr>";
       while($row = mysqli_fetch_array($signUpForResults, MYSQLI_BOTH)) {
-//TODO add sign up button -> handle sign up :)
         echo"
         <div class='card mb-3 border-success'>
           <div class='card-header bg-success'>
@@ -69,8 +69,6 @@ include 'helper/header.php';
     } else {
       echo"<div class='container'>There are no events for you to sign up for at this time. Please check back soon!</div>";
     }
-
-    //TODO add isComplete = 0 to query. make another query that has isComplete = 1
 
     //Querying for all events in Registered_Member_Event with user's registeredID
     $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event
@@ -114,8 +112,6 @@ include 'helper/header.php';
         } else {
           echo"<div class='container' style='text-align:center;'>You are not signed up for any events</div>";
         }
-        //TODO do we want this to show all past events for the memeber ID instead
-        //of just the registeredID?
         $pastEvents = mysqli_query($db, "SELECT * FROM Registered_Member_Event
           INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
           '$registeredID' AND isComplete = 1");
