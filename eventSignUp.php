@@ -25,14 +25,14 @@ include 'helper/connect.php';
 
   if ($eventDetails->num_rows == 1) {
     $row = $eventDetails->fetch_array(MYSQLI_ASSOC);
-    echo"<h3>Event ID: $row[eventID]";
-    echo"<h3>Event Name: $row[eventName]";
-    echo"<h3>Date of Event: $row[eventDate]";
-    echo"<h3>Event Location: $row[eventAddress] $row[eventCity] $row[eventState] $row[eventZip]";
-    echo"<h3>Description: $row[eventBio]";
+    echo"<h3><strong>Event ID:</strong> $row[eventID]";
+    echo"<h3><strong>Event Name:</strong> $row[eventName]";
+    echo"<h3><strong>Date of Event:</strong> $row[eventDate]";
+    echo"<h3><strong>Event Location:</strong> $row[eventAddress] $row[eventCity] $row[eventState] $row[eventZip]";
+    echo"<h3><strong>Description:</strong> $row[eventBio]";
   }
 
-  mysqli_free_reult($eventDetails);
+  mysqli_free_result($eventDetails);
 
   $driverStatus = mysqli_query($db, "SELECT driverAuthorizationDate FROM Member WHERE memberID = $_SESSION[memberID]");
 
@@ -56,12 +56,13 @@ include 'helper/connect.php';
     </div>";
   }
 
+  mysqli_free_result($driverStatus);
+
   echo"
     <input type='hidden' name='eventID' value=$_POST[eventID]>
     <input type='hidden' name='registeredID' value=$_POST[registeredID]>
     <button type='submit' class='btn btn-danger eventSignUp'>Confirm Sign Up</button>
   </form>";
-
-
+  mysqli_close($db);
  ?>
 </div>
