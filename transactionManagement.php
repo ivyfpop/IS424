@@ -3,6 +3,9 @@
     <?php include 'helper/header.php'?>
     
     <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
+    
+        <a href='transactionManagementUpdate.php?newTransaction=1' class='btn btn-warning float-left'><h3>Create Transaction</h3></a>
+        
         <form class='form-inline' action='transactionManagement.php' name='transactionSearch' method='post'>
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue'>
             <select type="text" class="form-control mr-3" name='transactionSearchType' id='transactionSearchType'>
@@ -14,6 +17,7 @@
             
             <button class='form-control btn btn-success' type='submit' name='transactionSearch'>Search Transactions!</button>
         </form>
+        
     </div>
 
         <?php
@@ -68,8 +72,7 @@
             // If there is only one transaction returned, go right to the modify transaction page.
             if($transactions && $transactions->num_rows == 1 && isset($_POST['transactionSearch'])){
                 $oneRow = mysqli_fetch_array($transactions, MYSQLI_BOTH);
-                $headerString = "Location: http://track.finkmp.com/transactionManagementUpdate.php?transactionID=$oneRow[transactionID]";
-                header($headerString);
+                header("Location: http://track.finkmp.com/transactionManagementUpdate.php?transactionID=$oneRow[transactionID]");
             }
             // More than one transaction, loop through and print them all out.
             else if($transactions && $transactions->num_rows){
