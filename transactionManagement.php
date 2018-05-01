@@ -2,9 +2,9 @@
 <html lang="en">
     <?php include 'helper/header.php'?>
     
-    <div class='navbar navbar-dark bg-primary'>
+    <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
     
-        <a href='transactionManagementUpdate.php?newTransaction=1' class='btn btn-warning'>New Transaction</a>
+        <a href='transactionManagementUpdate.php?newTransaction=1' class='btn btn-warning mr-3'>New Transaction</a>
         
         <form class='form-inline' action='transactionManagement.php' name='transactionSearch' method='post'>
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue'>
