@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <title>WTC Login</title>
-
-    <!-- Check current session state -->
+    
     <?php
         // Verify the user is NOT logged in.
         session_start();
@@ -11,18 +9,14 @@
             header('Location: http://track.finkmp.com');
         }
     ?>		
-    <!-- End Session State Check -->
 
-    <!-- Dependencies -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="helper/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="helper/css/login.css" rel="stylesheet">
-    <!-- END Dependencies -->
 
     <body>
     
-        <!-- Login Form -->
         <form class="form-signin" action='helper/accountHelper.php' name='login' method='post'>
 
             <div class="text-center mb-4">
@@ -69,7 +63,6 @@
             <a class="btn btn-lg btn-warning btn-block" href="signup.php" role="button">Sign Up!</a>
 
         </form>
-        <!-- END Login Form -->
 
     </body>
     <?php include 'helper/footer.php' ?>

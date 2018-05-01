@@ -5,7 +5,7 @@
         session_start();
 
         // Check if they are trying to login.
-        if($_POST['login']){
+        if(isset($_POST['login'])){
             // Connect to the database, run query, close connection
             include 'connect.php';
             $result = mysqli_query($db,"SELECT memberID,adminStatus,firstName,lastName,email FROM Member WHERE email = '$_POST[email]' AND password = '$_POST[password]'");
@@ -28,12 +28,12 @@
             }
         }
         // Check if they are trying to log out
-        else if($_POST['logout']){
+        else if(isset($_POST['logout'])){
             	session_destroy();
                 header('Location: http://track.finkmp.com/login.php?logout=1');
         }
         // Check if they are trying to sign up
-        else if($_POST['signup']){
+        else if(isset($_POST['signup'])){
              // Verify that the email isn't taken already
             include 'connect.php';
             $result = mysqli_query($db,"SELECT * FROM Member WHERE email = '$_POST[email]'");
