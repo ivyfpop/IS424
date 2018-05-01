@@ -22,7 +22,6 @@
 
         <?php
             // Start the session and get ready for database interactions.
-            session_start();
             include 'helper/connect.php';
 
             // Default Query if a post was not entered.
@@ -96,9 +95,24 @@
                                         <strong>Transaction ID:</strong> $row[transactionID]
                                         </br>
                                         <strong>Request Date:</strong> $transactionInitDate
-                                        </br>
-                                        <strong>Event Name (If any):</strong> $eventRow[eventName]
-                                        </br>
+                                        </br>";
+
+                                        // If there is an Event associated with the transaction
+                                        if ($row[eventID]){
+                                            //Determine the name of the event
+                                            $eventResult = $db->query("SELECT eventName FROM Event WHERE eventID = $row[eventID]");
+                                            $eventRow = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
+                                            echo"<strong>Event Name(If any):</strong> $eventRow[eventName]
+                                                 </br>";
+                                        }
+                                        // Otherwise print out the category for the event
+                                        else{
+                                            echo"<strong>Category:</strong> $row[transactionCategory]
+                                                 </br>";
+                                        }
+
+
+                                        echo"
                                         <strong>Amount:</strong> $$row[transactionQuantity]
                                         </br>                                            
                                         <strong>Description:</strong> $row[transactionDescription]
@@ -135,10 +149,23 @@
                                         <strong>Request Date:</strong> $transactionInitDate
                                         </br>
                                         <strong>Payment Date:</strong> $transactionPaymentDate
-                                        </br>
-                                        <strong>Event Name (If any):</strong> $eventRow[eventName]
-                                        </br>
-                                        <strong>Amount:</strong> $$row[transactionQuantity]
+                                        </br>";
+
+                                        // If there is an Event associated with the transaction
+                                        if ($row[eventID]){
+                                            //Determine the name of the event
+                                            $eventResult = $db->query("SELECT eventName FROM Event WHERE eventID = $row[eventID]");
+                                            $eventRow = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
+                                            echo"<strong>Event Name(If any):</strong> $eventRow[eventName]
+                                                 </br>";
+                                        }
+                                        // Otherwise print out the category for the event
+                                        else{
+                                            echo"<strong>Category:</strong> $row[transactionCategory]
+                                                 </br>";
+                                        }
+
+                                        echo"<strong>Amount:</strong> $$row[transactionQuantity]
                                         </br>                                            
                                         <strong>Description:</strong> $row[transactionDescription]
                                     </div>
@@ -171,10 +198,23 @@
                                     <strong>Approval Date:</strong> $transactionApprovalDate
                                     </br>
                                     <strong>Approving Officer:</strong> $row[firstName] $approvalMemberRow[lastName]
-                                    </br>
-                                    <strong>Event Name (If any):</strong> $row[eventName]
-                                    </br>
-                                    <strong>Amount:</strong> $$row[transactionQuantity]
+                                    </br>";
+
+                                    // If there is an Event associated with the transaction
+                                    if ($row[eventID]){
+                                        //Determine the name of the event
+                                        $eventResult = $db->query("SELECT eventName FROM Event WHERE eventID = $row[eventID]");
+                                        $eventRow = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
+                                        echo"<strong>Event Name(If any):</strong> $eventRow[eventName]
+                                             </br>";
+                                    }
+                                    // Otherwise print out the category for the event
+                                    else{
+                                        echo"<strong>Category:</strong> $row[transactionCategory]
+                                             </br>";
+                                    }
+
+                                    echo"<strong>Amount:</strong> $$row[transactionQuantity]
                                     </br>                                            
                                     <strong>Description:</strong> $row[transactionDescription]
                                     </div>
