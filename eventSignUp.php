@@ -8,7 +8,7 @@ include 'helper/connect.php';
 
   TODO: If member has a date in driverAuthorizationDate, ask for timeToLeaveBy
           -What to do for user that is not an eligible driver?
-
+  TODO: comment throughout
 */
 ?>
 <div class="container bg-faded p-4 my-4">
@@ -46,7 +46,12 @@ include 'helper/connect.php';
         <option value='6'>6</option>
         <option value='7'>7</option>
       </select>
+    </div>
+    <div class='form-group'>
+      <label for='leaveBy'>Time you wish to leave by. Please enter in 24-hour format in CST</label>
+      <input type='text' name='leaveBy' id='leaveBy'>
     </div>";
+
   }
 
   mysqli_free_result($driverStatus);
