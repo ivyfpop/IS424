@@ -1,21 +1,24 @@
 <?php
+/*
+  This page handles gathering neccessary data from user that pertains to the event the
+  user selects to sign up for. The database is updated in myEvents.php, this page
+  sends a post to that page with all of the relevant information needed.
+  LeaveBy: the time the user can leave by for the events. String in 24-hour format
+  numberOfSeatsAvailable: only asked of the user when thier associated member has a value
+                          in the driverAuthorizationDate attribute of the Member table.
+                          The number of spots they have in their car
+*/
 include 'helper/header.php';
 session_start();
 include 'helper/connect.php';
-
-/*
-  registeredID and eventID in $_POST.
-
-  TODO: If member has a date in driverAuthorizationDate, ask for timeToLeaveBy
-          -What to do for user that is not an eligible driver?
-  TODO: comment throughout
-*/
 ?>
+
 <div class="container bg-faded p-4 my-4">
   <h1 class="text-center">Event Details</h1>
 <?php
+  //Querying all details of event with the passed in eventID.
   $eventDetails = mysqli_query($db, "SELECT * FROM Event WHERE eventID = $_POST[eventID]");
-
+  //Displaying event details.
   if ($eventDetails->num_rows == 1) {
     $row = $eventDetails->fetch_array(MYSQLI_ASSOC);
     echo"<h3><strong>Event ID:</strong> $row[eventID]";
@@ -26,9 +29,10 @@ include 'helper/connect.php';
   }
 
   mysqli_free_result($eventDetails);
-
+  //Querying for driverAuthorizationDate from Member table
   $driverStatus = mysqli_query($db, "SELECT driverAuthorizationDate FROM Member WHERE memberID = $_SESSION[memberID]");
   $driverStatusRow = $driverStatus->fetch_array(MYSQLI_ASSOC);
+  //Asking user for leaveBy time - see top for description.
   echo"
   <form action='myEvents.php' method='post'>
   <div class='form-group'>
@@ -36,6 +40,7 @@ include 'helper/connect.php';
     <input type='text' name='leaveBy' id='leaveBy'>
     <small id='leaveByHelp' class='form-text text-muted'>Please enter times in CST in 24-Hour format and include seconds. Example: 2:00 PM would be entered as 14:00:00</small>
   </div>";
+  //Asking user for numberOfSeatsAvailable - see top for description.
   if ($driverStatusRow[driverAuthorizationDate] != NULL) {
     echo"
     <div class='form-group'>
@@ -52,12 +57,11 @@ include 'helper/connect.php';
         <option value='7'>7</option>
       </select>
     </div>";
-
   }
 
   mysqli_free_result($driverStatus);
   mysqli_close($db);
-
+  //Including eventID and registeredID allows for easier database updating
   echo"
     <input type='hidden' name='eventID' value=$_POST[eventID]>
     <input type='hidden' name='registeredID' value=$_POST[registeredID]>
