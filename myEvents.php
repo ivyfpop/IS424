@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include 'helper/header.php';
+  <?php
+  /*
+    This file is responsible for displaying events to the user. There are three views for
+    registered members:
+      1) Sign Up for Events
+        -Events that don't appear in the Registered_Member_Event with the members associated
+         registeredID. These are events the user can sign up for.
+      2) Events Signed Up For
+        -Events the user has signed up for but have not taken place yet (isComplete = 0)
+      3) Past Events
+        -Events the user has signed up for that have taken place (isComplete = 1)
+    If a member is not registered they see all events they could sign up for but do not have
+    the option to sign up for them.
+    This file also updates the database with the information gained from eventSignUp.php, which
+    which gives us our signing up ability.
+
+    //TODO: show events with no sign up button
+    //TODO: fix all elses -> e.g. when a user hasn't signed up for an event need to display
+            "You have not signed up for any events"
+
+  */
+  include 'helper/header.php';
   session_start();
   include 'helper/connect.php';
+  //Updating the database with info attained from eventSignUp.php
   if(isset($_POST['submitSignUp'])) {
+    //numberOfSeatsAvailable will only be set if the user is an eligible driver
     if (isset($_POST['numberOfSeatsAvailable'])) {
       $eventSignUpQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], '$_POST[leaveBy]')";
     } else {
       $eventSignUpQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, 0, '$_POST[leaveBy]')";
     }
-    echo $eventSignUpQuery;
     mysqli_query($db, $eventSignUpQuery);
   }
-?>
+  ?>
 
   <div class='container bg-faded p-4 my-4'>
-  <h1 class='text-center'><strong>My Events</strong></h1>
+    <h1 class='text-center'><strong>My Events</strong></h1>
 
 <?php
 
-
-  //Querying for registeredID from Registered_Member with memberID
+  //Querying for registeredID with memberID
   $regMemQuery = "SELECT registeredID FROM Registered_Member WHERE memberID = '$_SESSION[memberID]' ORDER BY registeredSeason DESC";
   $registeredIDResult = mysqli_query($db, $regMemQuery);
   $registeredID = null;
@@ -32,15 +52,16 @@ include 'helper/header.php';
 
    // TODO: If registeredID doesn't exist need to decide which info to display
    // for sure can't show signed up for - could show events to sign up for
-  if ($registeredID !== null) {
-    /*
-      Events to Sign up for
-    */
-    $signUpForResults = mysqli_query($db, "SELECT * FROM Event WHERE eventID NOT IN (
-    SELECT eventID from Registered_Member_Event WHERE registeredID = '$registeredID')");
 
-    if ($signUpForResults != 'FALSE') {
+   //Only show these 3 views if member is registered
+  if ($registeredID !== null) {
+    //All events that don't have an association with the member's registeredID in Registered_Member_Event
+    $signUpForResults = mysqli_query($db, "SELECT * FROM Event WHERE eventID NOT IN (
+    SELECT eventID from Registered_Member_Event WHERE registeredID = '$registeredID' AND isComplete = 0)");
+    //Events to Sign up For
+    if ($signUpForResults->num_rows != 0) {
       echo"<hr><h2 class='text-center'><strong>Sign Up For Events</strong></h2><hr>";
+      //Looping through result to show all events
       while($row = mysqli_fetch_array($signUpForResults, MYSQLI_BOTH)) {
         echo"
         <div class='card mb-3 border-success'>
@@ -72,23 +93,21 @@ include 'helper/header.php';
           </div>";
       }
       mysqli_free_result($signUpForResults);
-    } else {
+    } else { //There are no events the user isn't signed up for
       echo"<div class='container'>There are no events for you to sign up for at this time. Please check back soon!</div>";
     }
 
-    //Querying for all events in Registered_Member_Event with user's registeredID
+    //All events that the user is signed up for but have NOT taken place yet
     $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event
       INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
       '$registeredID' AND isComplete = 0");
-      /*
-        Current Events display.
-        A current event is one that is in the Registered_Member_Event table and
-        has isComplete set to 0. This means that the event has not happened yet.
-      */
-    if ($signedUpResults != 'FALSE') { //Making sure that query returns data
+
+    //current events display
+    if ($signedUpResults->num_rows != 0) { //Making sure that query returns data
       echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
+      //Looping through result to show all events
       while($row = mysqli_fetch_array($signedUpResults, MYSQLI_BOTH)){
-        //Events that have not been completed (they haven't happened yet)
+          //Displaying info in toggable accordian
           echo"
           <div class='card mb-3 border-success'>
             <div class='card-header bg-success'>
@@ -115,19 +134,17 @@ include 'helper/header.php';
             </div>";
           }
           mysqli_free_result($signedUpResults);
-        } else {
+        } else { //User is not signed up for any events, meaning the query result has no rows.
           echo"<div class='container' style='text-align:center;'>You are not signed up for any events</div>";
         }
+        //All events that the user is signed up for that have taken place
         $pastEvents = mysqli_query($db, "SELECT * FROM Registered_Member_Event
           INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
           '$registeredID' AND isComplete = 1");
-          /*
-           Past Events Display.
-           A past event is one that has already happened, meaning the attribute isComplete is
-           set to 1 in the database.
-          */
+
+          //Past events view
           echo"<hr><h2 class='text-center'><strong>Past Events</strong></h2><hr>";
-          if ($pastEvents != 'FALSE') {
+          if ($pastEvents->num_rows != 0) {
             while($row = mysqli_fetch_array($pastEvents, MYSQLI_BOTH)){
               echo"
               <div class='card mb-3 border-success'>
@@ -155,19 +172,18 @@ include 'helper/header.php';
                 </div>";
             }
             mysqli_free_result($pastEvents);
-          } else { //TODO all else statements here are not working like expected.
-            echo"<div class='container' style='text-align:center;'>There are no past results to display for this account. </div>";
+          } else { //User has not completed any events.
+            echo"<div class='container' style='text-align:center;'>There are no past events to display for this account. </div>";
           }
   } else {
       // Not Registered Header
       echo"<h2 class='text-center'><strong>You Are Not Registered!</strong></h2>";
-
-      // ?? display all events with disabled signup buttons
+      //TODO; show events with no sign up button
   }
   mysqli_close($db);
 
 
-?>
+  ?>
   </div>
   <?php include 'helper/footer.php' ?>
 </html>
