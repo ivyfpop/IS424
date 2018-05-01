@@ -25,7 +25,7 @@ include 'helper/connect.php';
 
   if ($eventDetails->num_rows == 1) {
     $row = mysqli_fetch_row($eventDetails);
-    echo"<h3>Event ID: $row[0]";
+    echo"<h3>Event ID: $row[eventID]";
   }
 
  ?>
