@@ -68,29 +68,23 @@
         // Check if they are trying to update their account.
         else if(isset($_POST['self-update']) || isset($_POST['admin-update'])){
 
-            include 'connect.php';
             session_start();
-            
+            /*
             $isSprinter = $isThrower = $isDistance = $isJumper = 0;
 
             if (isset($_POST['isSprinter'])) $isSprinter = 1;
             if (isset($_POST['isThrower'])) $isThrower = 1;
             if (isset($_POST['isDistance'])) $isDistance = 1;
-            if (isset($_POST['isJumper'])) $isJumper = 1;
-
-            // Query used to update the account
-            // update doesn't support SET () VALUES ()
-            $updateQuery = "UPDATE Member SET firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', email = '$_POST[email]', password = '$_POST[password]', isSprinter = $isSprinter, isDistance = $isDistance, isThrower = $isThrower, isJumper = $isJumper WHERE memberID = $_SESSION[memberID]";
+            if (isset($_POST['isJumper'])) $isJumper = 1;*/
 
             // Update account and send them to the homepage
-            if (mysqli_query($db, $updateQuery)) {
-                //Stuff
-            }
+            include 'connect.php';
+            $updateQuery = "UPDATE Member SET firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', email = '$_POST[email]', password = '$_POST[password]', isSprinter = '$_POST[isSprinter]', isDistance = '$_POST[isDistance]', isThrower = '$_POST[isThrower]', isJumper = '$_POST[isJumper]' WHERE memberID = $_SESSION[memberID]";
+            mysqli_query($db, $updateQuery)
+            mysqli_close();
 
+            // Redirect them back to their respective pages based on status.
             if (isset($_POST['self-update'])) {
-                $_SESSION['firstName'] = $_POST['firstName'];
-                $_SESSION['lastName'] = $_POST['lastName'];
-                $_SESSION['email'] = $_POST['email'];
                 header('Location: http://track.finkmp.com/myAccount.php');
             } else if (isset($_POST['admin-update'])){
               header('Location: http://track.finkmp.com/accountManagement.php');
