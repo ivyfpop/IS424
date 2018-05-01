@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'helper/header.php';
-    session_start();
-    include 'helper/connect.php';
+<?php
+include 'helper/header.php';
+  session_start();
+  include 'helper/connect.php';
 ?>
 
   <div class='container bg-faded p-4 my-4'>
@@ -63,9 +64,8 @@
               </div>
             </div>
           </div>";
-          //TODO sign up button
-
       }
+      mysqli_free_result($signUpForResults);
     } else {
       echo"<div class='container'>There are no events for you to sign up for at this time. Please check back soon!</div>";
     }
@@ -110,6 +110,7 @@
               </div>
             </div>";
           }
+          mysqli_free_result($signedUpResults);
         } else {
           echo"<div class='container' style='text-align:center;'>You are not signed up for any events</div>";
         }
@@ -151,6 +152,7 @@
                   </div>
                 </div>";
             }
+            mysqli_free_result($pastEvents);
           } else { //TODO all else statements here are not working like expected.
             echo"<div class='container' style='text-align:center;'>There are no past results to display for this account. </div>";
           }

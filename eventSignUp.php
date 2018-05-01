@@ -14,6 +14,29 @@
 
 */
 
+  echo"<h2 class='text-center'>Event Details</h2>";
+
+  $eventDetails = mysqli_query($db, "SELECT * FROM Event WHERE eventID = 500");
+
+  if ($eventDetails == null) {
+    echo"== null";
+  }
+  if ($eventDetails === null) {
+    echo"=== null";
+  }
+  if ($eventDetails == "FALSE") {
+    echo"=='FALSE'";
+  }
+  if ($eventDetails === "FALSE") {
+    echo"==='FALSE'";
+  }
+  if ($eventDetails == FALSE) {
+    echo"== FALSE";
+  }
+  if ($eventDetails === FALSE) {
+    echo"===FALSE";
+  }
+
 
 
  ?>
