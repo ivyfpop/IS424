@@ -57,12 +57,12 @@ include 'helper/connect.php';
   }
 
   mysqli_free_result($driverStatus);
-
+  mysqli_close($db);
+  
   echo"
     <input type='hidden' name='eventID' value=$_POST[eventID]/>
     <input type='hidden' name='registeredID' value=$_POST[registeredID]/>
     <input type='submit' name='submitSignUp' value='Confirm Sign Up'/>
   </form>";
-  mysqli_close($db);
  ?>
 </div>
