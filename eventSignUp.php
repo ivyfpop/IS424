@@ -35,10 +35,10 @@ include 'helper/connect.php';
   mysqli_free_result($eventDetails);
 
   $driverStatus = mysqli_query($db, "SELECT driverAuthorizationDate FROM Member WHERE memberID = $_SESSION[memberID]");
-
+  $driverStatusRow = $driverStatus->fetch_array(MYSQLI_ASSOC);
   echo"
   <form action='myEvents.php name='submitSignUp' method='post'>";
-  if ($driverStatus->num_rows == 1) {
+  if ($driverStatusRow[driverAuthorizationDate] != NULL) {
     echo"
     <div class='form-group'>
       <label for='numberOfSeatsAvailable'>Seats available in car</label>
