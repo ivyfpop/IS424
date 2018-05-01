@@ -42,7 +42,7 @@
                                 </br>";
                             
                     // Only authorized drivers can be asked how many seats they have
-                    if($_SESSION[driverAuthorizationDate]){
+                    if($_SESSION['driverAuthorizationDate']){
                         echo"<div class='form-group'>
                                 <label for='numberOfSeatsAvailable'>(If Driving)Extra Seats:</label>
                                 <select class='form-control' name='numberOfSeatsAvailable' id='numberOfSeatsAvailable'>
