@@ -67,7 +67,7 @@
 
             // If there is only one transaction returned, go right to the modify transaction page.
             if($transactions && $transactions->num_rows == 1 && isset($_POST['transactionSearch'])){
-                header("Location: http://track.finkmp.com/transactionManagementUpdate.php?transactionID=".$_POST[transactionID]);
+                header("Location: http://track.finkmp.com/transactionManagementUpdate.php?transactionID="."$_POST[transactionID]");
             }
             // Verify there are transactions
             if($transactions && $transactions->num_rows){
