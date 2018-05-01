@@ -51,7 +51,7 @@
             }
         }
         // Check if they are trying to update their account.
-        else if($_POST['self-update'] || $_POST['admin-update']){
+        else if(isset($_POST['self-update']) || isset($_POST['admin-update'])){
 
             include 'connect.php';
 
