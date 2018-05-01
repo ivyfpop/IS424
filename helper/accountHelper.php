@@ -79,8 +79,13 @@
 
             // Update account and send them to the homepage
             include 'connect.php';
-            $updateQuery = "UPDATE Member SET firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', email = '$_POST[email]', password = '$_POST[password]', isSprinter = '$_POST[isSprinter]', isDistance = '$_POST[isDistance]', isThrower = '$_POST[isThrower]', isJumper = '$_POST[isJumper]' WHERE memberID = $_SESSION[memberID]";
-            mysqli_query($db, $updateQuery)
+            $updateQuery = "UPDATE  Member 
+                            SET     firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', 
+                                    email = '$_POST[email]', password = '$_POST[password]', 
+                                    isSprinter = '$_POST[isSprinter]', isDistance = '$_POST[isDistance]', 
+                                    isThrower = '$_POST[isThrower]', isJumper = '$_POST[isJumper]' 
+                            WHERE memberID = $_SESSION[memberID]";
+            mysqli_query($db, $updateQuery);
             mysqli_close();
 
             // Redirect them back to their respective pages based on status.
