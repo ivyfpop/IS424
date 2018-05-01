@@ -13,6 +13,7 @@ include 'helper/header.php';
 //TODO: test this works
   if(isset($_POST['submitSignUp'])) {
     mysqli_query($db, "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], NULL)");
+    echo $db->error;
   }
 
 
