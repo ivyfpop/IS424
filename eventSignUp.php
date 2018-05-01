@@ -28,7 +28,7 @@ include 'helper/connect.php';
     echo"<h3><strong>Event ID:</strong> $row[eventID]";
     echo"<h3><strong>Event Name:</strong> $row[eventName]";
     echo"<h3><strong>Date of Event:</strong> $row[eventDate]";
-    echo"<h3><strong>Event Location:</strong> $row[eventAddress] $row[eventCity] $row[eventState] $row[eventZip]";
+    echo"<h3><strong>Event Location:</strong> $row[eventAddress] $row[eventCity], $row[eventState] $row[eventZip]";
     echo"<h3><strong>Description:</strong> $row[eventBio]";
   }
 
