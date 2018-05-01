@@ -75,9 +75,9 @@
                 $_SESSION['lastName'] = $_POST['lastName'];
                 $_SESSION['email'] = $_POST['email'];
                 header('Location: http://track.finkmp.com/myAccount.php');
-            else if (isset($_POST['admin-update']){
+            else if (isset($_POST['admin-update'])){
                 header('Location: http://track.finkmp.com/accountManagement.php');
-            } 
+            }
 
         }
         // Otherwise just redirect them to the index page.
