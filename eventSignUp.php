@@ -21,7 +21,7 @@ include 'helper/connect.php';
 <div class="container bg-faded p-4 my-4">
   <h1 class="text-center">Event Details</h1>
 <?php
-  $eventDetails = mysqli_query($db, "SELECT * FROM Event WHERE eventID = 10");
+  $eventDetails = mysqli_query($db, "SELECT * FROM Event WHERE eventID = $_POST[eventID]");
 
   if ($eventDetails->num_rows == 1) {
     $row = $eventDetails->fetch_array(MYSQLI_ASSOC);
@@ -34,8 +34,7 @@ include 'helper/connect.php';
 
   mysqli_free_reult($eventDetails);
 
-  $driverStatus = mysqli_query($db, "SELECT driverAuthorizationDate FROM Member WHERE memberID
-        = $_SESSION['memberID']");
+  $driverStatus = mysqli_query($db, "SELECT driverAuthorizationDate FROM Member WHERE memberID = $_SESSION['memberID']");
 
   echo"
   <form action='myEvents.php name='submitSignUp' method='post'>";
@@ -62,6 +61,7 @@ include 'helper/connect.php';
     <input type='hidden' name='registeredID' value=$_POST[registeredID]>
     <button type='submit' class='btn btn-danger eventSignUp'>Confirm Sign Up</button>
   </form>";
+
 
  ?>
 </div>
