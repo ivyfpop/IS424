@@ -34,7 +34,7 @@ include 'helper/connect.php';
 
   mysqli_free_reult($eventDetails);
 
-  $driverStatus = mysqli_query($db, "SELECT driverAuthorizationDate FROM Member WHERE memberID = $_SESSION['memberID']");
+  $driverStatus = mysqli_query($db, "SELECT driverAuthorizationDate FROM Member WHERE memberID = $_SESSION[memberID]");
 
   echo"
   <form action='myEvents.php name='submitSignUp' method='post'>";
