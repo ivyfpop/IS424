@@ -59,7 +59,7 @@
     $signUpForResults = mysqli_query($db, "SELECT * FROM Event WHERE eventID NOT IN (
     SELECT eventID from Registered_Member_Event WHERE registeredID = '$registeredID' AND isComplete = 0)");
     //Events to Sign up For
-    if ($signUpForResults != 'FALSE') {
+    if ($signUpForResults->num_rows != 0) {
       echo"<hr><h2 class='text-center'><strong>Sign Up For Events</strong></h2><hr>";
       //Looping through result to show all events
       while($row = mysqli_fetch_array($signUpForResults, MYSQLI_BOTH)) {
@@ -103,7 +103,7 @@
       '$registeredID' AND isComplete = 0");
 
     //current events display
-    if ($signedUpResults != 'FALSE') { //Making sure that query returns data
+    if ($signedUpResults->num_rows != 0) { //Making sure that query returns data
       echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
       //Looping through result to show all events
       while($row = mysqli_fetch_array($signedUpResults, MYSQLI_BOTH)){
@@ -144,7 +144,7 @@
 
           //Past events view
           echo"<hr><h2 class='text-center'><strong>Past Events</strong></h2><hr>";
-          if ($pastEvents != 'FALSE') {
+          if ($pastEvents->num_rows != 0) {
             while($row = mysqli_fetch_array($pastEvents, MYSQLI_BOTH)){
               echo"
               <div class='card mb-3 border-success'>
