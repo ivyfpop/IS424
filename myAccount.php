@@ -12,8 +12,8 @@
     ?>
 
     <body>
-        <div class="container bg-faded  p-4 my-4">
-            <form class="form-signin" action='helper/accountHelper.php' name='self-update' method='post'>
+        <div class="container bg-faded p-4 my-4">
+            <form class="form-signin" action='transactionManagementUpdate.php' name='transactionUpdate' method='post'>
                 <center><h1> User Account Panel </h1></center>
 
                 <div class="form-label-group">
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="form-label-group">
-                    <input type="password" id="inputPassword" name="password" class="form-control"  value=<?php echo "'$row[password]'";?> required>
+                    <input type="password" id="inputPassword" class="form-control" name="password"  value=<?php echo "'$row[password]'";?> required>
                     <label for="inputPassword">Password</label>
                 </div>
 
@@ -56,7 +56,7 @@
                     <label class='form-check-label' for='inputIsJumper'>Jumper</label>
                 </div>
 
-                <button class="btn btn-lg btn-success btn-block" type="submit" name='self-update'>Update Account</button>
+                <button class="btn btn-lg btn-success btn-block mt-2" type="submit" name='self-update'>Update Account</button>
             </form>
         </div>
     </body>
