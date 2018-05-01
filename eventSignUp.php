@@ -37,7 +37,7 @@ include 'helper/connect.php';
   $driverStatus = mysqli_query($db, "SELECT driverAuthorizationDate FROM Member WHERE memberID = $_SESSION[memberID]");
   $driverStatusRow = $driverStatus->fetch_array(MYSQLI_ASSOC);
   echo"
-  <form action='myEvents.php' name='submitSignUp' method='post'>";
+  <form action='myEvents.php' method='post'>";
   if ($driverStatusRow[driverAuthorizationDate] != NULL) {
     echo"
     <div class='form-group'>
@@ -59,9 +59,9 @@ include 'helper/connect.php';
   mysqli_free_result($driverStatus);
 
   echo"
-    <input type='hidden' name='eventID' value=$_POST[eventID]>
-    <input type='hidden' name='registeredID' value=$_POST[registeredID]>
-    <button type='submit' name='submitSignUp' id='submitSignUp' value='submitSignUp' class='btn btn-danger'>Confirm Sign Up</button>
+    <input type='hidden' name='eventID' value=$_POST[eventID]/>
+    <input type='hidden' name='registeredID' value=$_POST[registeredID]/>
+    <input type='submit' name='submitSignUp' value='Confirm Sign Up'/>
   </form>";
   mysqli_close($db);
  ?>
