@@ -1,4 +1,7 @@
 <?php
+include 'helper/header.php';
+session_start();
+include 'helper/connect.php';
 /*
   registeredID and eventID in $_POST.
 
@@ -16,25 +19,10 @@
 
   echo"<h2 class='text-center'>Event Details</h2>";
 
-  $eventDetails = mysqli_query($db, "SELECT * FROM Event WHERE eventID = 500");
+  $eventDetails = mysqli_query($db, "SELECT * FROM Event WHERE eventID = 10");
 
-  if ($eventDetails == null) {
-    echo"== null";
-  }
-  if ($eventDetails === null) {
-    echo"=== null";
-  }
-  if ($eventDetails == "FALSE") {
-    echo"=='FALSE'";
-  }
-  if ($eventDetails === "FALSE") {
-    echo"==='FALSE'";
-  }
-  if ($eventDetails == FALSE) {
-    echo"== FALSE";
-  }
-  if ($eventDetails === FALSE) {
-    echo"===FALSE";
+  if ($eventDetails->num_rows == 1) {
+    echo"worked";
   }
 
 
