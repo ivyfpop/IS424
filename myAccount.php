@@ -12,7 +12,7 @@
     ?>
 
     <body>
-        <div class="container bg-faded">
+        <div class="container bg-faded  p-4 my-4">
             <form class="form-signin" action='helper/accountHelper.php' name='self-update' method='post'>
                 <center><h1> User Account Panel </h1></center>
 
