@@ -58,6 +58,11 @@
                     <input type='hidden' name='registeredID' value=$_POST[registeredID]>
                     <button class='form-control btn btn-danger' type='submit' name='submitSignUp'>Confirm Sign Up</button>
                   </form>";
+                }
+                // Not sure how they got to this page, redirect them back.
+                else{
+                    header("Location: http://track.finkmp.com/myEvents.php");
+                }
              ?>
     </div>
 </html>
