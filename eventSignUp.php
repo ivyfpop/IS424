@@ -24,7 +24,7 @@ include 'helper/connect.php';
   $eventDetails = mysqli_query($db, "SELECT * FROM Event WHERE eventID = 10");
 
   if ($eventDetails->num_rows == 1) {
-    $row = mysqli_fetch_row($eventDetails);
+    $row = $eventDetails->fetch_array(MYSQLI_ASSOC);
     echo"<h3>Event ID: $row[eventID]";
   }
 
