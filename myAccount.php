@@ -13,7 +13,7 @@
 
     <body>
         <div class="container bg-faded p-4 my-4">
-            <form class="form-signin" action='transactionManagementUpdate.php' name='transactionUpdate' method='post'>
+            <form class="form-signin" action='helper/accountHandler.php' name='self-pdate' method='post'>
                 <center><h1> User Account Panel </h1></center>
 
                 <div class="form-label-group">
