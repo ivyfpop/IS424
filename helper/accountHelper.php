@@ -40,9 +40,8 @@
             if(!$row = mysqli_fetch_array($result, MYSQLI_BOTH)){
                 // Query used to create the account
                 $updateQuery = "INSERT INTO Member (firstName, lastName, email, password) VALUES ('$_POST[firstName]','$_POST[lastName]','$_POST[email]','$_POST[password]')";
-
                 // Create account and send them to the homepage
-                mysqli_query($db, $updateQuery);
+                $db->query($updateQuery);
                 header('Location: http://track.finkmp.com/login.php?new_account=1');
             }
             // If the email is already taken inform the user.
@@ -68,20 +67,17 @@
 
             // Update account and send them to the homepage
             if (mysqli_query($db, $updateQuery)) {
-
-              // TODO update $_SESSION values (firstName, lastName, email)
-              $_SESSION['firstName'] = $_POST['firstName'];
-              $_SESSION['lastName'] = $_POST['lastName'];
-              $_SESSION['email'] = $_POST['email'];
-
-              if ($_POST['self-update'])
-                echo("<meta http-equiv='refresh' content='0;url=../myAccount.php'>");
-              else
-                echo("<meta http-equiv='refresh' content='0;url=../accountManagement.php'>");
-
-            } else {
-              // failure
+                //Stuff
             }
+
+            if (isset($_POST['self-update']))
+                $_SESSION['firstName'] = $_POST['firstName'];
+                $_SESSION['lastName'] = $_POST['lastName'];
+                $_SESSION['email'] = $_POST['email'];
+                header('Location: http://track.finkmp.com/myAccount.php');
+            else if (isset($_POST['admin-update']){
+                header('Location: http://track.finkmp.com/accountManagement.php');
+            } 
 
         }
         // Otherwise just redirect them to the index page.
