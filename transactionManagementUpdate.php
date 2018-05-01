@@ -6,7 +6,7 @@
         session_start();
         
         // Non-Admin got to this page.
-        if(!$_SESSION[admin_status]){
+        if(!$_SESSION[adminStatus]){
             header("Location: http://track.finkmp.com");
         }
 
