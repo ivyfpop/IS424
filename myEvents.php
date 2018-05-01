@@ -8,7 +8,7 @@ include 'helper/header.php';
     if (isset($_POST['numberOfSeatsAvailable'])) {
       $eventSignUpQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, $_POST[numberOfSeatsAvailable], '$_POST[leaveBy]')";
     } else {
-      $eventSignUpQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, 0, 0)";
+      $eventSignUpQuery = "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID, isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0, 0, '$_POST[leaveBy]')";
     }
     echo $eventSignUpQuery;
     mysqli_query($db, $eventSignUpQuery);
