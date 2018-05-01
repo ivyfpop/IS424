@@ -9,22 +9,21 @@
                           The number of spots they have in their car
 */
 include 'helper/header.php';
-session_start();
 ?>
 
-<div class="container bg-faded p-4 my-4">
+<div class="container bg-faded p-4 my-4 h3">
     <h1 class="text-center">Event Registration:</h1>
         <?php
+            session_start();
             //Querying all details of event with the passed in eventID.
             include 'helper/connect.php';
             $eventDetails = $db->query("SELECT * FROM Event WHERE eventID = $_POST[eventID]");
             mysqli_close($db);
             
             // Display the event, if there is an event
-            if ($eventRow = $eventDetails->fetch_array(MYSQLI_ASSOC)) {
+            if ($eventRow = mysqli_fetch_array($eventDetails, MYSQLI_BOTH)) {
                 // Display the details of the event they can register for:
-                echo"<h3>
-                        <strong>Event ID:</strong> $eventRow[eventID]
+                echo"   <strong>Event ID:</strong> $eventRow[eventID]
                         <strong>Event Name:</strong> $eventRow[eventName]
                         <strong>Event Date:</strong> $eventRow[eventDate]
                         <strong>Event Location:</strong> $eventRow[eventAddress] $eventRow[eventCity], $eventRow[eventState] $eventRow[eventZip]
@@ -51,16 +50,12 @@ session_start();
                             </select>
                         </div>";
                 }
-                else{
-                    echo"<strong> Become an authorized driver!</strong>";
-                }
 
               //Including eventID and registeredID allows for easier database updating
               echo"
                 <input type='hidden' name='eventID' value=$_POST[eventID]>
                 <input type='hidden' name='registeredID' value=$_POST[registeredID]>
-                <input type='submit' class='btn btn-danger' name='submitSignUp' value='Confirm Sign Up'>
-                <button class='form-control btn btn-success' type='submit' name='transactionSearch'>Search Transactions!</button>
+                <button class='form-control btn btn-danger' type='submit' name='submitSignUp'>Confirm Sign Up</button>
               </form>";
          ?>
 </div>
