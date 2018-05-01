@@ -69,7 +69,7 @@
         else if(isset($_POST['self-update']) || isset($_POST['admin-update'])){
 
             session_start();
-            /*
+            
             $isSprinter = $isThrower = $isDistance = $isJumper = 0;
 
             if (isset($_POST['isSprinter'])) $isSprinter = 1;
@@ -82,8 +82,8 @@
             $updateQuery = "UPDATE  Member 
                             SET     firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', 
                                     email = '$_POST[email]', password = '$_POST[password]', 
-                                    isSprinter = '$_POST[isSprinter]', isDistance = '$_POST[isDistance]', 
-                                    isThrower = '$_POST[isThrower]', isJumper = '$_POST[isJumper]' 
+                                    isSprinter = $isSprinter, isDistance = $isDistance, 
+                                    isThrower = $isThrower, isJumper = $isJumper 
                             WHERE memberID = $_SESSION[memberID]";
             mysqli_query($db, $updateQuery);
             mysqli_close();
