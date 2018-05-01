@@ -48,8 +48,9 @@ include 'helper/connect.php';
       </select>
     </div>
     <div class='form-group'>
-      <label for='leaveBy'>Time you wish to leave by. Please enter in 24-hour format in CST</label>
+      <label for='leaveBy'><strong>Time you wish to leave by.</strong></label>
       <input type='text' name='leaveBy' id='leaveBy'>
+      <small id='leaveByHelp' class='form-text text-muted'>Please enter times in CST in 24-Hour format and include seconds. Example: 2:00 PM would be entered as 14:00:00</small>
     </div>";
 
   }
