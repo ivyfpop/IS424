@@ -2,6 +2,7 @@
 include 'helper/header.php';
 session_start();
 include 'helper/connect.php';
+
 /*
   registeredID and eventID in $_POST.
 
@@ -16,15 +17,16 @@ include 'helper/connect.php';
         this is where the update will actually happen)
 
 */
-
-  echo"<h2 class='text-center'>Event Details</h2>";
-
+?>
+<div class="container bg-faded p-4 my-4">
+  <h2 class="text-center">Event Details</h2>
+<?php
   $eventDetails = mysqli_query($db, "SELECT * FROM Event WHERE eventID = 10");
 
   if ($eventDetails->num_rows == 1) {
-    echo"worked";
+    $row = $eventDetails->fetch_row();
+    echo"<h3>Event ID: $row[eventID]";
   }
 
-
-
  ?>
+</div>
