@@ -60,9 +60,9 @@ include 'helper/connect.php';
   mysqli_close($db);
 
   echo"
-    <input type='hidden' name='eventID' value=$_POST[eventID]/>
-    <input type='hidden' name='registeredID' value=$_POST[registeredID]/>
-    <input type='submit' class='btn btn-danger' name='submitSignUp' value='Confirm Sign Up'/>
+    <input type='hidden' name='eventID' value=$_POST[eventID]>
+    <input type='hidden' name='registeredID' value=$_POST[registeredID]>
+    <input type='submit' class='btn btn-danger' name='submitSignUp' value='Confirm Sign Up'>
   </form>";
  ?>
 </div>
