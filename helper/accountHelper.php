@@ -28,7 +28,7 @@
                 // Current season is hard coded right now. Will need to create season table in the database.
                 $registeredResult = mysqli_query($db,"SELECT * FROM Registered_Member WHERE memberID = '$row[memberID]' ORDER BY registeredSeason DESC LIMIT 1");
                 mysqli_close($db);
-                if($row = mysqli_fetch_array($registeredResult, MYSQLI_BOTH); && !strcmp($row['registeredSeason'],"2017-2018")){
+                if($row = mysqli_fetch_array($registeredResult, MYSQLI_BOTH) && !strcmp($row['registeredSeason'],"2017-2018")){
                     $_SESSION['fallDuesDate'] = $row['registeredSeason'];
                     $_SESSION['springDuesDate'] = $row['springDuesDate'];
                     $_SESSION['liabilityFormDate'] = $row['liabilityFormDate'];
