@@ -57,7 +57,7 @@
                 
                 // Administrative links
                 session_start();
-                if($_SESSION['adminStatus']){
+                if(isset($_SESSION['adminStatus'])){
                     // eventManagement Page
                     if(!strcmp($uri, "/eventManagement.php")){
                         echo("<a class='nav-link btn btn-danger ml-3' href='eventManagement.php'>Event Management</a>");

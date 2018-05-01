@@ -3,12 +3,12 @@
 
     <?php   
         include 'helper/header.php';
-        session_start();
-        
         include 'helper/connect.php';
-        $eventResult = $db->query("SELECT password,isSprinter,isThrower,isDistance,isJumper FROM Member WHERE memberID = '$_SESSION[memberID]'");
+
+        // Run the query to gather the user data, and close the connection.
+        $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_SESSION[memberID]'");
         mysqli_close($db);
-        $row = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
+        $row = mysqli_fetch_array($memberResult, MYSQLI_BOTH);
     ?>
 
     <body>
@@ -17,17 +17,17 @@
                 <center><h1> User Account Panel </h1></center>
 
                 <div class="form-label-group">
-                    <input type="text" id="inputFirstName" class="form-control" name='firstName' value=<?php echo "'$_SESSION[firstName]'";?> required>
+                    <input type="text" id="inputFirstName" class="form-control" name='firstName' value=<?php echo "'$row[firstName]'";?> required>
                     <label for="inputFirstName">First Name</label>
                 </div>
 
                 <div class="form-label-group">
-                    <input type="text" id="inputLastName" class="form-control" name="lastName" value=<?php echo "'$_SESSION[lastName]'";?> required>
+                    <input type="text" id="inputLastName" class="form-control" name="lastName" value=<?php echo "'$row[lastName]'";?> required>
                     <label for="inputLastName">Last Name</label>
                 </div>
 
                 <div class="form-label-group">
-                    <input type="email" id="inputEmail" class="form-control" name="email" value=<?php echo "'$_SESSION[email]'";?> required>
+                    <input type="email" id="inputEmail" class="form-control" name="email" value=<?php echo "'$row[email]'";?> required>
                     <label for="inputEmail">Email Address</label>
                 </div>
 

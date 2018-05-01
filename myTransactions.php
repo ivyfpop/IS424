@@ -7,7 +7,6 @@
 
         <?php 
             include 'helper/connect.php';
-            session_start();
 
             // Verify there are open transactions for this member, ADD ORDER BY requesting date to keep them in order.
             if($openTransactions = $db->query("SELECT * FROM Transaction WHERE memberID = '$_SESSION[memberID]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC")){            
