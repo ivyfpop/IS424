@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php   
+    <?php
         include 'helper/header.php';
         include 'helper/connect.php';
 
@@ -57,6 +57,9 @@
                 </div>
 
                 <button class="btn btn-lg btn-success btn-block mt-2" type="submit" name='self-update'>Update Account</button>
+                <br>
+                <script src="https://www.athletic.net/api/1/RemoteHTML.ashx?Report=XCTeamR&Style=1&SchoolID=19462&DistID=5000&Count=5&Gender=M&t=jomqb" type="text/javascript"></script>
+                <br>
             </form>
         </div>
     </body>
