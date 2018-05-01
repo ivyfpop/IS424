@@ -37,7 +37,7 @@ include 'helper/connect.php';
   $driverStatus = mysqli_query($db, "SELECT driverAuthorizationDate FROM Member WHERE memberID = $_SESSION[memberID]");
   $driverStatusRow = $driverStatus->fetch_array(MYSQLI_ASSOC);
   echo"
-  <form action='myEvents.php name='submitSignUp' method='post'>";
+  <form action='myEvents.php' name='submitSignUp' method='post'>";
   if ($driverStatusRow[driverAuthorizationDate] != NULL) {
     echo"
     <div class='form-group'>
