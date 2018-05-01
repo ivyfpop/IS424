@@ -10,7 +10,12 @@ include 'helper/header.php';
   <h1 class='text-center'><strong>My Events</strong></h1>
 
 <?php
-
+//TODO: test this works
+  if(isset($_POST['submitSignUp'])) {
+    mysqli_query($db, "INSERT INTO Registered_Member_Event (registeredID, eventID, transactionID,
+          isComplete, carCapacity, leaveBy) VALUES ($_POST[registeredID], $_POST[eventID], NULL, 0,
+          $_POST[numberOfSeatsAvailable], NULL)");
+  }
 
 
 
@@ -27,8 +32,7 @@ include 'helper/header.php';
    // for sure can't show signed up for - could show events to sign up for
   if ($registeredID !== null) {
     /*
-     Events to Sign up for
-       - check to make sure eventID isn't in $signedUpArr before displaying
+      Events to Sign up for
     */
     $signUpForResults = mysqli_query($db, "SELECT * FROM Event WHERE eventID NOT IN (
     SELECT eventID from Registered_Member_Event WHERE registeredID = '$registeredID')");
@@ -42,25 +46,25 @@ include 'helper/header.php';
             <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[eventID]'>
                 <h3>$row[eventName]</h3>
             </button>
-            </div>
-            <div id='$row[eventID]' class='collapse'>
-              <div class='card-body border-success'>
-                <strong>Event ID:</strong> $row[eventID]
-                </br>
-                <strong>Event Category:</strong> $row[eventCategory]
-                </br>
-                <strong>Date:</strong> $row[eventDate]
-                </br>
-                <strong>Location:</strong> $row[eventAddress], $row[eventCity], $row[eventState], $row[eventZip]
-                </br>
-                <strong>Description:</strong> $row[eventBio]
-                </br>
-                <form action='eventSignUp.php' name='eventSignUp' method='post'>
-                  <input type='hidden' name='registeredID' id='registeredID' value=$registeredID>
-                  <input type='hidden' name='eventID' value=$row[eventID]>
-                  <button type='submit' class='btn btn-danger'>Sign Up</button>
-                </form>
-                </br>
+          </div>
+          <div id='$row[eventID]' class='collapse'>
+            <div class='card-body border-success'>
+              <strong>Event ID:</strong> $row[eventID]
+              </br>
+              <strong>Event Category:</strong> $row[eventCategory]
+              </br>
+              <strong>Date:</strong> $row[eventDate]
+              </br>
+              <strong>Location:</strong> $row[eventAddress], $row[eventCity], $row[eventState], $row[eventZip]
+              </br>
+              <strong>Description:</strong> $row[eventBio]
+              </br>
+              <form action='eventSignUp.php' name='eventSignUp' method='post'>
+                <input type='hidden' name='registeredID' id='registeredID' value=$registeredID>
+                <input type='hidden' name='eventID' value=$row[eventID]>
+                <button type='submit' class='btn btn-danger'>Sign Up</button>
+              </form>
+              </br>
               </div>
             </div>
           </div>";

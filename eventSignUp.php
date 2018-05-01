@@ -38,27 +38,30 @@ include 'helper/connect.php';
         = $_SESSION['memberID']");
 
   echo"
-  <form action='myEvents.php method='post'>";
+  <form action='myEvents.php name='submitSignUp' method='post'>";
   if ($driverStatus->num_rows == 1) {
     echo"
-    <div class='form-group' name='submitSignUp'>
+    <div class='form-group'>
       <label for='numberOfSeatsAvailable'>Seats available in car</label>
-      <select class='from-control' id='numberOfSeatsAvailable'>
+      <select class='from-control' name='numberOfSeatsAvailable' id='numberOfSeatsAvailable'>
         <option selected disabled>Select</option>
-        <option>0</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
+        <option value='0'>0</option>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
       </select>
     </div>";
   }
 
-  echo"<button type='submit' class='btn btn-danger eventSignUp'>Confirm Sign Up</button>
-    </form>";
+  echo"
+    <input type='hidden' name='eventID' value=$_POST[eventID]>
+    <input type='hidden' name='registeredID' value=$_POST[registeredID]>
+    <button type='submit' class='btn btn-danger eventSignUp'>Confirm Sign Up</button>
+  </form>";
 
  ?>
 </div>
