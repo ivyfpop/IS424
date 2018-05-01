@@ -25,15 +25,21 @@
                 if ($eventRow = mysqli_fetch_array($eventDetails, MYSQLI_BOTH)) {
                     // Display the details of the event they can register for:
                     echo"   <strong>Event ID:</strong> $eventRow[eventID]
+                            </br>
                             <strong>Event Name:</strong> $eventRow[eventName]
+                            </br>
                             <strong>Event Date:</strong> $eventRow[eventDate]
+                            </br>
                             <strong>Event Location:</strong> $eventRow[eventAddress] $eventRow[eventCity], $eventRow[eventState] $eventRow[eventZip]
+                            </br>
                             <strong>Event Description:</strong> $eventRow[eventBio]
+                            </br>
                             <form action='myEvents.php' method='post'>
                                 <div class='form-group'>
                                     <label for='leaveBy'><strong>Leave By: </strong></label>
                                     <input type='time' name='leaveBy' id='leaveBy' required autofocus>
-                                </div>";
+                                </div>
+                                </br>";
                             
                     // Only authorized drivers can be asked how many seats they have
                     if ($_SESSION[driverAuthorizationDate] != NULL) {
@@ -49,7 +55,8 @@
                                     <option value='6'>6</option>
                                     <option value='7'>7</option>
                                 </select>
-                            </div>";
+                            </div>
+                            </br>";
                     }
 
                   //Including eventID and registeredID allows for easier database updating
