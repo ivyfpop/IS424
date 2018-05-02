@@ -11,7 +11,7 @@
             // Verify that the member exists
             include 'helper/connect.php';
             $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_POST[memberID]'");
-            $EventResult = $db->query("SELECT * FROM Event WHERE eventID = '$_POST[eventID]'");
+            $eventResult = $db->query("SELECT * FROM Event WHERE eventID = '$_POST[eventID]'");
             mysqli_close();
 
             // Only member does not exist.
