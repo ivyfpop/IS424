@@ -14,7 +14,7 @@
     // Only event doesn't exist
     else if($_POST[eventID] && ($eventResult->num_rows != 1)){
         header("Location: http://track.finkmp.com/transactionUpdate.php?no_event=1");
-    }
+    }/*
     // Valid data, create the transaction
     else{
         $memberID = $_POST[memberID];
@@ -53,6 +53,6 @@
         mysqli_close($db);
         $row = mysqli_fetch_array($transactionResult, MYSQLI_BOTH);
         header("Location: http://track.finkmp.com/transactionUpdate.php?transactionID=$row[transactionID]");                
-    }
+    }*/
 ?>
 </html>
