@@ -7,16 +7,16 @@
 
         // An admin is updating another account
         if(isset($_GET[memberID])){
-          // Don't allow Non-Admins to access other member info
+          // Don't allow Non-Admins to access other member info by URL
           if(!$_SESSION[adminStatus]){
               header("Location: http://track.finkmp.com/myAccount.php");
           }
           $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_GET[memberID]'");
         }
         // A member is updating their own account
-        else {
+        else
           $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_SESSION[memberID]'");
-        }
+        
         mysqli_close($db);
         $row = mysqli_fetch_array($memberResult, MYSQLI_BOTH);
     ?>
