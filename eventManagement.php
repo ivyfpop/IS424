@@ -4,17 +4,9 @@
 <?php include 'helper/header.php'?>
 
 <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
-    <a href='transactionManagementUpdate.php?newTransaction=1' class='btn btn-warning mr-3'>New Event</a>
-        <form class='form-inline' action='eventManagement.php' name='eventSearch' method='post'>
-            <input class='form-control mr-3' type='text' placeholder='Search Value' name='eventSearchValue' required>
-            <select type="text" class="form-control mr-3" name='eventSearchType' id='transactionSearchType'>
-                <option value="1">Event ID</option>
-                <option value="2">Member ID</option>
-                <option value="3">Event Season</option>
-                <option value="4">Event Name</option>
-            </select>
-            <button class='form-control btn btn-success' type='submit' name='eventSearch'>Search Events</button>
-        </form>
+    <form action='createNewEvent.php' method='post'>
+        <button type='submit' name='newEvent' class='btn btn-warning'>
+    </form>
 </div>
 
 <?php
@@ -23,7 +15,10 @@
     include 'helper/connect.php';
 
     //TODO: SEARCH POSTS WILL GO HERE
-
+    if (isset($_POST['newEvent'])) {
+        $testQuery = "INSERT INTO Event (eventName, eventSeason, eventCategory, eventDate, eventAddress, eventCity, eventState, eventZip, eventBio) VALUES ('$_POST['name']', '$_POST['season'])', '$_POST['category']', '$_POST['date']', '$_POST['address']', '$_POST['city']', '$_POST['state']', '$_POST['zip']', '$_POST['description']')";
+        $createEvent = mysqli_query($db, $testQuery);
+    }
 
     //Default view when no POSTs are submitted
     //Showing more current events first
