@@ -30,7 +30,8 @@
 
 
             //List of all members signed up for event
-            $eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE eventID = $_POST['eventID'] ORDER BY Member.firstName ASC");
+            echo$_POST['eventID'];
+            $eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE Registered_Member_Event.eventID=$_POST['eventID'] ORDER BY Member.firstName ASC");
             echo"
             <table class='table'>
                 <thead>
