@@ -11,7 +11,7 @@
     if(isset($_POST['newEvent'])) {
         echo"
         <div class='container bg-faded p-4 my-4'>
-            <form action='createNewEvent.php' method='post'>
+            <form action='eventManagement.php' method='post'>
                 <div class='form-group'>
                     <label for='name'>Event Name:</label>
                     <input type='text' class='form-control' id='name' name='name' placeholder='Event Name'>
