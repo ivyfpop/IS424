@@ -195,15 +195,13 @@
                   </br>
                   <strong>Location:</strong> $notRegisteredRow[eventAddress], $notRegisteredRow[eventCity], $notRegisteredRow[eventState], $notRegisteredRow[eventZip]
                   </br>
-                  <strong>Leave By:</strong> $notRegisteredRow[leaveBy]
-                  </br>
                   <strong>Description:</strong> $notRegisteredRow[eventBio]
                   </br>
                 </div>
               </div>
             </div>";
       }
-      mysqli_free_result($notRegisteredResult)
+      mysqli_free_result($notRegisteredResult);
   }
   mysqli_close($db);
 
