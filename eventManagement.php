@@ -27,15 +27,15 @@
 
     //Default view when no POSTs are submitted
     //Showing more current events first
-    $defaultViewResult = mysqli_query($db, "SELECT eventID, eventName FROM Event ORDER BY eventSeason DESC, eventID DESC LIMIT");
+    $defaultViewResult = mysqli_query($db, "SELECT eventID, eventName FROM Event ORDER BY eventSeason DESC, eventID DESC");
+    //Going to be too many results eventually. Put a cap on it but then how to see extended history?
 
     echo"<div class='container bg-faded p-4 my-4'>";
 
-
-    //Going to be too many results eventually. Put a cap on it but then how to see extended history?
+    //Creating a card for each event
     while($row = mysqli_fetch_array($defaultViewResult, MYSQLI_BOTH)) {
 
-        //Opening card - one for each event
+        //Opening of card
         echo"<div class='card mb-3 border-success'>
                 <div class='card-header bg-success'>
                     <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[eventID]'>
