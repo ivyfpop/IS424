@@ -22,7 +22,8 @@
         if (isset($_POST['eventManagementDetails'])) {
 
             //Count of drivers - passed in through POST from eventManagement
-            echo"<h3 class='text-center'><strong>Number of Drivers: </strong></h3> $_POST['sumDrivers']";
+            
+
 
             //List of drivers
 

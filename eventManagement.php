@@ -55,7 +55,7 @@
         echo"
                         </br>
                         <form action='eventManagementDetails.php' name='eventManagementDetails' method='post'>
-                            <input type='hidden' name='sumDrivers' value=$sumRow[0]>
+                            <input type='hidden' name='sumMembers' value=$sumRow[0]>
                             <input type='hidden' name='eventID' value=$row[eventID]>
                             <button type='submit' name='eventManagementDetails' class='btn btn-danger'>More Details</button>
                         </form>
