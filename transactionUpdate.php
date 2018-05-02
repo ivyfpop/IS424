@@ -36,7 +36,7 @@
                             <label for='inputQuantity'>Quantity</label>
                         </div>
                     </div>
-                    
+
                     <div class='form-inline'>
                         <div class='form-label-group'>
                             <input type='date' id='inputPaymentDate' class='form-control' name='transactionPaymentDate' value='$row[transactionPaymentDate]' >
@@ -66,7 +66,7 @@
          else{
 
             echo"<form class='form-signin' action='helper/transactionHelper.php' name='transactionUpdate' method='post'>
-                    <center><h1> Transaction #$row[transactionID]</h1></center>
+                    <center><h1>New Transaction</h1></center>
 
                     <div class='form-label-group'>
                         <input type='number' id='inputMemberID' class='form-control' name='memberID'required>
