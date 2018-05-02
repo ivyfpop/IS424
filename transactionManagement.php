@@ -4,16 +4,11 @@
     
     <div class='navbar navbar-dark bg-primary'>
  
-
         <form class='form-inline' action='helper/transactionHelper.php' name='newTransaction' method='post'>
-
             <button class='form-control btn btn-warning' type='submit'>New Transaction</button>
-
-            <input type="number" id="inputMemberID" class="form-control ml-3" name='memberID' placeholder='Member ID' required>
-            <input type="number" id="inputQuantity" class="form-control ml-3" name='transactionQuantity' placeholder='quantity' required>
-            
-        </form>
-
+            <input type="number" id="inputMemberID" class="form-control ml-1" name='memberID' placeholder='Member ID' required>
+            <input type="number" id="inputQuantity" class="form-control ml-1" name='transactionQuantity' placeholder='quantity' required>
+        </form>        
         
         <form class='form-inline float-right' action='transactionManagement.php' name='transactionSearch' method='post'>
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue' required>
@@ -23,7 +18,6 @@
                 <option value="3">Event ID</option>
                 <option value="4">Member ID</option>
             </select>
-            
             <button class='form-control btn btn-success' type='submit' name='transactionSearch'>Search Transactions!</button>
         </form>
         
