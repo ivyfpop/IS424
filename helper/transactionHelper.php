@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php 
         // Shouldn't be here.
         if(!isset($_POST[newTransaction] && !isset($_POST[updateTransaction])){
@@ -66,3 +68,4 @@
             } 
         }*/
 ?>
+</html>
