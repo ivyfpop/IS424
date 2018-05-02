@@ -36,6 +36,10 @@
     while($row = mysqli_fetch_array($defaultViewResult, MYSQLI_BOTH)) {
 
         //Opening of card
+        //Count of how many people are Going
+        //link to more information
+            //list of authorized drivers, number of seats, count of members Going
+            //under that list of memebers attending
         echo"<div class='card mb-3 border-success'>
                 <div class='card-header bg-success'>
                     <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[eventID]'>
@@ -43,14 +47,19 @@
                     </button>
                 </div>
                 <div id='$row[eventID]' class='collapse'>
-                    <div class='card-body border-success'>";
+                    <div class='card-body border-success'>
+                        <strong>Number of Members Signed Up</strong>";
+        $countOfMembersResult = mysqli_query($db, "SELECT SUM(registeredID) FROM Registered_Member_Event WHERE eventID = $row[eventID]");
+        $sumRow = mysqli_fetch_array($countOfMembersResult, MYSQLI_BOTH);
+        echo$sumRow[0];
 
-        $eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE eventID = $row[eventID] ORDER BY Member.firstName ASC");
+        /*$eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE eventID = $row[eventID] ORDER BY Member.firstName ASC");
 
         while($innerRow = mysqli_fetch_array($eventMemberResult, MYSQLI_BOTH)) {
             echo"$innerRow[firstName] $innerRow[lastName] $innerRow[memberID]";
         }
-        
+        */
+
         echo"</div></div></div>"; // Closes card
     }
 
