@@ -13,7 +13,7 @@
 
         // Run a query to gather all the transaction data.
         include 'helper/connect.php';
-        $transactionResult = $db->query("SELECT * FROM Transaction, Member JOIN Member ON transactionApprovalMemberID = memberID WHERE transactionID = $_GET[transactionID]");
+        $transactionResult = $db->query("SELECT * FROM Transaction WHERE transactionID = $_GET[transactionID]");
         mysqli_close($db);
         $row = mysqli_fetch_array($transactionResult, MYSQLI_BOTH);
 
