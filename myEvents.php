@@ -108,6 +108,7 @@
       //Looping through result to show all events
       while($row = mysqli_fetch_array($signedUpResults, MYSQLI_BOTH)){
           //Displaying info in toggable accordian
+          //TODO: show transaction ID
           echo"
           <div class='card mb-3 border-success'>
             <div class='card-header bg-success'>
@@ -117,8 +118,6 @@
               </div>
               <div id='$row[eventID]' class='collapse'>
                 <div class='card-body border-success'>
-                  <strong>Transaction ID:</strong> $row[transactionID]
-                  </br>
                   <strong>Event Category:</strong> $row[eventCategory]
                   </br>
                   <strong>Date:</strong> $row[eventDate]
@@ -146,6 +145,7 @@
           echo"<hr><h2 class='text-center'><strong>Past Events</strong></h2><hr>";
           if ($pastEvents->num_rows != 0) {
             while($row = mysqli_fetch_array($pastEvents, MYSQLI_BOTH)){
+                //TODO: consider adding transaction ID
               echo"
               <div class='card mb-3 border-success'>
                 <div class='card-header bg-success'>
@@ -155,8 +155,6 @@
                   </div>
                   <div id='$row[eventID]' class='collapse'>
                     <div class='card-body border-success'>
-                      <strong>Transaction ID:</strong> $row[transactionID]
-                      </br>
                       <strong>Event Category:</strong> $row[eventCategory]
                       </br>
                       <strong>Date:</strong> $row[eventDate]
@@ -182,9 +180,30 @@
       $notRegisteredResult = mysqli_query($db, "SELECT * FROM Event ORDER BY eventSeason DESC LIMIT 25");
 
       while ($notRegisteredRow = mysqli_fetch_array($notRegisteredResult, MYSQLI_BOTH)) {
-
+          echo"
+          <div class='card mb-3 border-warning'>
+            <div class='card-header bg-warning'>
+              <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$notRegisteredRow[eventID]'>
+                  <h3>$notRegisteredRow[eventName]</h3>
+              </button>
+              </div>
+              <div id='$notRegisteredRow[eventID]' class='collapse'>
+                <div class='card-body border-success'>
+                  <strong>Event Category:</strong> $notRegisteredRow[eventCategory]
+                  </br>
+                  <strong>Date:</strong> $notRegisteredRow[eventDate]
+                  </br>
+                  <strong>Location:</strong> $notRegisteredRow[eventAddress], $notRegisteredRow[eventCity], $notRegisteredRow[eventState], $notRegisteredRow[eventZip]
+                  </br>
+                  <strong>Leave By:</strong> $notRegisteredRow[leaveBy]
+                  </br>
+                  <strong>Description:</strong> $notRegisteredRow[eventBio]
+                  </br>
+                </div>
+              </div>
+            </div>";
       }
-
+      mysqli_free_result($notRegisteredResult)
   }
   mysqli_close($db);
 
