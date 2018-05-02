@@ -13,9 +13,6 @@
 
     <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
 
-        <!-- Send to update page with no info (enter all new info) -->
-        <a href='accountManagementUpdate.php' class='btn btn-warning mr-3'>New Member</a>
-
         <form class='form-inline' action='accountManagement.php' name='memberSearch' method='post'>
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='memberSearchValue' required>
             <select type="text" class="form-control mr-3" name='memberSearchType' id='memberSearchType'>
@@ -23,14 +20,14 @@
                 <option value="2">Member ID</option>
             </select>
 
-            <button class='form-control btn btn-success' type='submit' name='transactionSearch'>Search Members!</button>
+            <button class='form-control btn btn-success' type='submit' name='memberSearch'>Search Members!</button>
         </form>
 
     </div>
 
     <?php
       // Default Query if a post was not entered.
-      $memberQuery = "SELECT * FROM Member ORDER BY memberID ASC";
+      $memberQuery = "SELECT * FROM Member ORDER BY memberID ASC LIMIT 25";
 
       // If a search was submitted, determine the correct query
       if (isset($_POST['memberSearch'])){

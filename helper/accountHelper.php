@@ -66,7 +66,7 @@
             }
         }
         // Check if they are trying to update their account.
-        else if(isset($_POST['self-update']) || isset($_POST['admin-update'])){
+        else if(isset($_POST['update'])){
 
             session_start();
 
@@ -88,12 +88,8 @@
             mysqli_query($db, $updateQuery);
             mysqli_close();
 
-            // Redirect them back to their respective pages based on status.
-            if (isset($_POST['self-update'])) {
-                header("Location: http://track.finkmp.com/myAccount.php?memberID=$_POST[memberID]");
-            } /*else if (isset($_POST['admin-update'])){
-              header('Location: http://track.finkmp.com/accountManagement.php');
-            }*/
+            // Redirect them back to their respective page
+            header("Location: http://track.finkmp.com/myAccount.php?memberID=$_POST[memberID]");
 
         }
         // Otherwise just redirect them to the index page.
