@@ -28,10 +28,10 @@
         if($_POST['eventID']){
             $eventID = $_POST['eventID'];
         }
-        if($_POST['transactionPaymentDate']){
+        if(strcmp($_POST['transactionPaymentDate'],'0000-00-00')){
             $paymentDate = $_POST['transactionPaymentDate'];
         }
-        if($_POST['transactionApprovalDate']){
+        if(strcmp($_POST['transactionApprovalDate'],'0000-00-00')){
             $approvalDate = $_POST['transactionApprovalDate'];
         }
         if($_POST['transactionApprovalMemberID']){
