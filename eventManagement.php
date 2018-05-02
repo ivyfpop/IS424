@@ -5,7 +5,7 @@
 
 <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
     <form action='createNewEvent.php' method='post'>
-        <button type='submit' name='newEvent' class='btn btn-warning'>
+        <button type='submit' name='newEvent' class='btn btn-warning'>Create New Event</button>
     </form>
 </div>
 
