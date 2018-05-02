@@ -34,6 +34,8 @@
             echo"<form class='form-signin' action='helper/transactionHelper.php' name='updateTransaction' method='post'>
                     <center><h1> Transaction #$row[transactionID]</h1></center>
 
+                    <input type='hidden' name='transactionID' value='$_GET[transactionID]' hidden>
+
                     <div class='form-label-group'>
                         <input type='number' id='inputMemberID' class='form-control' name='memberID' value='$row[memberID]' required>
                         <label for='inputMemberID'>Associated Member ID</label>
