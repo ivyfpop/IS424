@@ -7,10 +7,11 @@
         if(!isset($_SESSION[adminStatus])){
             header("Location: http://track.finkmp.com");
         }
+        /*
         // No Transaction
-        else if(!isset($_GET[transactionUpdate])){
+        if(!isset($_GET[transactionUpdate]) ||){
             header("Location: http://track.finkmp.com");
-        }
+        }*/
 
         // Run a query to gather all the transaction data.
         include 'helper/connect.php';
