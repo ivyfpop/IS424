@@ -53,6 +53,6 @@
         mysqli_close($db);
         $row = mysqli_fetch_array($transactionResult, MYSQLI_BOTH);
         header("Location: http://track.finkmp.com/transactionUpdate.php?transactionID=$row[transactionID]");                
-    }*/
+    }
 ?>
 </html>
