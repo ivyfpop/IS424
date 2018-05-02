@@ -104,7 +104,7 @@
                                         </br>
                                         <strong>Transaction ID:</strong> $row[transactionID]
                                         </br>
-                                        <strong>Request Date:</strong> $transactionInitDate
+                                        <strong>Request Date:</strong> $row[transactionInitDate]
                                         </br>";
 
                                         // If there is an Event associated with the transaction
@@ -160,9 +160,9 @@
                                         </br>
                                         <strong>Transaction ID:</strong> $row[transactionID]
                                         </br>
-                                        <strong>Request Date:</strong> $transactionInitDate
+                                        <strong>Request Date:</strong> $row[transactionInitDate]
                                         </br>
-                                        <strong>Payment Date:</strong> $transactionPaymentDate
+                                        <strong>Payment Date:</strong> $row[transactionPaymentDate]
                                         </br>";
 
                                         // If there is an Event associated with the transaction
@@ -196,7 +196,7 @@
                         echo"<div class='card mb-3 border-success'>
                                 <div class='card-header bg-success'>
                                         <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                            <h3>#$row[transactionID] - $transactionPaymentDate - $$row[transactionQuantity]</h3>
+                                            <h3>#$row[transactionID] - $row[transactionPaymentDate] - $$row[transactionQuantity]</h3>
                                         </button>
                                         <a href='transactionUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
                                 </div>
@@ -209,11 +209,11 @@
                                     </br>
                                     <strong>Transaction ID:</strong> $row[transactionID]
                                     </br>
-                                    <strong>Request Date:</strong> $transactionInitDate
+                                    <strong>Request Date:</strong> $row[transactionInitDate]
                                     </br>
                                     <strong>Payment Date:</strong> $row[transactionPaymentDate]
                                     </br>
-                                    <strong>Approval Date:</strong> $transactionApprovalDate
+                                    <strong>Approval Date:</strong> $row[transactionApprovalDate]
                                     </br>
                                     <strong>Approving Officer:</strong> $row[firstName] $approvalMemberRow[lastName]
                                     </br>";
