@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'helper/header.php'?>
+    <?php include 'helper/header.php'?>
   
     <div class='container bg-faded p-4 my-4'>
     <h1 class='text-center'><strong>My Transactions</strong></h1>
@@ -9,7 +9,7 @@
             include 'helper/connect.php';
 
             // Verify there are open transactions for this member, ADD ORDER BY requesting date to keep them in order.
-            if($openTransactions = $db->query("SELECT * FROM Transaction WHERE memberID = '$_SESSION[memberID]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC")){            
+            if($openTransactions = $db->query("SELECT * FROM Transaction WHERE memberID = '$_SESSION[memberID]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC")){
                 // Loop through all of their transactions
                 while ($row = mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
                     // Date that the transaction was created.
@@ -154,6 +154,7 @@
                     }
                 }
             }
+        mysqli_close($db);
         ?>
     </div>
   <?php include 'helper/footer.php' ?>
