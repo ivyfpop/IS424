@@ -1,6 +1,6 @@
 <html lang="en">
     <!-- Check current session state -->
-    <?php     
+    <?php
         // If they are logging in
         if(isset($_POST['login'])){
             // Connect to the database, run query, close connection
@@ -66,10 +66,10 @@
             }
         }
         // Check if they are trying to update their account.
-        else if(isset($_POST['self-update']) || isset($_POST['admin-update'])){
+        else if(isset($_POST['update'])){
 
             session_start();
-            
+
             $isSprinter = $isThrower = $isDistance = $isJumper = 0;
 
             if (isset($_POST['isSprinter'])) $isSprinter = 1;
@@ -79,21 +79,17 @@
 
             // Update account and send them to the homepage
             include 'connect.php';
-            $updateQuery = "UPDATE  Member 
-                            SET     firstName = '$_POST[firstName]', lastName = '$_POST[lastName]', 
-                                    email = '$_POST[email]', password = '$_POST[password]', 
-                                    isSprinter = $isSprinter, isDistance = $isDistance, 
-                                    isThrower = $isThrower, isJumper = $isJumper 
-                            WHERE memberID = $_SESSION[memberID]";
+            $updateQuery = "UPDATE  Member
+                            SET     firstName = '$_POST[firstName]', lastName = '$_POST[lastName]',
+                                    email = '$_POST[email]', password = '$_POST[password]',
+                                    isSprinter = $isSprinter, isDistance = $isDistance,
+                                    isThrower = $isThrower, isJumper = $isJumper
+                            WHERE memberID = $_POST[memberID]";
             mysqli_query($db, $updateQuery);
             mysqli_close();
 
-            // Redirect them back to their respective pages based on status.
-            if (isset($_POST['self-update'])) {
-                header('Location: http://track.finkmp.com/myAccount.php');
-            } else if (isset($_POST['admin-update'])){
-              header('Location: http://track.finkmp.com/accountManagement.php');
-            }
+            // Redirect them back to their respective page
+            header("Location: http://track.finkmp.com/myAccount.php?memberID=$_POST[memberID]");
 
         }
         // Otherwise just redirect them to the index page.

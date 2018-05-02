@@ -1,64 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php   
+    <?php
         include 'helper/header.php';
-        session_start();
-        
         include 'helper/connect.php';
-        $eventResult = $db->query("SELECT password,isSprinter,isThrower,isDistance,isJumper FROM Member WHERE memberID = '$_SESSION[memberID]'");
-        mysqli_close($db);
-        $row = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
+
+        // Non-Admin got to this page.
+        if(!$_SESSION[adminStatus]){
+            header("Location: http://track.finkmp.com");
+        }
     ?>
 
-    <body>
-        <div class="container bg-faded p-4 my-4">
-            <form class="form-signin" action='helper/accountHelper.php' name='admin-update' method='post'>
-                <center><h1> User Account Panel </h1></center>
+    <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
 
-                <div class="form-label-group">
-                    <input type="text" id="inputFirstName" class="form-control" name='firstName' value=<?php echo "'$_SESSION[firstName]'";?> required>
-                    <label for="inputFirstName">First Name</label>
-                </div>
+        <form class='form-inline' action='accountManagement.php' name='memberSearch' method='post'>
+            <input class='form-control mr-3' type='text' placeholder='Search Value' name='memberSearchValue' required>
+            <select type="text" class="form-control mr-3" name='memberSearchType' id='memberSearchType'>
+                <option selected value="1">Last Name</option>
+                <option value="2">First Name</option>
+                <option value="3">Member ID</option>
+            </select>
 
-                <div class="form-label-group">
-                    <input type="text" id="inputLastName" class="form-control" name="lastName" value=<?php echo "'$_SESSION[lastName]'";?> required>
-                    <label for="inputLastName">Last Name</label>
-                </div>
+            <button class='form-control btn btn-success' type='submit' name='memberSearch'>Search Members!</button>
+        </form>
 
-                <div class="form-label-group">
-                    <input type="email" id="inputEmail" class="form-control" name="email" value=<?php echo "'$_SESSION[email]'";?> required>
-                    <label for="inputEmail">Email Address</label>
-                </div>
+    </div>
 
-                <div class="form-label-group">
-                    <input type="password" id="inputPassword" class="form-control" name="password"  value=<?php echo "'$row[password]'";?> required>
-                    <label for="inputPassword">Password</label>
-                </div>
+    <?php
+      // Default Query if a post was not entered.
+      $memberQuery = "SELECT * FROM Member ORDER BY memberID ASC LIMIT 25";
 
-                <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='inputIsSprinter' name='isSprinter' <?php if ($row[isSprinter]) echo "checked";?>>
-                    <label class='form-check-label' for='inputIsSprinter'>Sprinter</label>
-                </div>
+      // If a search was submitted, determine the correct query
+      if (isset($_POST['memberSearch'])){
+          // Member Last Name Query
+          if ($_POST['memberSearchType'] == 1){
+              $memberQuery = "SELECT * FROM Member WHERE lastName = '$_POST[memberSearchValue]' ORDER BY memberID ASC";
+          }
+          // Member First Name Query
+          if ($_POST['memberSearchType'] == 2){
+              $memberQuery = "SELECT * FROM Member WHERE firstName = '$_POST[memberSearchValue]' ORDER BY memberID ASC";
+          }
+          // Member ID Query
+          else if ($_POST['memberSearchType'] == 3){
+              $memberQuery = "SELECT * FROM Member WHERE memberID = '$_POST[memberSearchValue]'";
+          }
+      }
 
-                <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='inputIsDistance' name='isDistance'<?php if ($row[isDistance]) echo "checked";?>>
-                    <label class='form-check-label' for='inputIsDistance'>Distance</label>
-                </div>
+      // Connect to the database, run query, and close connection.
+      $members = $db->query($memberQuery);
+      mysqli_close($db);
 
-                <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='inputIsThrower' name='isThrower'<?php if ($row[isThrower]) echo "checked";?>>
-                    <label class='form-check-label' for='inputIsThrower'>Thrower</label>
-                </div>
+      // If there is only one transaction returned, go right to the modify transaction page.
+      if($members && $members->num_rows == 1 && isset($_POST['memberSearch'])){
+          $oneRow = mysqli_fetch_array($members, MYSQLI_BOTH);
+          header("Location: http://track.finkmp.com/myAccount.php?memberID=$oneRow[memberID]");
+      }
+      // More than one member, loop through and print them all out.
+      else if($members && $members->num_rows){
+          // Open the container
+          echo"<div class='container bg-faded p-4 my-4'>";
+          // Loop through all of their transactions
+          while ($row = mysqli_fetch_array($members, MYSQLI_BOTH)){
 
-                <div class='form-check form-check-inline'>
-                    <input class='form-check-input' type='checkbox' id='inputIsJumper' name='isJumper'<?php if ($row[isJumper]) echo "checked";?>>
-                    <label class='form-check-label' for='inputIsJumper'>Jumper</label>
-                </div>
+            echo"<div class='card mb-3 border-danger'>
+                    <div class='card-header bg-danger'>
+                            <button class='btn btn-link text-white float-left' type='button''>
+                                <h3>#$row[memberID] - $row[firstName] $row[lastName]</h3>
+                            </button>
 
-                <button class="btn btn-lg btn-success btn-block mt-2" type="submit" name='self-update'>Update Account</button>
-            </form>
-        </div>
-    </body>
-    <?php include 'helper/footer.php' ?>
-</html>
+                            <a href='myAccount.php?memberID=$row[memberID]' class='btn btn-info float-right'><h3>Update</h3></a>
+                    </div>
+                </div>";
+
+          }
+          // Close the container.
+          echo"</div>";
+      }
+      // Let the user know that their query returned no results.
+      else if($memberQuery){
+          echo"<div class='alert alert-warning text-center mx-auto text-center w-50' role='alert'><strong>Your search returned no results, please try again!</strong></div>";
+      }
+      include 'helper/footer.php'
+  ?>
+  </html>

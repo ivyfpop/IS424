@@ -9,6 +9,8 @@
       numberOfSeatsAvailable: only asked of the user when thier associated member has a value
                               in the driverAuthorizationDate attribute of the Member table.
                               The number of spots they have in their car
+
+    TODO: only let member sign up if registeredSeason matches eventSeason
     */
     ?>
 
@@ -20,7 +22,7 @@
                 include 'helper/connect.php';
                 $eventDetails = $db->query("SELECT * FROM Event WHERE eventID = $_POST[eventID]");
                 mysqli_close($db);
-                
+
                 // Display the event, if there is an event
                 if ($eventRow = mysqli_fetch_array($eventDetails, MYSQLI_BOTH)) {
                     // Display the details of the event they can register for:
@@ -40,7 +42,7 @@
                                     <input type='time' name='leaveBy' id='leaveBy' required autofocus>
                                 </div>
                                 </br>";
-                            
+
                     // Only authorized drivers can be asked how many seats they have
                     if($_SESSION['driverAuthorizationDate']){
                         echo"<div class='form-group'>
