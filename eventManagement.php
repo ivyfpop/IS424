@@ -53,27 +53,22 @@
         $sumRow = mysqli_fetch_array($countOfMembersResult, MYSQLI_BOTH);
         echo$sumRow[0];
         echo"
-        </br>
-            <form action='eventManagementDetails.php' name='eventManagementDetails' method='post'>
-                <input type='hidden' name='eventID' value=$row[eventID]>
-                <button type='submit' class='btn btn-danger'>More Details</button>
-            </form>
-        </br>";
+                        </br>
+                        <form action='eventManagementDetails.php' name='eventManagementDetails' method='post'>
+                            <input type='hidden' name='eventID' value=$row[eventID]>
+                            <button type='submit' class='btn btn-danger'>More Details</button>
+                        </form>
+                        </br>
+                    </div>
+                </div>
+            </div>";
 
-        /*$eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE eventID = $row[eventID] ORDER BY Member.firstName ASC");
-
-        while($innerRow = mysqli_fetch_array($eventMemberResult, MYSQLI_BOTH)) {
-            echo"$innerRow[firstName] $innerRow[lastName] $innerRow[memberID]";
-        }
-        */
-
-        echo"</div></div></div>"; // Closes card
         mysqli_free_result($countOfMembersResult);
     }
-    mysqli_free_result($defaultViewResult)
+    mysqli_free_result($defaultViewResult);
     mysqli_close($db);
     echo"</div>"; // Closes bg-faded
 
-    include 'helper/footer.php'
+    include 'helper/footer.php';
 ?>
 </html>
