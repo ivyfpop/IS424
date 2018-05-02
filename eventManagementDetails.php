@@ -14,7 +14,7 @@
         if (isset($_POST['eventManagementDetails'])) {
 
             //Counts the number of drivers (attribute numberOfSeatsAvailable != 0)
-            $CountOfDriversResult = mysqli_query($db, "SELECT COUNT(carCapacity) driverCount FROM Registered_Member_Event WHERE NOT carCapacity=0");
+            $countOfDriversResult = mysqli_query($db, "SELECT COUNT(carCapacity) driverCount FROM Registered_Member_Event WHERE NOT carCapacity=0");
             $countOfDriversRow = mysqli_fetch_array($countOfMembersResult, MYSQLI_BOTH);
             //Sum of seats available
             $sumOfSeatsResult = mysqli_query($db, "SELECT SUM(carCapacity) seatSum FROM Registered_Member_Event");
@@ -23,7 +23,7 @@
             echo $countOfDriversRow[0];
             echo "Testing sum " . $sumOfSeatsRow[0] . " end ";
             echo "Testing count " . $countOfDriversRow[0] . " end ";
-            echo "Sum of seats available: " . $sumOfSeatsRow[0] . "</br>";
+            echo "Number of seats available: " . $sumOfSeatsRow[0] . "</br>";
             echo "Number of members attending: " . $_POST['sumMembers'] . "</br>";
             echo "Number of Drivers: " . $countOfDriversRow[0] . "</br>";
 
