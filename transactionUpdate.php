@@ -31,7 +31,7 @@
             mysqli_close($db);
             $row = mysqli_fetch_array($transactionResult, MYSQLI_BOTH);
 
-            echo"<form class='form-signin' action='helper/transactionHelper.php' name='transactionUpdate' method='post'>
+            echo"<form class='form-signin' action='helper/transactionHelper.php' name='updateTransaction' method='post'>
                     <center><h1> Transaction #$row[transactionID]</h1></center>
 
                     <div class='form-label-group'>

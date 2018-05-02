@@ -7,7 +7,7 @@
             header("Location: http://track.finkmp.com");
         }
         // Check for new or update to transaction
-        else if(isset($_POST[newTransaction]) || isset($_POST[transactionUpdate])){
+        else{
             // Verify that the member exists
             include 'helper/connect.php';
             $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_POST[memberID]'");
