@@ -109,7 +109,8 @@
          }
 
         echo"   </div>
-            </body>"   
+            </body>";
+             
         include 'helper/footer.php';
     ?>
 </html>
