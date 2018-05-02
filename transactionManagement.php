@@ -98,6 +98,10 @@
                             
                                 <div id='$row[transactionID]' class='collapse'>
                                     <div class='card-body border-warning'>
+                                        <strong>Member ID:</strong> $row[memberID]
+                                        </br>
+                                        <strong>Member Name:</strong> $row[firstName] $row[lastName]
+                                        </br>
                                         <strong>Transaction ID:</strong> $row[transactionID]
                                         </br>
                                         <strong>Request Date:</strong> $transactionInitDate
