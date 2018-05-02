@@ -21,7 +21,7 @@
 
             echo"<form class='form-signin' action='helper/transactionHelper.php' name='transactionUpdate' method='post'>
                     <center><h1> Transaction #$row[transactionID]</h1></center>
-                    <div class='form-inline'>
+                    <div class='row'>
                         <div class='form-label-group'>
                             <input type='number' id='inputMemberID' class='form-control' name='memberID' value='$row[memberID]' required>
                             <label for='inputMemberID'>Associated Member ID</label>
@@ -36,14 +36,14 @@
                             <input type='number' id='inputQuantity' class='form-control' name='transactionQuantity' value='$row[transactionQuantity]' required>
                             <label for='inputQuantity'>Quantity</label>
                         </div>
-                    </div>
 
-                    <div class='form-inline'>
                         <div class='form-label-group'>
                             <input type='date' id='inputPaymentDate' class='form-control' name='transactionPaymentDate' value='$row[transactionPaymentDate]' >
                             <label for='inputPaymentDate'>Payment Date</label>
                         </div>
+                    </div>
 
+                    <div class='row'>
                         <div class='form-label-group'>
                             <input type='date' id='inputApprovalDate' class='form-control' name='transactionApprovalDate' value='$row[transactionApprovalDate]'>
                             <label for='inputApprovalDate'>Approval Date:</label>
@@ -53,14 +53,14 @@
                             <input type='number' id='inputApprovalMemberID' class='form-control' name='transactionApprovalMemberID' value='$row[transactionApprovalMemberID]'>
                             <label for='inputApprovalMemberID'>Approval Member ID</label>
                         </div>
-                    </div>
 
-                    <div class='form-label-group'>
-                        <input type='text' id='inputTransactionDescription' class='form-control' name='transactionDescription' value='$row[transactionDescription]' required>
-                        <label for='inputTransactionDescription'>Description</label>
-                    </div>                        
+                        <div class='form-label-group'>
+                            <input type='text' id='inputTransactionDescription' class='form-control' name='transactionDescription' value='$row[transactionDescription]' required>
+                            <label for='inputTransactionDescription'>Description</label>
+                        </div>
+                    </div>                    
 
-                    <button class='btn btn-lg btn-success btn-block mt-2' type='submit'>Update Transaction</button>
+                    <button class='btn btn-lg btn-success btn-block mt-2 row' type='submit'>Update Transaction</button>
                 </form>";
          }
          // New transaction Form
