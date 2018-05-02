@@ -12,35 +12,35 @@
         header("Location: http://track.finkmp.com/transactionUpdate.php?no_user=1");
     }
     // Only event doesn't exist
-    else if($_POST[eventID] && ($eventResult->num_rows != 1)){
+    else if($_POST['eventID'] && ($eventResult->num_rows != 1)){
         header("Location: http://track.finkmp.com/transactionUpdate.php?no_event=1");
     }
     // Valid data, create the transaction
     else{
-        $memberID = $_POST[memberID];
+        $memberID = $_POST['memberID'];
         $eventID = NULL;
         $paymentDate = NULL;
         $approvalDate = NULL;
         $approvalID = NULL;
-        $quantity = $_POST[transactionQuantity];
-        $description = $_POST[transactionDescription];
+        $quantity = $_POST['transactionQuantity'];
+        $description = $_POST['transactionDescription'];
 
-        if($_POST[eventID]){
-            $eventID = $_POST[eventID];
+        if($_POST['eventID']){
+            $eventID = $_POST['eventID'];
         }
-        if($_POST[transactionPaymentDate]){
-            $paymentDate = $_POST[transactionPaymentDate];
+        if($_POST['transactionPaymentDate']){
+            $paymentDate = $_POST['transactionPaymentDate'];
         }
         if($_POST[transactionApprovalDate]){
-            $approvalDate = $_POST[transactionApprovalDate];
+            $approvalDate = $_POST['transactionApprovalDate'];
         }
-        if($_POST[transactionApprovalMemberID]){
-            $approvalID = $_POST[transactionApprovalMemberID];
+        if($_POST['transactionApprovalMemberID']){
+            $approvalID = $_POST['transactionApprovalMemberID'];
         }
 
         // New Transaction Query
         include 'helper/connect.php';
-        if(isset($_POST[newTransaction])){
+        if(isset($_POST['newTransaction'])){
             $db->query("INSERT  INTO Transaction (memberID,eventID,transactionInitDate,transactionPaymentDate,transactionApprovalDate,transactionApprovalMemberID,transactionQuantity,transactionDescription)
                         VALUES ('$memberID','$eventID', curdate(),'$paymentDate','$approvalDate','$approvalID','$quantity','$description')");
         }
