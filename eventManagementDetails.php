@@ -13,9 +13,11 @@
 
         if (isset($_POST['eventManagementDetails'])) {
 
+            $eventID = $_POST['eventID'];
+
             //Counts the number of drivers (attribute numberOfSeatsAvailable != 0)
             //and sums the number of seats
-            $combined = mysqli_query($db, "SELECT COUNT(carCapacity), SUM(carCapacity) FROM Registered_Member_Event WHERE NOT carCapacity = 0");
+            $combined = mysqli_query($db, "SELECT COUNT(carCapacity), SUM(carCapacity) FROM Registered_Member_Event WHERE NOT carCapacity = 0 AND eventID = $eventID");
             $combinedRow = mysqli_fetch_array($combined, MYSQLI_BOTH);
 
             echo "<h5>Number of seats available: " . $combinedRow[1] . "</h5></br>";
@@ -25,8 +27,6 @@
             mysqli_free_result($combinedRow);
 
             //List of drivers
-            $eventID = $_POST['eventID'];
-
             $driverListResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName, Member.email, Member.driverAuthorizationDate FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID = Registered_Member.registeredID JOIN Member ON Registered_Member.memberID = Member.memberID WHERE Registered_Member_Event.eventID = $eventID AND NOT Registered_Member_Event.carCapacity = 0");
 
             //Opening table

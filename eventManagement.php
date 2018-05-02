@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="helper/styles.css">
-</head>
+
 <?php include 'helper/header.php'?>
 
 <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
