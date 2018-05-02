@@ -9,8 +9,8 @@
 
             <button class='form-control btn btn-warning' type='submit'>New Transaction</button>
 
-            <input type="number" id="inputMemberID" class="form-control" name='memberID' placeholder='Member ID' required>
-            <input type="number" id="inputQuantity" class="form-control" name='transactionQuantity' placeholder='quantity' required>
+            <input type="number" id="inputMemberID" class="form-control ml-3" name='memberID' placeholder='Member ID' required>
+            <input type="number" id="inputQuantity" class="form-control ml-3" name='transactionQuantity' placeholder='quantity' required>
             
         </form>
 
