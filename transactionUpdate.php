@@ -2,8 +2,9 @@
 <html lang="en">
     <?php 
         include 'helper/header.php'; 
+
         // Non-Admin
-        if(!(isset($_SESSION[adminStatus])){
+        if(!isset($_SESSION[adminStatus])){
             header("Location: http://track.finkmp.com");
         }
         // No Transaction
