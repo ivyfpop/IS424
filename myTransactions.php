@@ -12,9 +12,6 @@
             if($openTransactions = $db->query("SELECT * FROM Transaction WHERE memberID = '$_SESSION[memberID]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC")){
                 // Loop through all of their transactions
                 while ($row = mysqli_fetch_array($openTransactions, MYSQLI_BOTH)){
-                    // Date that the transaction was created.
-                    $transactionInitDate = date("m/d/y g:i A", strtotime($row[transactionInitDate]));
-
                     // The transaction has not been paid yet
                     if($row[transactionPaymentDate] == null){
                         echo"
@@ -31,7 +28,7 @@
                               <div class='card-body border-warning'>
                                 <strong>Transaction ID:</strong> $row[transactionID]
                                 </br>
-                                <strong>Request Date:</strong> $transactionInitDate
+                                <strong>Request Date:</strong> $row[transactionInitDate]
                                 </br>";
 
                                 // If there is an Event associated with the transaction
@@ -57,8 +54,6 @@
                     }
                     // The transaction is pending.
                     else if($row[transactionApprovalDate] == NULL){
-
-                        $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
                         echo"<div class='card mb-3 border-warning'>
                             <div class='card-header bg-warning'>
                                     <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
@@ -70,9 +65,9 @@
                               <div class='card-body border-warning'>
                                 <strong>Transaction ID:</strong> $row[transactionID]
                                 </br>
-                                <strong>Request Date:</strong> $transactionInitDate
+                                <strong>Request Date:</strong> $row[transactionInitDate]
                                 </br>
-                                 <strong>Payment Date:</strong> $transactionPaymentDate
+                                 <strong>Payment Date:</strong> $row[transactionPaymentDate]
                                 </br>";
 
                                 // If there is an Event associated with the transaction
@@ -100,15 +95,11 @@
                     }
                     // The transaction has been approved.
                     else{
-                        // Dates associated with a approved transaction
-                        $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
-                        $transactionApprovalDate = date("m/d/y g:i A", strtotime($row[transactionApprovalDate]));
-
                         // The actual transaction html stuff
                         echo"<div class='card mb-3 border-success'>
                                 <div class='card-header bg-success'>
                                         <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                            <h3>#$row[transactionID] - $transactionPaymentDate - $$row[transactionQuantity]</h3>
+                                            <h3>#$row[transactionID] - $row[transactionPaymentDate] - $$row[transactionQuantity]</h3>
                                         </button>
                                 </div>
 
@@ -118,11 +109,11 @@
                                     </br>
                                     <strong>Amount:</strong> $$row[transactionQuantity]
                                     </br>
-                                    <strong>Request Date:</strong> $transactionInitDate
+                                    <strong>Request Date:</strong> $row[transactionInitDate]
                                     </br>
-                                     <strong>Payment Date:</strong> $transactionPaymentDate
+                                     <strong>Payment Date:</strong> $row[transactionPaymentDate]
                                     </br>
-                                     <strong>Approval Date:</strong> $transactionApprovalDate
+                                     <strong>Approval Date:</strong> $row[transactionApprovalDate]
                                     </br>";
 
                                     //Print out the approving officer's name
