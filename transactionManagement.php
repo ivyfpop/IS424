@@ -7,17 +7,10 @@
 
         <form class='form-inline' action='helper/transactionHelper.php' name='newTransaction' method='post'>
 
-                <button class='form-control btn btn-warning' type='submit'>New Transaction</button>
+            <button class='form-control btn btn-warning' type='submit'> New Transaction</button>
 
-                <div class="form-label-group">
-                    <input type="number" id="inputMemberID" class="form-control" name='memberID' required>
-                    <label for="inputMemberID">Member ID</label>
-                </div>
-
-                <div class="form-label-group">
-                    <input type="number" id="inputQuantity" class="form-control" name='transactionQuantity' required>
-                    <label for="inputQuantity">Amount</label>
-                </div>
+            <input type="number" id="inputMemberID" class="form-control" name='memberID' placeholder='Member ID' required>
+            <input type="number" id="inputQuantity" class="form-control" name='transactionQuantity' placeholder='quantity' required>
             
         </form>
 
