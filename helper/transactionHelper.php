@@ -39,7 +39,7 @@
         }
 
         // New Transaction Query
-        $returnTransactionID
+        $returnTransactionID = "";
         include 'connect.php';
         if(isset($_POST['newTransaction'])){
             $db->query("INSERT  INTO Transaction (memberID,eventID,transactionInitDate,transactionPaymentDate,transactionApprovalDate,transactionApprovalMemberID,transactionQuantity,transactionDescription)
