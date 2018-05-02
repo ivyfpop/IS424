@@ -69,7 +69,7 @@
             // If there is only one transaction returned, go right to the modify transaction page.
             if($transactions && $transactions->num_rows == 1 && isset($_POST['transactionSearch'])){
                 $oneRow = mysqli_fetch_array($transactions, MYSQLI_BOTH);
-                header("Location: http://track.finkmp.com/transactionManagementUpdate.php?transactionID=$oneRow[transactionID]");
+                header("Location: http://track.finkmp.com/transactionUpdate.php?transactionID=$oneRow[transactionID]");
             }
             // More than one transaction, loop through and print them all out.
             else if($transactions && $transactions->num_rows){
@@ -88,7 +88,7 @@
                                             <h3>#$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
                                         </button>
 
-                                        <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
+                                        <a href='transactionUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
 
                                         <form action='transactionManagement.php' name='transactionApproval' method='post'>
                                             <input type='hidden' name='transactionQuery' value='$transactionQuery'>
@@ -140,7 +140,7 @@
                                         <h3>#$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
                                     </button>
 
-                                    <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
+                                    <a href='transactionUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
 
                                     <form action='transactionManagement.php' name='transactionApproval' method='post'>
                                         <input type='hidden' name='transactionQuery' value='$transactionQuery'>
@@ -193,7 +193,7 @@
                                         <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
                                             <h3>#$row[transactionID] - $transactionPaymentDate - $$row[transactionQuantity]</h3>
                                         </button>
-                                        <a href='transactionManagementUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
+                                        <a href='transactionUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
                                 </div>
                                 
                                 <div id='$row[transactionID]' class='collapse'>
