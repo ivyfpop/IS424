@@ -80,7 +80,7 @@
                         echo"<div class='card mb-3 border-danger'>
                                 <div class='card-header bg-danger'>
                                         <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                            <h3>#$row[transactionID] - PAYMENT DUE - $$row[transactionQuantity]</h3>
+                                            <h3>#$row[transactionID]($row[firstName] $row[lastName]) - PAYMENT DUE - $$row[transactionQuantity]</h3>
                                         </button>
 
                                         <a href='transactionUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
@@ -133,7 +133,7 @@
                         echo"<div class='card mb-3 border-warning'>
                                 <div class='card-header bg-warning'>
                                     <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                        <h3>#$row[transactionID] - PENDING - $$row[transactionQuantity]</h3>
+                                        <h3>#$row[transactionID]($row[firstName] $row[lastName]) - PENDING - $$row[transactionQuantity]</h3>
                                     </button>
 
                                     <a href='transactionUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
@@ -188,7 +188,7 @@
                         echo"<div class='card mb-3 border-success'>
                                 <div class='card-header bg-success'>
                                         <button class='btn btn-link text-white float-left' type='button' data-toggle='collapse' data-target='#$row[transactionID]'>
-                                            <h3>#$row[transactionID] - $row[transactionPaymentDate] - $$row[transactionQuantity]</h3>
+                                            <h3>#$row[transactionID]($row[firstName] $row[lastName]) - $row[transactionPaymentDate] - $$row[transactionQuantity]</h3>
                                         </button>
                                         <a href='transactionUpdate.php?transactionID=$row[transactionID]' class='btn btn-info float-right'><h3>Modify</h3></a>
                                 </div>
