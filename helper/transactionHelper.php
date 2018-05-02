@@ -1,11 +1,8 @@
 <?php 
-        // Create the session.
-        session_start();
-
         // Shouldn't be here.
         if(!isset($_POST[newTransaction] && !isset($_POST[updateTransaction])){
             header("Location: http://track.finkmp.com");
-        }
+        }/*
         // Check for new or update to transaction
         else{
             // Verify that the member exists
@@ -13,7 +10,7 @@
             $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_POST[memberID]'");
             $eventResult = $db->query("SELECT * FROM Event WHERE eventID = '$_POST[eventID]'");
             mysqli_close();
-            /*
+
             // Only member does not exist.
             if($memberResult->num_rows != 1){
                 header("Location: http://track.finkmp.com/transactionUpdate.php?no_user=1");
@@ -66,6 +63,6 @@
                 mysqli_close($db);
                 $row = mysqli_fetch_array($transactionResult, MYSQLI_BOTH);
                 header("Location: http://track.finkmp.com/transactionUpdate.php?transactionID=$row[transactionID]");                
-            } */  
-        }
+            } 
+        }*/
 ?>
