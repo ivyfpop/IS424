@@ -18,9 +18,9 @@
             $combined = mysqli_query($db, "SELECT COUNT(carCapacity), SUM(carCapacity) FROM Registered_Member_Event WHERE NOT carCapacity = 0");
             $combinedRow = mysqli_fetch_array($combined, MYSQLI_BOTH);
 
-            echo "Number of seats available: " . $combinedRow[1] . "</br>";
-            echo "Number of members attending: " . $_POST['sumMembers'] . "</br>";
-            echo "Number of Drivers: " . $combinedRow[0] . "</br>";
+            echo "<h5>Number of seats available: " . $combinedRow[1] . "</h5></br>";
+            echo "<h5>Number of members attending: " . $_POST['sumMembers'] . "</h5></br>";
+            echo "<h5>Number of Drivers: " . $combinedRow[0] . "</h5></br>";
 
             mysqli_free_result($combinedRow);
 
@@ -31,8 +31,8 @@
 
             //Opening table
             echo"
-            <h3 class='text-center'>All Drivers Signed Up for Event:</h3>
-            <table class='table'>
+            <h3 class='text-center eventMgmtTableHeader'>All Drivers Signed Up for Event:</h3>
+            <table class='table eventMgmtTable'>
                 <thead>
                     <tr>
                         <th>Member ID</th>
@@ -60,8 +60,8 @@
             //List of all members signed up for event & member details
             $eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE Registered_Member_Event.eventID=$eventID ORDER BY Member.firstName ASC");
             echo"
-            <h3 class='text-center'>All Members Signed Up for Event:</h3>
-            <table class='table'>
+            <h3 class='text-center eventMgmtTableHeader'>All Members Signed Up for Event:</h3>
+            <table class='table eventMgmtTable'>
                 <thead>
                     <tr>
                         <th>Member ID</th>
