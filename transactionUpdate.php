@@ -7,10 +7,11 @@
         if(!isset($_SESSION[adminStatus])){
             header("Location: http://track.finkmp.com");
         }
+
         echo"<body>
                 <div class='container bg-faded p-4 my-4'>";
         // Transaction Update
-        if(isset($_GET[transactionUpdate]) ||){
+        if(isset($_GET[transactionID])){
 
             // Run a query to gather all the transaction data.
             include 'helper/connect.php';
@@ -64,8 +65,7 @@
          }
          // New transaction Form
          else{
-
-            echo"<form class='form-signin' action='helper/transactionHelper.php' name='transactionUpdate' method='post'>
+            echo"<form class='form-signin' action='helper/transactionHelper.php' name='newTransaction' method='post'>
                     <center><h1>New Transaction</h1></center>
 
                     <div class='form-label-group'>
@@ -103,14 +103,13 @@
                         <label for='inputTransactionDescription'>Description</label>
                     </div>                        
 
-                    <button class='btn btn-lg btn-success btn-block mt-2' type='submit'>Update Transaction</button>
+                    <button class='btn btn-lg btn-success btn-block mt-2' type='submit'>Create Transaction</button>
                 </form>";
-
          }
 
         echo"   </div>
             </body>";
-             
+
         include 'helper/footer.php';
     ?>
 </html>
