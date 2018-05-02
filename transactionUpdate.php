@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <?php include 'helper/header.php'; 
+    <?php 
+        include 'helper/header.php'; 
         // Non-Admin
         if(!(isset($_SESSION[adminStatus])){
             header("Location: http://track.finkmp.com");
         }
         // No Transaction
-        else if(!isset($_GET[transactionUpdate]) ){
+        else if(!isset($_GET[transactionUpdate])){
             header("Location: http://track.finkmp.com");
         }
 
         // Run a query to gather all the transaction data.
         include 'helper/connect.php';
-        $transactionResult = $db->query("SELECT * FROM Transaction WHERE transactionID = $_GET[transactionID]");
+        $transactionResult = $db->query("SELECT * FROM Transaction WHERE transactionID = '$_GET[transactionID]'");
         mysqli_close($db);
         $row = mysqli_fetch_array($transactionResult, MYSQLI_BOTH);
 
-        echo"<body>
-                <div class='container bg-faded p-4 my-4'>
-
-                    <form class='form-signin' action='helper/transactionHelper.php' name='transactionUpdate' method='post'>
+        echo"
+        <body>
+            <div class='container bg-faded p-4 my-4'>
+            <form class='form-signin' action='helper/transactionHelper.php' name='transactionUpdate' method='post'>
                         <center><h1> Transaction #$row[transactionID]</h1></center>
-
                         <div class='form-label-group'>
                             <input type='number' id='inputMemberID' class='form-control' name='memberID' value='$row[memberID]'required>
                             <label for='inputMemberID'>Associated Member ID</label>
@@ -63,5 +62,6 @@
                 </div>
             </body>";
     
-    include 'helper/footer.php' ?>
+        include 'helper/footer.php';
+    ?>
 </html>
