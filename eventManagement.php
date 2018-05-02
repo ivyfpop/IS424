@@ -27,7 +27,7 @@
 
     //Default view when no POSTs are submitted
     //Showing more current events first
-    $defaultViewResult = mysqli_query($db, "SELECT eventID, eventName FROM Event ORDER BY eventSeason DESC, eventID DESC");
+    $defaultViewResult = mysqli_query($db, "SELECT eventID, eventName FROM Event ORDER BY eventID DESC");
     //Going to be too many results eventually. Put a cap on it but then how to see extended history?
 
     echo"<div class='container bg-faded p-4 my-4'>";
