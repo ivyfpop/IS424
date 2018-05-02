@@ -31,7 +31,7 @@
         if($_POST['transactionPaymentDate']){
             $paymentDate = $_POST['transactionPaymentDate'];
         }
-        if($_POST[transactionApprovalDate]){
+        if($_POST['transactionApprovalDate']){
             $approvalDate = $_POST['transactionApprovalDate'];
         }
         if($_POST['transactionApprovalMemberID']){
