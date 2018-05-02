@@ -56,7 +56,7 @@
                         </br>
                         <form action='eventManagementDetails.php' name='eventManagementDetails' method='post'>
                             <input type='hidden' name='eventID' value=$row[eventID]>
-                            <button type='submit' class='btn btn-danger'>More Details</button>
+                            <button type='submit' name='eventManagementDetails' class='btn btn-danger'>More Details</button>
                         </form>
                         </br>
                     </div>

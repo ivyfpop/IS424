@@ -14,7 +14,7 @@
     */
     ?>
     <div class="container bg-faded p-4 my-4 h3">
-        <h1 class="text-center">Event Registration:</h1>
+        <h1 class="text-center">Event Details:</h1>
     <?php
         session_start();
         include 'helper/connect.php';
