@@ -11,7 +11,7 @@
         echo"<body>
                 <div class='container bg-faded p-4 my-4'>";
         // Transaction Update
-        if(isset($_GET[transactionUpdate])){
+        if(isset($_GET[transactionID])){
 
             // Run a query to gather all the transaction data.
             include 'helper/connect.php';
