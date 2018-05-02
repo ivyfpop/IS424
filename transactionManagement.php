@@ -2,11 +2,27 @@
 <html lang="en">
     <?php include 'helper/header.php'?>
     
-    <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
-    
-        <a href='transactionManagementUpdate.php' class='btn btn-warning mr-3'>New Transaction</a>
+    <div class='navbar navbar-dark bg-primary'>
+ 
+
+        <form class='form-inline' action='helper/transactionHelper.php' name='newTransaction' method='post'>
+
+                <button class='form-control btn btn-warning' type='submit'>New Transaction</button>
+
+                <div class="form-label-group">
+                    <input type="number" id="inputMemberID" class="form-control" name='memberID' required>
+                    <label for="inputMemberID">Member ID</label>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="number" id="inputQuantity" class="form-control" name='transactionQuantity' required>
+                    <label for="inputQuantity">Amount</label>
+                </div>
+            
+        </form>
+
         
-        <form class='form-inline' action='transactionManagement.php' name='transactionSearch' method='post'>
+        <form class='form-inline float-right' action='transactionManagement.php' name='transactionSearch' method='post'>
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue' required>
             <select type="text" class="form-control mr-3" name='transactionSearchType' id='transactionSearchType'>
                 <option selected value="1">Last Name</option>            

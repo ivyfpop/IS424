@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php   include 'helper/header.php';
-
+    <?php include 'helper/header.php'; 
             // Non-Admin got to this page.
             if(!$_SESSION[adminStatus]){
                 header("Location: http://track.finkmp.com");
             }
 
             // Check for new transaction
-            if(isset($_POST[transactionCreation])){
+            if(isset($_POST[newTransaction])){
                 // Verify that the member exists
                 include 'helper/connect.php';
                 $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_POST[memberID]'");
@@ -23,6 +22,7 @@
                 }
                 // Valid member, create the transaction.
                 else{
+
                     // Connect and create the transaction record.
                     include 'helper/connect.php';
                     $db->query("INSERT  INTO Transaction (memberID, transactionQuantity, transactionDescription)
@@ -34,11 +34,7 @@
 
                     // Redirect back to the edit page for the new transaction.
                     header("Location: http://track.finkmp.com/transactionManagementUpdate.php?transactionID=$row[transactionID]");                
-                }
-
-            }
-            else if(isset($_POST[transactionUpdate])){
-                // Update the transactionData
+                }    
             }
 
 
