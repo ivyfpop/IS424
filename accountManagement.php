@@ -17,7 +17,8 @@
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='memberSearchValue' required>
             <select type="text" class="form-control mr-3" name='memberSearchType' id='memberSearchType'>
                 <option selected value="1">Last Name</option>
-                <option value="2">Member ID</option>
+                <option value="2">First Name</option>
+                <option value="3">Member ID</option>
             </select>
 
             <button class='form-control btn btn-success' type='submit' name='memberSearch'>Search Members!</button>
@@ -35,12 +36,12 @@
           if ($_POST['memberSearchType'] == 1){
               $memberQuery = "SELECT * FROM Member WHERE lastName = '$_POST[memberSearchValue]' ORDER BY memberID ASC";
           }
-          /*// Member First Name Query TODO
-          if ($_POST['memberSearchType'] == ){
+          // Member First Name Query
+          if ($_POST['memberSearchType'] == 2){
               $memberQuery = "SELECT * FROM Member WHERE firstName = '$_POST[memberSearchValue]' ORDER BY memberID ASC";
-          }*/
+          }
           // Member ID Query
-          else if ($_POST['memberSearchType'] == 2){
+          else if ($_POST['memberSearchType'] == 3){
               $memberQuery = "SELECT * FROM Member WHERE memberID = '$_POST[memberSearchValue]'";
           }
       }
