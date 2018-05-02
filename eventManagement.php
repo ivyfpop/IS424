@@ -22,12 +22,12 @@
     session_start();
     include 'helper/connect.php';
 
-    //TODO: POSTS WILL GO HERE
+    //TODO: SEARCH POSTS WILL GO HERE
 
 
     //Default view when no POSTs are submitted
     //Showing more current events first
-    $defaultViewResult = mysqli_query($db, "SELECT eventID, eventName FROM Event ORDER BY eventID DESC");
+    $defaultViewResult = mysqli_query($db, "SELECT eventID, eventName FROM Event ORDER BY eventID DESC LIMIT 25");
     //Going to be too many results eventually. Put a cap on it but then how to see extended history?
 
     echo"<div class='container bg-faded p-4 my-4'>";
@@ -48,23 +48,28 @@
                 </div>
                 <div id='$row[eventID]' class='collapse'>
                     <div class='card-body border-success'>
-                        <strong>Number of Members Signed Up</strong>";
+                        <strong>Number of Members Signed Up: </strong>";
         $countOfMembersResult = mysqli_query($db, "SELECT SUM(registeredID) FROM Registered_Member_Event WHERE eventID = $row[eventID]");
         $sumRow = mysqli_fetch_array($countOfMembersResult, MYSQLI_BOTH);
         echo$sumRow[0];
+        echo"
+                        </br>
+                        <form action='eventManagementDetails.php' name='eventManagementDetails' method='post'>
+                            <input type='hidden' name='sumMembers' value=$sumRow[0]>
+                            <input type='hidden' name='eventID' value=$row[eventID]>
+                            <button type='submit' name='eventManagementDetails' class='btn btn-danger'>More Details</button>
+                        </form>
+                        </br>
+                    </div>
+                </div>
+            </div>";
 
-        /*$eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE eventID = $row[eventID] ORDER BY Member.firstName ASC");
-
-        while($innerRow = mysqli_fetch_array($eventMemberResult, MYSQLI_BOTH)) {
-            echo"$innerRow[firstName] $innerRow[lastName] $innerRow[memberID]";
-        }
-        */
-
-        echo"</div></div></div>"; // Closes card
+        mysqli_free_result($countOfMembersResult);
     }
-
+    mysqli_free_result($defaultViewResult);
+    mysqli_close($db);
     echo"</div>"; // Closes bg-faded
 
-    include 'helper/footer.php'
+    include 'helper/footer.php';
 ?>
 </html>
