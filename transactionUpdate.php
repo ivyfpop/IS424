@@ -31,6 +31,14 @@
             mysqli_close($db);
             $row = mysqli_fetch_array($transactionResult, MYSQLI_BOTH);
 
+            $transactionPaymentDate = NULL;
+            $transactionApprovalDate = NULL;
+            if($row[transactionPaymentDatetransactionPaymentDate]){
+                $transactionPaymentDate = $row[transactionPaymentDate];
+            }
+            if($row[transactionApprovalDate]){
+                $transactionApprovalDate = $row[transactionApprovalDate];
+            }
             echo"<form class='form-signin' action='helper/transactionHelper.php' name='updateTransaction' method='post'>
                     <center><h1> Transaction #$row[transactionID]</h1></center>
 
@@ -52,12 +60,12 @@
                     </div>
 
                     <div class='form-label-group'>
-                        <input type='date' id='inputPaymentDate' class='form-control' name='transactionPaymentDate' value='$row[transactionPaymentDate]' >
+                        <input type='date' id='inputPaymentDate' class='form-control' name='transactionPaymentDate' value='$transactionPaymentDate' >
                         <label for='inputPaymentDate'>Payment Date</label>
                     </div>
 
                     <div class='form-label-group'>
-                        <input type='date' id='inputApprovalDate' class='form-control' name='transactionApprovalDate' value='$row[transactionApprovalDate]'>
+                        <input type='date' id='inputApprovalDate' class='form-control' name='transactionApprovalDate' value='$transactionApprovalDate'>
                         <label for='inputApprovalDate'>Approval Date:</label>
                     </div>
                      
@@ -85,7 +93,7 @@
                     </div>
 
                     <div class='form-label-group'>
-                        <input type='number' id='inputEventID' class='form-control' name='eventID'>
+                        <input type='number' id='inputEventID' class='form-control' name='eventID' value='NULL'>
                         <label for='inputEventID'>Associated Event ID</label>
                     </div>
 
@@ -95,17 +103,17 @@
                     </div>
 
                     <div class='form-label-group'>
-                        <input type='date' id='inputPaymentDate' class='form-control' name='transactionPaymentDate'>
+                        <input type='date' id='inputPaymentDate' class='form-control' name='transactionPaymentDate' value='NULL'>
                         <label for='inputPaymentDate'>Payment Date</label>
                     </div>
 
                     <div class='form-label-group'>
-                        <input type='date' id='inputApprovalDate' class='form-control' name='transactionApprovalDate'>
+                        <input type='date' id='inputApprovalDate' class='form-control' name='transactionApprovalDate' value='NULL'>
                         <label for='inputApprovalDate'>Approval Date:</label>
                     </div>
                      
                     <div class='form-label-group'>
-                        <input type='number' id='inputApprovalMemberID' class='form-control' name='transactionApprovalMemberID'>
+                        <input type='number' id='inputApprovalMemberID' class='form-control' name='transactionApprovalMemberID' value='NULL'>
                         <label for='inputApprovalMemberID'>Approval Member ID</label>
                     </div>
 
