@@ -5,8 +5,18 @@
         include 'helper/header.php';
         include 'helper/connect.php';
 
-        // Run the query to gather the user data, and close the connection.
-        $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_SESSION[memberID]'");
+        // An admin is updating another account
+        if(isset($_GET[memberID]){
+          // Non-Admin got to this page.
+          if(!$_SESSION[adminStatus]){
+              header("Location: http://track.finkmp.com/myAccount.php");
+          }
+          $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_GET[memberID]'");
+        }
+        // A member is updating their own account
+        else {
+          $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_SESSION[memberID]'");
+        }
         mysqli_close($db);
         $row = mysqli_fetch_array($memberResult, MYSQLI_BOTH);
     ?>
@@ -15,6 +25,8 @@
         <div class="container bg-faded p-4 my-4">
             <form class="form-signin" action='helper/accountHelper.php' name='self-pdate' method='post'>
                 <center><h1> User Account Panel </h1></center>
+
+                <input type='hidden' name='memberID' value='$row[memberID]'>
 
                 <div class="form-label-group">
                     <input type="text" id="inputFirstName" class="form-control" name='firstName' value=<?php echo "'$row[firstName]'";?> required>

@@ -55,7 +55,7 @@
       // If there is only one transaction returned, go right to the modify transaction page.
       if($members && $members->num_rows == 1 && isset($_POST['memberSearch'])){
           $oneRow = mysqli_fetch_array($members, MYSQLI_BOTH);
-          header("Location: http://track.finkmp.com/accountManagementUpdate.php?transactionID=$oneRow[memberID]");
+          header("Location: http://track.finkmp.com/myAccount.php?memberID=$oneRow[memberID]");
       }
       // More than one member, loop through and print them all out.
       else if($members && $members->num_rows){
@@ -70,7 +70,7 @@
                                 <h3>#$row[memberID] - $row[firstName] $row[lastName]</h3>
                             </button>
 
-                            <a href='accountManagementUpdate.php?memberID=$row[memberID]' class='btn btn-info float-right'><h3>Update</h3></a>
+                            <a href='myAccount.php?memberID=$row[memberID]' class='btn btn-info float-right'><h3>Update</h3></a>
                     </div>
                 </div>";
 

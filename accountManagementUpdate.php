@@ -59,7 +59,7 @@
                     <label class='form-check-label' for='inputIsJumper'>Jumper</label>
                 </div>
 
-                <button class="btn btn-lg btn-success btn-block mt-2" type="submit" name='self-update'>Update Account</button>
+                <button class="btn btn-lg btn-success btn-block mt-2" type="submit" name='admin-update'>Update Account</button>
             </form>
         </div>
     </body>
