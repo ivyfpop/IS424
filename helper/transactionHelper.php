@@ -2,7 +2,7 @@
 <html lang="en">
 <?php 
         // Shouldn't be here.
-        if (!isset($_POST[newTransaction]) && !isset($_POST[updateTransaction]) ){
+        if ( !isset($_POST[newTransaction]) && !isset($_get[updateTransaction]) ){
             header("Location: http://track.finkmp.com");
         }
         // Check for new or update to transaction
