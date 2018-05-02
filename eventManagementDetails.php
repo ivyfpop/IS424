@@ -15,7 +15,7 @@
 
             //Counts the number of drivers (attribute numberOfSeatsAvailable != 0)
             $countOfDriversResult = mysqli_query($db, "SELECT COUNT(carCapacity) driverCount FROM Registered_Member_Event WHERE NOT carCapacity=0");
-            $countOfDriversRow = mysqli_fetch_array($countOfMembersResult, MYSQLI_BOTH);
+            $countOfDriversRow = mysqli_fetch_array($countOfDriversResult, MYSQLI_BOTH);
             //Sum of seats available
             $sumOfSeatsResult = mysqli_query($db, "SELECT SUM(carCapacity) seatSum FROM Registered_Member_Event");
             $sumOfSeatsRow = mysqli_fetch_array($sumOfSeatsResult, MYSQLI_BOTH);
