@@ -26,7 +26,6 @@
         $zip = $_POST['zip'];
         $description = $_POST['description'];
         $testQuery = "INSERT INTO Event (eventName, eventSeason, eventCategory, eventDate, eventAddress, eventCity, eventState, eventZip, eventBio) VALUES ('$name', '$season', '$category', '$date', '$address', '$city', '$state', '$zip', '$description')";
-        echo"Test query: " . $testQuery;
         $createEvent = mysqli_query($db, $testQuery);
     }
 
