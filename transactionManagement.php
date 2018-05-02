@@ -11,8 +11,8 @@
         </form>        
         
         <form class='form-inline float-right' action='transactionManagement.php' name='transactionSearch' method='post'>
-            <input class='form-control mr-3' type='text' placeholder='Search Value' name='transactionSearchValue' required>
-            <select type="text" class="form-control mr-3" name='transactionSearchType' id='transactionSearchType'>
+            <input class='form-control mr-1' type='text' placeholder='Search Value' name='transactionSearchValue' required>
+            <select type="text" class="form-control mr-1" name='transactionSearchType' id='transactionSearchType'>
                 <option selected value="1">Last Name</option>            
                 <option value="2">Transaction ID</option>
                 <option value="3">Event ID</option>
