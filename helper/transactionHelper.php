@@ -5,7 +5,7 @@
     include 'helper/connect.php';
     $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_POST[memberID]'");
     $eventResult = $db->query("SELECT * FROM Event WHERE eventID = '$_POST[eventID]'");
-    mysqli_close();
+    mysqli_close($db);
 
     // Member does not exist.
     if($memberResult->num_rows != 1){
@@ -14,7 +14,7 @@
     // Only event doesn't exist
     else if($_POST[eventID] && ($eventResult->num_rows != 1)){
         header("Location: http://track.finkmp.com/transactionUpdate.php?no_event=1");
-    }/*
+    }
     // Valid data, create the transaction
     else{
         $memberID = $_POST[memberID];
