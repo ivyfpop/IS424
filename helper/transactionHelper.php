@@ -19,7 +19,6 @@
             }
             // Valid member, create the transaction.
             else{
-
                 // Connect and create the transaction record.
                 include 'helper/connect.php';
                 $db->query("INSERT  INTO Transaction (memberID, transactionQuantity, transactionDescription)
@@ -35,7 +34,7 @@
         }
         // Update the transaction
         else if(isset($_POST[updateTransaction])){
-
+            
         }
 
 ?>

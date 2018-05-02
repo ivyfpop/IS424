@@ -15,7 +15,7 @@
         include 'helper/connect.php';
         $transactionResult = $db->query("SELECT * FROM Transaction, Member JOIN Member ON transactionApprovalMemberID = memberID WHERE transactionID = $_GET[transactionID]");
         mysqli_close($db);
-        $row = mysqli_fetch_array($eventResult, MYSQLI_BOTH);
+        $row = mysqli_fetch_array($transactionResult, MYSQLI_BOTH);
 
         echo"<body>
                 <div class='container bg-faded p-4 my-4'>
@@ -24,7 +24,7 @@
                         <center><h1> Transaction #$row[transactionID]</h1></center>
 
                         <div class='form-label-group'>
-                            <input type='number' id='inputMemberID' class='form-control' name='memberID' required>
+                            <input type='number' id='inputMemberID' class='form-control' name='memberID' value='$row[memberID]'required>
                             <label for='inputMemberID'>Associated Member ID</label>
                         </div>
 
