@@ -54,6 +54,7 @@
         echo$sumRow[0];
         echo"
                         </br>
+                        <strong>Event ID: </strong>$row[eventID]
                         <form action='eventManagementDetails.php' name='eventManagementDetails' method='post'>
                             <input type='hidden' name='sumMembers' value=$sumRow[0]>
                             <input type='hidden' name='eventID' value=$row[eventID]>
