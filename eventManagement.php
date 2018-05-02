@@ -16,7 +16,16 @@
 
     //TODO: SEARCH POSTS WILL GO HERE
     if (isset($_POST['newEvent'])) {
-        $testQuery = "INSERT INTO Event (eventName, eventSeason, eventCategory, eventDate, eventAddress, eventCity, eventState, eventZip, eventBio) VALUES ('$_POST['name']', '$_POST['season']', '$_POST['category']', '$_POST['date']', '$_POST['address']', '$_POST['city']', '$_POST['state']', '$_POST['zip']', '$_POST['description']')";
+        $name = $_POST['name'];
+        $season = $_POST['season'];
+        $category = $_POST['category'];
+        $date = $_POST['date'];
+        $address = $_POST['address'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+        $zip = $_POST['zip'];
+        $description = $_POST['description'];
+        $testQuery = "INSERT INTO Event (eventName, eventSeason, eventCategory, eventDate, eventAddress, eventCity, eventState, eventZip, eventBio) VALUES ($name, $season, $category, $date, $address, $city, $state, $zip, $description)";
         $createEvent = mysqli_query($db, $testQuery);
     }
 

@@ -57,7 +57,7 @@
                 <textarea class='form-control' id='description' name='description' rows='3'></textarea>
             </div>
             <button type='submit' name='newEvent' class='btn btn-danger'>Create New Event</button>
-        </form>
+        </form>";
     }
 
 
