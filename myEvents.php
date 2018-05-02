@@ -101,10 +101,9 @@
     $signedUpResults = mysqli_query($db, "SELECT * FROM Registered_Member_Event
       INNER JOIN Event ON Registered_Member_Event.eventID=Event.eventID WHERE registeredID =
       '$registeredID' AND isComplete = 0");
-
+    echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
     //current events display
     if ($signedUpResults->num_rows != 0) { //Making sure that query returns data
-      echo"<hr><h2 class='text-center'><strong>Events Signed Up For</strong></h2><hr>";
       //Looping through result to show all events
       while($row = mysqli_fetch_array($signedUpResults, MYSQLI_BOTH)){
           //Displaying info in toggable accordian
