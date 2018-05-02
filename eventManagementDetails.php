@@ -48,10 +48,11 @@
                         <td>$innerRow[firstName] $innerRow[lastName]</td>
                     </tr>";
             }
+            echo"</tbody></table>"; //closing table body and table
         }
 
 
-        echo"</tbody></table>"; //closing table body and table
+
         echo"</div>"; //closing bg-faded
-        include 'helper/footer.php'
+        include 'helper/footer.php';
     ?>
