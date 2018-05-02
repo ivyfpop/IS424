@@ -2,15 +2,7 @@
 <html lang="en">
     <?php include 'helper/header.php';
     /*
-      This page handles gathering neccessary data from user that pertains to the event the
-      user selects to sign up for. The database is updated in myEvents.php, this page
-      sends a post to that page with all of the relevant information needed.
-      LeaveBy: the time the user can leave by for the events. String in 24-hour format
-      numberOfSeatsAvailable: only asked of the user when thier associated member has a value
-                              in the driverAuthorizationDate attribute of the Member table.
-                              The number of spots they have in their car
 
-    TODO: only let member sign up if registeredSeason matches eventSeason
     */
     ?>
     <div class="container bg-faded p-4 my-4 h3">
@@ -21,8 +13,17 @@
 
         if (isset($_POST['eventManagementDetails'])) {
 
-            //Count of drivers - passed in through POST from eventManagement
-            
+
+
+
+            //Counts the number of drivers (attribute numberOfSeatsAvailable != 0), and sums numberOfSeatsAvailable
+            $CountOfDriversResult = mysqli_query($db, "SELECT COUNT(carCapacity), SUM(carCapacity) FROM Registered_Member_Event WHERE NOT carCapacity=0");
+            $countOfDriversRow = mysqli_fetch_array($countOfMembersResult, MYSQLI_BOTH);
+            echo$countOfDriversRow[1];
+            echo"Sum of seats available: " . $countOfDriversRow[1] . "</br>";
+            echo"Number of members attending: " . $_POST['sumMembers'] . "</br>";
+            echo"Number of Drivers: " . $countOfDriversRow[0] . "</br>";
+
 
 
             //List of drivers
@@ -33,7 +34,7 @@
             $eventID = $_POST['eventID'];
             $eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE Registered_Member_Event.eventID=$eventID ORDER BY Member.firstName ASC");
             echo"
-            <h3 class='text-center'>All Members Signed Up for Event</h3>
+            <h3 class='text-center'>All Members Signed Up for Event:</h3>
             <table class='table'>
                 <thead>
                     <tr>
