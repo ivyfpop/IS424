@@ -177,8 +177,14 @@
           }
   } else {
       // Not Registered Header
-      echo"<h2 class='text-center'><strong>You Are Not Registered!</strong></h2>";
-      //TODO; show events with no sign up button
+      echo"<h4 class='text-center'><strong>You are not registered! Here are some events you are missing out on!</strong></h4>";
+
+      $notRegisteredResult = mysqli_query($db, "SELECT * FROM Event ORDER BY eventSeason DESC LIMIT 25");
+
+      while ($notRegisteredRow = mysqli_fetch_array($notRegisteredResult, MYSQLI_BOTH)) {
+
+      }
+
   }
   mysqli_close($db);
 
