@@ -23,10 +23,10 @@
 
     <body>
         <div class="container bg-faded p-4 my-4">
-            <form class="form-signin" action='helper/accountHelper.php' name='self-pdate' method='post'>
+            <form class="form-signin" action='helper/accountHelper.php' name='self-update' method='post'>
                 <center><h1> User Account Panel </h1></center>
 
-                <input type='hidden' name='memberID' value='<?php echo"$row[memberID]"?>'>
+                <input type='hidden' name='memberID' value=<?php echo"'$row[memberID]'";?>>
 
                 <div class="form-label-group">
                     <input type="text" id="inputFirstName" class="form-control" name='firstName' value=<?php echo "'$row[firstName]'";?> required>
