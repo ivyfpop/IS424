@@ -55,7 +55,7 @@
         }
         // Get the transaction ID that was created and redirect back to that page.
         mysqli_close($db);
-        header("Location: http://track.finkmp.com/transactionUpdate.php?transactionID=$returnTransactionID");                
+        header("Location: http://track.finkmp.com/transactionUpdate.php?transactionID=".$returnTransactionID);                
     }
 ?>
 </html>
