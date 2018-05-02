@@ -13,24 +13,22 @@
 
     <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
 
-        <!-- Send to update page with no info (enter all new info) -->
-        <a href='accountManagementUpdate.php' class='btn btn-warning mr-3'>New Member</a>
-
         <form class='form-inline' action='accountManagement.php' name='memberSearch' method='post'>
             <input class='form-control mr-3' type='text' placeholder='Search Value' name='memberSearchValue' required>
             <select type="text" class="form-control mr-3" name='memberSearchType' id='memberSearchType'>
                 <option selected value="1">Last Name</option>
-                <option value="2">Member ID</option>
+                <option value="2">First Name</option>
+                <option value="3">Member ID</option>
             </select>
 
-            <button class='form-control btn btn-success' type='submit' name='transactionSearch'>Search Members!</button>
+            <button class='form-control btn btn-success' type='submit' name='memberSearch'>Search Members!</button>
         </form>
 
     </div>
 
     <?php
       // Default Query if a post was not entered.
-      $memberQuery = "SELECT * FROM Member ORDER BY memberID ASC";
+      $memberQuery = "SELECT * FROM Member ORDER BY memberID ASC LIMIT 25";
 
       // If a search was submitted, determine the correct query
       if (isset($_POST['memberSearch'])){
@@ -38,12 +36,12 @@
           if ($_POST['memberSearchType'] == 1){
               $memberQuery = "SELECT * FROM Member WHERE lastName = '$_POST[memberSearchValue]' ORDER BY memberID ASC";
           }
-          /*// Member First Name Query TODO
-          if ($_POST['memberSearchType'] == ){
+          // Member First Name Query
+          if ($_POST['memberSearchType'] == 2){
               $memberQuery = "SELECT * FROM Member WHERE firstName = '$_POST[memberSearchValue]' ORDER BY memberID ASC";
-          }*/
+          }
           // Member ID Query
-          else if ($_POST['memberSearchType'] == 2){
+          else if ($_POST['memberSearchType'] == 3){
               $memberQuery = "SELECT * FROM Member WHERE memberID = '$_POST[memberSearchValue]'";
           }
       }
