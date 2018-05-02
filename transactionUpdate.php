@@ -69,7 +69,7 @@
                         <label for='inputTransactionDescription'>Description</label>
                     </div>
 
-                    <button class='btn btn-lg btn-success btn-block mt-2' type='submit'>Update Transaction</button>
+                    <button class='btn btn-lg btn-success btn-block mt-2' type='submit' name='updateTransaction'>Update Transaction</button>
                 </form>";
          }
          // New transaction Form
@@ -112,7 +112,7 @@
                         <label for='inputTransactionDescription'>Description</label>
                     </div>                        
 
-                    <button class='btn btn-lg btn-success btn-block mt-2' type='submit'>Create Transaction</button>
+                    <button class='btn btn-lg btn-success btn-block mt-2' type='submit' name='newTransaction'>Create Transaction</button>
                 </form>";
          }
 
