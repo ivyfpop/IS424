@@ -48,6 +48,8 @@
                     $approvalID = $_POST[transactionApprovalMemberID];
                 }
 
+                /*
+
                 // New Transaction Query
                 include 'helper/connect.php';
                 if(isset($_POST[newTransaction])){
@@ -57,6 +59,7 @@
                 else{
                     $db->query("UPDATE Transaction SET memberID='$memberID',eventID='$eventID',transactionQuantity='$quantity',transactionPaymentDate='$paymentDate',transactionApprovalDate='$approvalDate',transactionApprovalMemberID='$approvalID',transactionDescription='$description' WHERE transactionID = '$_POST[transactionID]'");
                 }
+                */
 
                 // Get the transaction ID that was created and redirect back to that page.
                 $transactionResult = $db->query("SELECT transactionID FROM Transaction WHERE memberID = '$_POST[memberID]' ORDER BY transactionID DESC LIMIT 1");
