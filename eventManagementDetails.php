@@ -21,9 +21,8 @@
 
         if (isset($_POST['eventManagementDetails'])) {
 
-            //Count of drivers
-
-
+            //Count of drivers - passed in through POST from eventManagement
+            echo"<h3 class='text-center'><strong>Number of Drivers: </strong></h3> $_POST['sumDrivers']";
 
             //List of drivers
 
@@ -33,6 +32,7 @@
             $eventID = $_POST['eventID'];
             $eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE Registered_Member_Event.eventID=$eventID ORDER BY Member.firstName ASC");
             echo"
+            <h3 class='text-center'>All Members Signed Up for Event</h3>
             <table class='table'>
                 <thead>
                     <tr>

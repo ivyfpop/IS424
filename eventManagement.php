@@ -22,12 +22,12 @@
     session_start();
     include 'helper/connect.php';
 
-    //TODO: POSTS WILL GO HERE
+    //TODO: SEARCH POSTS WILL GO HERE
 
 
     //Default view when no POSTs are submitted
     //Showing more current events first
-    $defaultViewResult = mysqli_query($db, "SELECT eventID, eventName FROM Event ORDER BY eventID DESC");
+    $defaultViewResult = mysqli_query($db, "SELECT eventID, eventName FROM Event ORDER BY eventID DESC LIMIT 25");
     //Going to be too many results eventually. Put a cap on it but then how to see extended history?
 
     echo"<div class='container bg-faded p-4 my-4'>";
@@ -55,6 +55,7 @@
         echo"
                         </br>
                         <form action='eventManagementDetails.php' name='eventManagementDetails' method='post'>
+                            <input type='hidden' name='sumDrivers' value=$sumRow[0]>
                             <input type='hidden' name='eventID' value=$row[eventID]>
                             <button type='submit' name='eventManagementDetails' class='btn btn-danger'>More Details</button>
                         </form>
