@@ -154,6 +154,10 @@
                                 
                                 <div id='$row[transactionID]' class='collapse'>
                                     <div class='card-body border-warning'>
+                                        <strong>Member ID:</strong> $row[memberID]
+                                        </br>
+                                        <strong>Member Name:</strong> $row[firstName] $row[lastName]
+                                        </br>
                                         <strong>Transaction ID:</strong> $row[transactionID]
                                         </br>
                                         <strong>Request Date:</strong> $transactionInitDate
@@ -199,11 +203,15 @@
                                 
                                 <div id='$row[transactionID]' class='collapse'>
                                   <div class='card-body border-success'>
+                                    <strong>Member ID:</strong> $row[memberID]
+                                    </br>
+                                    <strong>Member Name:</strong> $row[firstName] $row[lastName]
+                                    </br>
                                     <strong>Transaction ID:</strong> $row[transactionID]
                                     </br>
                                     <strong>Request Date:</strong> $transactionInitDate
                                     </br>
-                                    <strong>Payment Date:</strong> $transactionPaymentDate
+                                    <strong>Payment Date:</strong> $row[transactionPaymentDate]
                                     </br>
                                     <strong>Approval Date:</strong> $transactionApprovalDate
                                     </br>
