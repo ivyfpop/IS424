@@ -48,9 +48,9 @@
         $eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE eventID = $row[eventID] ORDER BY Member.firstName ASC");
 
         while($innerRow = mysqli_fetch_array($eventMemberResult, MYSQLI_BOTH)) {
-            echo"$eventMemberResult[firstName] $eventMemberResult[lastName] $eventMemberResult[memberID]";
+            echo"$innerRow[firstName] $innerRow[lastName] $innerRow[memberID]";
         }
-
+        
         echo"</div></div></div>"; // Closes card
     }
 
