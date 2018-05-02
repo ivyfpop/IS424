@@ -13,25 +13,55 @@
 
         if (isset($_POST['eventManagementDetails'])) {
 
+            $eventID = $_POST['eventID'];
+
             //Counts the number of drivers (attribute numberOfSeatsAvailable != 0)
             //and sums the number of seats
-            $combined = mysqli_query($db, "SELECT COUNT(carCapacity), SUM(carCapacity) FROM Registered_Member_Event WHERE NOT carCapacity = 0");
+            $combined = mysqli_query($db, "SELECT COUNT(carCapacity), SUM(carCapacity) FROM Registered_Member_Event WHERE NOT carCapacity = 0 AND eventID = $eventID");
             $combinedRow = mysqli_fetch_array($combined, MYSQLI_BOTH);
 
-            echo "Number of seats available: " . $combinedRow[1] . "</br>";
-            echo "Number of members attending: " . $_POST['sumMembers'] . "</br>";
-            echo "Number of Drivers: " . $combinedRow[0] . "</br>";
+            echo "<h5>Number of seats available: " . $combinedRow[1] . "</h5></br>";
+            echo "<h5>Number of members attending: " . $_POST['sumMembers'] . "</h5></br>";
+            echo "<h5>Number of Drivers: " . $combinedRow[0] . "</h5></br>";
+
+            mysqli_free_result($combinedRow);
 
             //List of drivers
-            
+            $driverListResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName, Member.email, Member.driverAuthorizationDate FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID = Registered_Member.registeredID JOIN Member ON Registered_Member.memberID = Member.memberID WHERE Registered_Member_Event.eventID = $eventID AND NOT Registered_Member_Event.carCapacity = 0");
 
+            //Opening table
+            echo"
+            <h3 class='text-center eventMgmtTableHeader'>All Drivers Signed Up for Event:</h3>
+            <table class='table eventMgmtTable'>
+                <thead>
+                    <tr>
+                        <th>Member ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Driver Auth Submission</th>
+                    </tr>
+                </thead>
+                <tbody>";
 
-            //List of all members signed up for event
-            $eventID = $_POST['eventID'];
+            while($driverRow = mysqli_fetch_array($driverListResult, MYSQLI_BOTH)) {
+                //Populating rows of table
+                echo"
+                    <tr>
+                        <td>$driverRow[memberID]</td>
+                        <td>$driverRow[firstName] $driverRow[lastName]</td>
+                        <td>$driverRow[email]</td>
+                        <td>$driverRow[driverAuthorizationDate]</td>
+                    </tr>";
+            }
+            echo"</tbody></table>"; //closing table body and table
+
+            mysqli_free_result($driverListResult);
+
+            //List of all members signed up for event & member details
             $eventMemberResult = mysqli_query($db, "SELECT Member.memberID, Member.firstName, Member.lastName FROM Registered_Member_Event JOIN Registered_Member ON Registered_Member_Event.registeredID=Registered_Member.registeredID JOIN Member ON Registered_Member.memberID=Member.memberID WHERE Registered_Member_Event.eventID=$eventID ORDER BY Member.firstName ASC");
             echo"
-            <h3 class='text-center'>All Members Signed Up for Event:</h3>
-            <table class='table'>
+            <h3 class='text-center eventMgmtTableHeader'>All Members Signed Up for Event:</h3>
+            <table class='table eventMgmtTable'>
                 <thead>
                     <tr>
                         <th>Member ID</th>
@@ -47,6 +77,8 @@
                         <td>$innerRow[firstName] $innerRow[lastName]</td>
                     </tr>";
             }
+            mysqli_free_result($eventMemberResult);
+            mysqli_close($db);
             echo"</tbody></table>"; //closing table body and table
         }
 

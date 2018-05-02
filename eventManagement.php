@@ -4,17 +4,9 @@
 <?php include 'helper/header.php'?>
 
 <div class='navbar navbar-dark bg-primary d-flex justify-content-center'>
-    <a href='transactionManagementUpdate.php?newTransaction=1' class='btn btn-warning mr-3'>New Event</a>
-        <form class='form-inline' action='eventManagement.php' name='eventSearch' method='post'>
-            <input class='form-control mr-3' type='text' placeholder='Search Value' name='eventSearchValue' required>
-            <select type="text" class="form-control mr-3" name='eventSearchType' id='transactionSearchType'>
-                <option value="1">Event ID</option>
-                <option value="2">Member ID</option>
-                <option value="3">Event Season</option>
-                <option value="4">Event Name</option>
-            </select>
-            <button class='form-control btn btn-success' type='submit' name='eventSearch'>Search Events</button>
-        </form>
+    <form action='createNewEvent.php' method='post'>
+        <button type='submit' name='newEvent' class='btn btn-warning'>Create New Event</button>
+    </form>
 </div>
 
 <?php
@@ -23,7 +15,19 @@
     include 'helper/connect.php';
 
     //TODO: SEARCH POSTS WILL GO HERE
-
+    if (isset($_POST['newEvent'])) {
+        $name = $_POST['name'];
+        $season = $_POST['season'];
+        $category = $_POST['category'];
+        $date = $_POST['date'];
+        $address = $_POST['address'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+        $zip = $_POST['zip'];
+        $description = $_POST['description'];
+        $testQuery = "INSERT INTO Event (eventName, eventSeason, eventCategory, eventDate, eventAddress, eventCity, eventState, eventZip, eventBio) VALUES ('$name', '$season', '$category', '$date', '$address', '$city', '$state', '$zip', '$description')";
+        $createEvent = mysqli_query($db, $testQuery);
+    }
 
     //Default view when no POSTs are submitted
     //Showing more current events first
@@ -49,11 +53,12 @@
                 <div id='$row[eventID]' class='collapse'>
                     <div class='card-body border-success'>
                         <strong>Number of Members Signed Up: </strong>";
-        $countOfMembersResult = mysqli_query($db, "SELECT SUM(registeredID) FROM Registered_Member_Event WHERE eventID = $row[eventID]");
+        $countOfMembersResult = mysqli_query($db, "SELECT COUNT(registeredID) FROM Registered_Member_Event WHERE eventID = $row[eventID] AND NOT isComplete = 1");
         $sumRow = mysqli_fetch_array($countOfMembersResult, MYSQLI_BOTH);
         echo$sumRow[0];
         echo"
                         </br>
+                        <strong>Event ID: </strong>$row[eventID]
                         <form action='eventManagementDetails.php' name='eventManagementDetails' method='post'>
                             <input type='hidden' name='sumMembers' value=$sumRow[0]>
                             <input type='hidden' name='eventID' value=$row[eventID]>
