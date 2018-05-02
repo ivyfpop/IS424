@@ -7,6 +7,18 @@
         if(!isset($_SESSION[adminStatus])){
             header("Location: http://track.finkmp.com");
         }
+        // Member doesn't exist error.
+        if(isset($_GET[no_user])){
+            echo"<div class='alert alert-danger text-center mx-auto text-center w-50' role='alert'>
+                    <strong>That member does not exist.</strong>
+                 </div>";
+        }
+        // Event doesn't exist error
+        if(isset($_GET[no_event])){
+            echo"<div class='alert alert-danger text-center mx-auto text-center w-50' role='alert'>
+                    <strong>That event does not exist.</strong>
+                 </div>";
+        }
 
         echo"<body>
                 <div class='container bg-faded p-4 my-4'>";
