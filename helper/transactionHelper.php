@@ -3,7 +3,7 @@
         session_start();
 
         // Shouldn't be here.
-        if(!$_SESSION[adminStatus] || (!isset($_POST[newTransaction]) && !isset($_POST[updateTransaction]))){
+        if(!isset($_POST[newTransaction] && !isset($_POST[updateTransaction])){
             header("Location: http://track.finkmp.com");
         }
         // Check for new or update to transaction
