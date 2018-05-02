@@ -12,14 +12,11 @@
         header("Location: http://track.finkmp.com/transactionUpdate.php?no_user=1");
     }
     // Only event doesn't exist
-    else if($_POST[eventID] && $eventResult->num_rows != 1){
+    else if($_POST[eventID] && ($eventResult->num_rows != 1)){
         header("Location: http://track.finkmp.com/transactionUpdate.php?no_event=1");
     }
     // Valid data, create the transaction
     else{
-        // Connect and create the transaction record.
-        include 'helper/connect.php';
-
         $memberID = $_POST[memberID];
         $eventID = NULL;
         $paymentDate = NULL;
@@ -41,8 +38,6 @@
             $approvalID = $_POST[transactionApprovalMemberID];
         }
 
-        
-
         // New Transaction Query
         include 'helper/connect.php';
         if(isset($_POST[newTransaction])){
@@ -53,7 +48,6 @@
             $db->query("UPDATE Transaction SET memberID='$memberID',eventID='$eventID',transactionQuantity='$quantity',transactionPaymentDate='$paymentDate',transactionApprovalDate='$approvalDate',transactionApprovalMemberID='$approvalID',transactionDescription='$description' WHERE transactionID = '$_POST[transactionID]'");
         }
         
-
         // Get the transaction ID that was created and redirect back to that page.
         $transactionResult = $db->query("SELECT transactionID FROM Transaction WHERE memberID = '$_POST[memberID]' ORDER BY transactionID DESC LIMIT 1");
         mysqli_close($db);
