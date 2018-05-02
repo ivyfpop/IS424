@@ -14,7 +14,7 @@
     // Only event doesn't exist
     else if($_POST[eventID] && ($eventResult->num_rows != 1)){
         header("Location: http://track.finkmp.com/transactionUpdate.php?no_event=1");
-    }/*
+    }
     // Valid data, create the transaction
     else{
         $memberID = $_POST[memberID];
@@ -22,8 +22,8 @@
         $paymentDate = NULL;
         $approvalDate = NULL;
         $approvalID = NULL;
-        $quantity = $_POST[quantity];
-        $description = $_POST[description];
+        $quantity = $_POST[transactionQuantity];
+        $description = $_POST[transactionDescription];
 
         if($_POST[eventID]){
             $eventID = $_POST[eventID];
@@ -41,7 +41,8 @@
         // New Transaction Query
         include 'helper/connect.php';
         if(isset($_POST[newTransaction])){
-            $db->query("INSERT  INTO Transaction (memberID, eventID, transactionInitDate transactionPaymentDate, transactionApprovalDate, transactionApprovalMemberID, transactionQuantity, transactionDescription) VALUES ('$memberID','$eventID', curdate(),'$paymentDate','$approvalDate','$approvalID','$quantity','$description')");
+            $db->query("INSERT  INTO Transaction (memberID,eventID,transactionInitDate,transactionPaymentDate,transactionApprovalDate,transactionApprovalMemberID,transactionQuantity,transactionDescription)
+                        VALUES ('$memberID','$eventID', curdate(),'$paymentDate','$approvalDate','$approvalID','$quantity','$description')");
         }
         // Update Transaction Query
         else{
@@ -53,6 +54,6 @@
         mysqli_close($db);
         $row = mysqli_fetch_array($transactionResult, MYSQLI_BOTH);
         header("Location: http://track.finkmp.com/transactionUpdate.php?transactionID=$row[transactionID]");                
-    }*/
+    }
 ?>
 </html>
