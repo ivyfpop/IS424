@@ -2,9 +2,9 @@
 <html lang="en">
 <?php 
         // Shouldn't be here.
-        if(!isset($_POST[newTransaction] && !isset($_POST[updateTransaction])){
+        if (!isset($_POST[newTransaction]) && !isset($_POST[updateTransaction]) ){
             header("Location: http://track.finkmp.com");
-        }/*
+        }
         // Check for new or update to transaction
         else{
             // Verify that the member exists
@@ -66,6 +66,6 @@
                 $row = mysqli_fetch_array($transactionResult, MYSQLI_BOTH);
                 header("Location: http://track.finkmp.com/transactionUpdate.php?transactionID=$row[transactionID]");                
             } 
-        }*/
+        }
 ?>
 </html>
