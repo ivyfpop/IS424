@@ -26,25 +26,25 @@
             include 'helper/connect.php';
 
             // Default Query if a post was not entered.
-            $transactionQuery = "SELECT * FROM Transaction JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
+            $transactionQuery = "SELECT * FROM Transaction, Member JOIN Member ON Transaction.memberID = Member.memberID ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC LIMIT 25";
 
             // If a search was submitted, determine the correct query
             if (isset($_POST['transactionSearch'])){
                 // Member Last Name Query
                 if ($_POST['transactionSearchType'] == 1){
-                    $transactionQuery = "SELECT * FROM Transaction JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
+                    $transactionQuery = "SELECT * FROM Transaction, Member JOIN Member on Transaction.memberID = Member.memberID WHERE lastName = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                                        
                 }
                 // Transaction ID Query
                 else if ($_POST['transactionSearchType'] == 2){
-                    $transactionQuery = "SELECT * FROM Transaction WHERE transactionID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";
+                    $transactionQuery = "SELECT * FROM Transaction, Member JOIN Member on Transaction.memberID = Member.memberID WHERE transactionID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";
                 }
                 // EventID Query
                 else if ($_POST['transactionSearchType'] == 3){
-                    $transactionQuery = "SELECT * FROM Transaction WHERE eventID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
+                    $transactionQuery = "SELECT * FROM Transaction, Member JOIN Member on Transaction.memberID = Member.memberID WHERE eventID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
                 // Member ID Query
                 else if ($_POST['transactionSearchType'] == 4){
-                    $transactionQuery = "SELECT * FROM Transaction WHERE memberID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
+                    $transactionQuery = "SELECT * FROM Transaction, Member JOIN Member on Transaction.memberID = Member.memberID WHERE memberID = '$_POST[transactionSearchValue]' ORDER BY transactionPaymentDate ASC, transactionApprovalDate ASC";                    
                 }
             }
             // If a transaction approval was made, use the same query.
