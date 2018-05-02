@@ -2,7 +2,7 @@
 <html lang="en">
 <?php 
     // Verify that the member exists
-    include 'helper/connect.php';
+    include 'connect.php';
     $memberResult = $db->query("SELECT * FROM Member WHERE memberID = '$_POST[memberID]'");
     $eventResult = $db->query("SELECT * FROM Event WHERE eventID = '$_POST[eventID]'");
     mysqli_close($db);
@@ -39,7 +39,7 @@
         }
 
         // New Transaction Query
-        include 'helper/connect.php';
+        include 'connect.php';
         if(isset($_POST['newTransaction'])){
             $db->query("INSERT  INTO Transaction (memberID,eventID,transactionInitDate,transactionPaymentDate,transactionApprovalDate,transactionApprovalMemberID,transactionQuantity,transactionDescription)
                         VALUES ('$memberID','$eventID', curdate(),'$paymentDate','$approvalDate','$approvalID','$quantity','$description')");
