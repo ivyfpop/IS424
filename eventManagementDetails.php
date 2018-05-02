@@ -19,14 +19,15 @@
             //Sum of seats available
             $sumOfSeatsResult = mysqli_query($db, "SELECT SUM(carCapacity) seatSum FROM Registered_Member_Event");
             $sumOfSeatsRow = mysqli_fetch_array($sumOfSeatsResult, MYSQLI_BOTH);
-            echo $sumOfSeatsRow[0];
-            echo $countOfDriversRow[0];
-            echo "Testing sum " . $sumOfSeatsRow[0] . " end ";
-            echo "Testing count " . $countOfDriversRow[0] . " end ";
+
             echo "Number of seats available: " . $sumOfSeatsRow[0] . "</br>";
             echo "Number of members attending: " . $_POST['sumMembers'] . "</br>";
             echo "Number of Drivers: " . $countOfDriversRow[0] . "</br>";
 
+
+            $combined = mysqli_query($db, "SELECT COUNT(carCapacity), SUM(carCapacity) FROM Registered_Member_Event WHERE NOT carCapacity = 0");
+            $combinedRow = mysqli_fetch_array($combined, MYSQLI_BOTH);
+            echo"num of drivers: " . $combinedRow[0] . " num of seats: " . $combinedRow[1];
 
 
             //List of drivers
