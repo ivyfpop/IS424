@@ -74,8 +74,6 @@
                 echo"<div class='container bg-faded p-4 my-4'>";
                 // Loop through all of their transactions
                 while ($row = mysqli_fetch_array($transactions, MYSQLI_BOTH)){
-                    // Date that the transaction was created.
-                    $transactionInitDate = date("m/d/y g:i A", strtotime($row[transactionInitDate]));
                     
                     // The transaction has not been paid yet
                     if($row[transactionPaymentDate] == null){
@@ -120,8 +118,7 @@
                                             echo"<strong>Category:</strong> $row[transactionCategory]
                                                  </br>";
                                         }
-
-
+                                        
                                         echo"
                                         <strong>Amount:</strong> $$row[transactionQuantity]
                                         </br>                                            
@@ -132,8 +129,6 @@
                     }
                     // The transaction is pending.
                     else if($row[transactionApprovalDate] == NULL){
-                        // Date associated with a pending transaction
-                        $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
 
                         echo"<div class='card mb-3 border-warning'>
                                 <div class='card-header bg-warning'>
@@ -188,9 +183,6 @@
                     }
                     // The transaction has been approved.
                     else{
-                        // Dates associated with a approved transaction
-                        $transactionPaymentDate = date("m/d/y g:i A", strtotime($row[transactionPaymentDate]));
-                        $transactionApprovalDate = date("m/d/y g:i A", strtotime($row[transactionApprovalDate]));
                         
                         // The actual transaction html stuff
                         echo"<div class='card mb-3 border-success'>
